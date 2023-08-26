@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "pch.h"
 #include "ModelInfo.h"
 #include <fstream>
 #include <iostream>

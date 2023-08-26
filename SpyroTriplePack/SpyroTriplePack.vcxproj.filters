@@ -16,6 +16,15 @@
     <Filter Include="Objects">
       <UniqueIdentifier>{8aadf71c-e731-478e-b28a-36a5de4cd82a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TreeTops">
+      <UniqueIdentifier>{d7158b5d-8efb-4b4e-b40c-b60dec6ce76e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TownSquare">
+      <UniqueIdentifier>{0f6396b0-4c53-41fd-bfb9-8ff0a99aba3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GnorcCove">
+      <UniqueIdentifier>{650470e9-d403-41c7-b46a-1defd9a95828}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -43,6 +52,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="graphics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="level-treetops\paths.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="level-treetops\deathzones.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -73,6 +88,72 @@
     </ClCompile>
     <ClCompile Include="utils.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="programming\AnimationFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="programming\LandTableInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="programming\ModelInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="programming\Trampoline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="level-treetops\tt-level.cpp">
+      <Filter>TreeTops</Filter>
+    </ClCompile>
+    <ClCompile Include="level-treetops\tt-levelranks.cpp">
+      <Filter>TreeTops</Filter>
+    </ClCompile>
+    <ClCompile Include="level-treetops\tt-leveltask.cpp">
+      <Filter>TreeTops</Filter>
+    </ClCompile>
+    <ClCompile Include="level-treetops\tt-paths.cpp">
+      <Filter>TreeTops</Filter>
+    </ClCompile>
+    <ClCompile Include="level-treetops\tt-deathzones.cpp">
+      <Filter>TreeTops</Filter>
+    </ClCompile>
+    <ClCompile Include="level-treetops\tt-graphics.cpp">
+      <Filter>TreeTops</Filter>
+    </ClCompile>
+    <ClCompile Include="level-townsquare\ts-deathzones.cpp">
+      <Filter>TownSquare</Filter>
+    </ClCompile>
+    <ClCompile Include="level-townsquare\ts-graphics.cpp">
+      <Filter>TownSquare</Filter>
+    </ClCompile>
+    <ClCompile Include="level-townsquare\ts-level.cpp">
+      <Filter>TownSquare</Filter>
+    </ClCompile>
+    <ClCompile Include="level-townsquare\ts-levelranks.cpp">
+      <Filter>TownSquare</Filter>
+    </ClCompile>
+    <ClCompile Include="level-townsquare\ts-leveltask.cpp">
+      <Filter>TownSquare</Filter>
+    </ClCompile>
+    <ClCompile Include="level-townsquare\ts-paths.cpp">
+      <Filter>TownSquare</Filter>
+    </ClCompile>
+    <ClCompile Include="level-gnorccove\gc-deathzones.cpp">
+      <Filter>GnorcCove</Filter>
+    </ClCompile>
+    <ClCompile Include="level-gnorccove\gc-graphics.cpp">
+      <Filter>GnorcCove</Filter>
+    </ClCompile>
+    <ClCompile Include="level-gnorccove\gc-level.cpp">
+      <Filter>GnorcCove</Filter>
+    </ClCompile>
+    <ClCompile Include="level-gnorccove\gc-levelranks.cpp">
+      <Filter>GnorcCove</Filter>
+    </ClCompile>
+    <ClCompile Include="level-gnorccove\gc-leveltask.cpp">
+      <Filter>GnorcCove</Filter>
+    </ClCompile>
+    <ClCompile Include="level-gnorccove\gc-paths.cpp">
+      <Filter>GnorcCove</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

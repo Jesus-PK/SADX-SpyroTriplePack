@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "pch.h"
 #include "AnimationFile.h"
 #include <fstream>
 #include <iostream>
