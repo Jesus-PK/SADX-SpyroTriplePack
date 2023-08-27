@@ -34,7 +34,7 @@ LandTableInfo* MDL_TSLandtable = nullptr;
 
 void LANDTABLE_TownSquare()
 {
-	LoadLandTable(&MDL_TSLandtable, "STP_Landtable-TownSquare", HelperFunctionsGlobal, TEXLIST_TownSquare);
+	LoadLandTable(&MDL_TSLandtable, "STP_Landtable-TownSquare", HelperFunctionsGlobal, &TEXLIST_TownSquare);
 
 	GeoLists[LevelIDs_LostWorld * 8] = MDL_TSLandtable->getlandtable();
 	GeoLists[LevelIDs_LostWorld * 8 + 1] = MDL_TSLandtable->getlandtable();
@@ -104,7 +104,7 @@ void FILES_TownSquare(const HelperFunctions& helperFunctions)
 
 //	Level Init:
 
-void TownSquare_LevelInit(const HelperFunctions& helperFunctions)
+void INIT_Level_TownSquare(const HelperFunctions& helperFunctions)
 {
 	LANDTABLE_TownSquare();
 	DEATHZONES_TownSquare();

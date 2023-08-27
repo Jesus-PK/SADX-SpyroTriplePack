@@ -106,7 +106,7 @@ void FILES_TreeTops(const HelperFunctions& helperFunctions)
 
 //	Level Init:
 
-void TreeTops_LevelInit(const HelperFunctions& helperFunctions)
+void INIT_Level_TreeTops(const HelperFunctions& helperFunctions)
 {
 	LANDTABLE_TreeTops();
 	DEATHZONES_TreeTops();

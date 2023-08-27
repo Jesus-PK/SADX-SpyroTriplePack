@@ -7,6 +7,6 @@ void SETVIEWDATA_GnorcCove();
 void SETVIEWDATA_TownSquare();
 void SETVIEWDATA_TreeTops();
 
-void GnorcCove_LevelInit(const HelperFunctions& helperFunctions);
-void TownSquare_LevelInit(const HelperFunctions& helperFunctions);
-void TreeTops_LevelInit(const HelperFunctions& helperFunctions);
+void INIT_Level_GnorcCove(const HelperFunctions& helperFunctions);
+void INIT_Level_TownSquare(const HelperFunctions& helperFunctions);
+void INIT_Level_TreeTops(const HelperFunctions& helperFunctions);

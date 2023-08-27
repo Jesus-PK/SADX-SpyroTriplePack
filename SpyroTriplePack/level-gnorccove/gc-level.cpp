@@ -20,8 +20,6 @@ ___stcClip SKYBOXDRAWDISTANCE_GnorcCove[] = {
 	{ -1.0f, -10000.0f }
 };
 
-//	Function with these values - It needs to be called inside "Case 1" in my custom LevelOBJ. The FogData works fine if called in Case 0 but the DrawDistance doesn't work in Case 0:
-
 void SETVIEWDATA_GnorcCove()
 {
 	gFog = FOGDATA_GnorcCove[ssActNumber];
@@ -108,7 +106,7 @@ void FILES_GnorcCove(const HelperFunctions& helperFunctions)
 
 //	Level Init:
 
-void GnorcCove_LevelInit(const HelperFunctions& helperFunctions)
+void INIT_Level_GnorcCove(const HelperFunctions& helperFunctions)
 {
 	LANDTABLE_GnorcCove();
 	DEATHZONES_GnorcCove();
