@@ -13,7 +13,7 @@ extern "C"
 		CheckActiveMods(helperFunctions);
 		CheckModLoaderVersion(helperFunctions);
 		
-		
+		STP_LoadObjects();
 
 		
 		//	Gnorc Cove INIT:
@@ -24,7 +24,7 @@ extern "C"
 		ScrollMasterList[LevelIDs_TwinklePark] = BG_GnorcCove;
 
 		GC_INIT_Level(helperFunctions);
-
+		GC_INIT_Objects();
 		GC_INIT_Graphics(path, helperFunctions);
 
 		
@@ -36,7 +36,7 @@ extern "C"
 		ScrollMasterList[LevelIDs_LostWorld] = BG_TownSquare;
 
 		TS_INIT_Level(helperFunctions);
-
+		TS_INIT_Objects();
 		TS_INIT_Graphics(path, helperFunctions);
 		
 		
@@ -48,7 +48,7 @@ extern "C"
 		ScrollMasterList[LevelIDs_SkyDeck] = BG_TreeTops;
 
 		TT_INIT_Level(helperFunctions);
-
+		TT_INIT_Objects();
 		TT_INIT_Graphics(path, helperFunctions);
 	}
 

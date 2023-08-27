@@ -22,8 +22,8 @@ void EXEC_TreeTops(task* tp)
 		ADXTaskInit();
 		PlayMusic(MusicIDs_skydeck1);
 
-		//CreateElementalTask(2, 2, ANIM_WoodenRamp);
-		//CreateElementalTask(2, 2, ANIM_GrassRamp);
+		CreateElementalTask(2, 2, ANIM_WoodenRamp);
+		CreateElementalTask(2, 2, ANIM_GrassRamp);
 
 		twp->mode++;
 	}

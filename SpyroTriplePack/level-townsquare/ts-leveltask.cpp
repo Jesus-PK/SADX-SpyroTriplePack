@@ -24,5 +24,5 @@ void RD_TownSquare(task* tp)
 	}
 
 	SETVIEWDATA_TownSquare();
-	//ANIMATEDWATER_TownSquare();
+	ANIMATEDWATER_TownSquare();
 }

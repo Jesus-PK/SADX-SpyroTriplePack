@@ -20,7 +20,7 @@
 	#include "levels.h"
 	#include "leveltasks.h"
 	#include "levelranks.h"
-	
+	#include "objects.h"
 	#include "paths.h"
 	#include "utils.h"
 

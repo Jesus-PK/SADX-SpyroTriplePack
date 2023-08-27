@@ -23,7 +23,7 @@ void RD_GnorcCove(task* tp)
 	}
 
 	SETVIEWDATA_GnorcCove();
-	//ANIMATEDWATER_GnorcCove();
+	ANIMATEDWATER_GnorcCove();
 }
 
 

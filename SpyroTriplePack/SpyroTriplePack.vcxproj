@@ -154,6 +154,7 @@
     <ClInclude Include="levels.h" />
     <ClInclude Include="leveltasks.h" />
     <ClInclude Include="mod.h" />
+    <ClInclude Include="objects.h" />
     <ClInclude Include="objects\o_basicchest.h" />
     <ClInclude Include="objects\o_crystalstatue.h" />
     <ClInclude Include="objects\o_dragons.h" />
@@ -199,6 +200,7 @@
     <ClCompile Include="level-treetops\tt-paths.cpp" />
     <ClCompile Include="level-treetops\tt-ramps.cpp" />
     <ClCompile Include="mod.cpp" />
+    <ClCompile Include="objects.cpp" />
     <ClCompile Include="objects\o_basicchest.cpp" />
     <ClCompile Include="objects\o_crystalstatue.cpp" />
     <ClCompile Include="objects\o_dragons.cpp" />
