@@ -106,7 +106,7 @@ void FILES_GnorcCove(const HelperFunctions& helperFunctions)
 
 //	Level Init:
 
-void INIT_Level_GnorcCove(const HelperFunctions& helperFunctions)
+void GC_INIT_Level(const HelperFunctions& helperFunctions)
 {
 	LANDTABLE_GnorcCove();
 	DEATHZONES_GnorcCove();

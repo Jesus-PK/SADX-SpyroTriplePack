@@ -104,7 +104,7 @@ void FILES_TownSquare(const HelperFunctions& helperFunctions)
 
 //	Level Init:
 
-void INIT_Level_TownSquare(const HelperFunctions& helperFunctions)
+void TS_INIT_Level(const HelperFunctions& helperFunctions)
 {
 	LANDTABLE_TownSquare();
 	DEATHZONES_TownSquare();
