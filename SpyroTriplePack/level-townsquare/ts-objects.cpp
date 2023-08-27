@@ -65,10 +65,10 @@ TEX_PVMTABLE TEXTURELIST_TownSquare[] = {
 	{ "UNI_C_UNIBODY", (TexList*)0x96DC48 },
 	{ "GORI", (TexList*)0x945964 },
 
-	{ "TownSquare_Water", &TEXLIST_TownSquare_Water },
-	{ "TownSquare_Fountain", &TEXLIST_TownSquare_Fountain },
-	{ "TownSquare_Objects", &TEXLIST_STP_Objects },
-	{ "TownSquare_Spaba", &TEXLIST_STP_Dragons },
+	{ "STP_TownSquare-Water", &TEXLIST_TownSquare_Water },
+	{ "STP_TownSquare-Fountain", &TEXLIST_TownSquare_Fountain },
+	{ "STP_Objects", &TEXLIST_STP_Objects },
+	{ "STP_Dragons", &TEXLIST_STP_Dragons },
 	{ "SUPI_SUPI", (TexList*)0x96F518 }, // Spinner Textures
 	{ "UNI_A_UNIBODY", (TexList*)0x96CB5C }, // Unidus Textures
 	{ "TOGEBALL_TOGEBALL", (TexList*)0x96BC54 }, // Spikeball Textures (Unidus / Trap)
@@ -76,7 +76,7 @@ TEX_PVMTABLE TEXTURELIST_TownSquare[] = {
 };
 
 
-void INIT_Objects_TownSquare()
+void TS_INIT_Objects()
 {
 	ListofPvmList[LevelIDs_LostWorld] = TEXTURELIST_TownSquare;
 

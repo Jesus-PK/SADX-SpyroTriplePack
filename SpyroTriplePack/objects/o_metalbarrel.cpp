@@ -9,18 +9,22 @@ CCL_INFO COLLI_MetalBarrel = { 0, CollisionShape_Cylinder, 0x77, 0, 0, { 0.0f, 9
 
 //  Metal Barrel - Main:
 
-void DISPLAY_MetalBarrel(task* obj)
+void DISPLAY_MetalBarrel(task* tp)
 {
     if (MissedFrames)
         return;
 
-    taskwk* twp = obj->twp;
+    auto twp = tp->twp;
 
     njSetTexture(&TEXLIST_STP_Objects);
+    
     njPushMatrix(0);
+    
     njTranslateV(0, &twp->pos);
     njRotateXYZ(0, twp->ang.x, twp->ang.y, twp->ang.z);
+    
     dsDrawObject(MDL_MetalBarrel->getmodel());
+    
     njPopMatrix(1u);
 }
 
@@ -31,16 +35,12 @@ void EXEC_MetalBarrel(task* tp)
     
     auto twp = tp->twp;
 
-    switch (twp->mode)
+    if (!twp->mode)
     {
-        case 0:
+        tp->disp = DISPLAY_MetalBarrel;
+        CCL_Init(tp, &COLLI_MetalBarrel, 1, 4u);
 
-            tp->disp = DISPLAY_MetalBarrel;
-            CCL_Init(tp, &COLLI_MetalBarrel, 1, 4u);
-
-            twp->mode++;
-
-            break;
+        twp->mode++;
     }
 
     EntryColliList(twp);

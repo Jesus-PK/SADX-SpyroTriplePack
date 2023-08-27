@@ -5,8 +5,8 @@
 NJS_TEXNAME TEX_GnorcCove[95] = { 0 };
 NJS_TEXLIST TEXLIST_GnorcCove = { arrayptrandlength(TEX_GnorcCove) };
 
-NJS_TEXNAME TEX_GnorcCoveWater[14] = { 0 };
-NJS_TEXLIST TEXLIST_GnorcCove_Water = { arrayptrandlength(TEX_GnorcCoveWater) };
+NJS_TEXNAME TEX_GnorcCove_Water[14] = { 0 };
+NJS_TEXLIST TEXLIST_GnorcCove_Water = { arrayptrandlength(TEX_GnorcCove_Water) };
 
 
 //	Object List:
@@ -73,9 +73,9 @@ TEX_PVMTABLE TEXTURELIST_GnorcCove[] = {
 	{ "TOGEBALL_TOGEBALL", (TexList*)0x96BC54 },
 	{ "E_BOMB", (TexList*)0x96B464 },
 
-	{ "GnorcCove_Water", &TEXLIST_GnorcCove_Water },
-	{ "GnorcCove_Objects", &TEXLIST_STP_Objects },
-	{ "GnorcCove_Spaba", &TEXLIST_STP_Dragons },
+	{ "STP_GnorcCove-Water", &TEXLIST_GnorcCove_Water },
+	{ "STP_Objects", &TEXLIST_STP_Objects },
+	{ "STP_Dragons", &TEXLIST_STP_Dragons },
 	{ "E_ROBO", (TexList*)0x94A318 }, // Egg Keeper Textures
 	{ 0 }
 };
@@ -83,7 +83,7 @@ TEX_PVMTABLE TEXTURELIST_GnorcCove[] = {
 
 //	Load Object List and Texture List:
 
-void INITOBJECTS_GnorcCove()
+void GC_INIT_Objects()
 {
 	ListofPvmList[LevelIDs_TwinklePark] = TEXTURELIST_GnorcCove;
 

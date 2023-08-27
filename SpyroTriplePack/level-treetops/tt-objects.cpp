@@ -81,8 +81,8 @@ TEX_PVMTABLE TEXTURELIST_TreeTops[] = {
 	{ "TOGEBALL_TOGEBALL", (TexList*)0x96BC54 },
 	{ NULL, (TexList*)0x214B41C },
 
-	{ "TreeTops_Objects", &TEXLIST_STP_Objects },
-	{ "TreeTops_Dragons", &TEXLIST_STP_Objects },
+	{ "STP_Objects", &TEXLIST_STP_Objects },
+	{ "STP_Dragons", &TEXLIST_STP_Dragons },
 	{ "UNI_C_UNIBODY", (TexList*)0x96DC48 },
 	{ "E_SARU", (TexList*)0x962560 },
 	{ "E_BOMB", (TexList*)0x96B464 },	
@@ -92,7 +92,7 @@ TEX_PVMTABLE TEXTURELIST_TreeTops[] = {
 
 //	Load Object List and Texture List:
 
-void INIT_Objects_TreeTops()
+void TT_INIT_Objects()
 {
 	ListofPvmList[LevelIDs_SkyDeck] = TEXTURELIST_TreeTops;
 
