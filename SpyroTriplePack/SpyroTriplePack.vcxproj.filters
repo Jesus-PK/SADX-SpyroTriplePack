@@ -16,14 +16,17 @@
     <Filter Include="Objects">
       <UniqueIdentifier>{8aadf71c-e731-478e-b28a-36a5de4cd82a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TreeTops">
-      <UniqueIdentifier>{d7158b5d-8efb-4b4e-b40c-b60dec6ce76e}</UniqueIdentifier>
+    <Filter Include="Levels">
+      <UniqueIdentifier>{f4e5cdab-ab32-48e9-8885-61c13c65c646}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TownSquare">
+    <Filter Include="Levels\GnorcCove">
+      <UniqueIdentifier>{650470e9-d403-41c7-b46a-1defd9a95828}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Levels\TownSquare">
       <UniqueIdentifier>{0f6396b0-4c53-41fd-bfb9-8ff0a99aba3d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GnorcCove">
-      <UniqueIdentifier>{650470e9-d403-41c7-b46a-1defd9a95828}</UniqueIdentifier>
+    <Filter Include="Levels\TreeTops">
+      <UniqueIdentifier>{d7158b5d-8efb-4b4e-b40c-b60dec6ce76e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -54,11 +57,56 @@
     <ClInclude Include="graphics.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="level-treetops\paths.h">
+    <ClInclude Include="deathzones.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="level-treetops\deathzones.h">
+    <ClInclude Include="paths.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\o_basicchest.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\o_crystalstatue.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\o_dragons.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\o_exitportal.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\o_exittext.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\o_firewood.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\o_largetorch.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\o_lifechest.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\o_lockedchest.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\o_metalchest.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\o_spottedchicken.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\o_metalbarrel.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\o_tntbarrel.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\o_gcdoor.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\o_gcplatform.h">
+      <Filter>Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -69,21 +117,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="mod.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graphics.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="levels.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="leveltasks.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="levelranks.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="objects.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="utils.cpp">
@@ -102,58 +135,118 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="level-treetops\tt-level.cpp">
-      <Filter>TreeTops</Filter>
+      <Filter>Levels\TreeTops</Filter>
     </ClCompile>
     <ClCompile Include="level-treetops\tt-levelranks.cpp">
-      <Filter>TreeTops</Filter>
+      <Filter>Levels\TreeTops</Filter>
     </ClCompile>
     <ClCompile Include="level-treetops\tt-leveltask.cpp">
-      <Filter>TreeTops</Filter>
+      <Filter>Levels\TreeTops</Filter>
     </ClCompile>
     <ClCompile Include="level-treetops\tt-paths.cpp">
-      <Filter>TreeTops</Filter>
+      <Filter>Levels\TreeTops</Filter>
     </ClCompile>
     <ClCompile Include="level-treetops\tt-deathzones.cpp">
-      <Filter>TreeTops</Filter>
+      <Filter>Levels\TreeTops</Filter>
     </ClCompile>
     <ClCompile Include="level-treetops\tt-graphics.cpp">
-      <Filter>TreeTops</Filter>
+      <Filter>Levels\TreeTops</Filter>
     </ClCompile>
     <ClCompile Include="level-townsquare\ts-deathzones.cpp">
-      <Filter>TownSquare</Filter>
+      <Filter>Levels\TownSquare</Filter>
     </ClCompile>
     <ClCompile Include="level-townsquare\ts-graphics.cpp">
-      <Filter>TownSquare</Filter>
+      <Filter>Levels\TownSquare</Filter>
     </ClCompile>
     <ClCompile Include="level-townsquare\ts-level.cpp">
-      <Filter>TownSquare</Filter>
+      <Filter>Levels\TownSquare</Filter>
     </ClCompile>
     <ClCompile Include="level-townsquare\ts-levelranks.cpp">
-      <Filter>TownSquare</Filter>
+      <Filter>Levels\TownSquare</Filter>
     </ClCompile>
     <ClCompile Include="level-townsquare\ts-leveltask.cpp">
-      <Filter>TownSquare</Filter>
+      <Filter>Levels\TownSquare</Filter>
     </ClCompile>
     <ClCompile Include="level-townsquare\ts-paths.cpp">
-      <Filter>TownSquare</Filter>
+      <Filter>Levels\TownSquare</Filter>
     </ClCompile>
     <ClCompile Include="level-gnorccove\gc-deathzones.cpp">
-      <Filter>GnorcCove</Filter>
+      <Filter>Levels\GnorcCove</Filter>
     </ClCompile>
     <ClCompile Include="level-gnorccove\gc-graphics.cpp">
-      <Filter>GnorcCove</Filter>
+      <Filter>Levels\GnorcCove</Filter>
     </ClCompile>
     <ClCompile Include="level-gnorccove\gc-level.cpp">
-      <Filter>GnorcCove</Filter>
+      <Filter>Levels\GnorcCove</Filter>
     </ClCompile>
     <ClCompile Include="level-gnorccove\gc-levelranks.cpp">
-      <Filter>GnorcCove</Filter>
+      <Filter>Levels\GnorcCove</Filter>
     </ClCompile>
     <ClCompile Include="level-gnorccove\gc-leveltask.cpp">
-      <Filter>GnorcCove</Filter>
+      <Filter>Levels\GnorcCove</Filter>
     </ClCompile>
     <ClCompile Include="level-gnorccove\gc-paths.cpp">
-      <Filter>GnorcCove</Filter>
+      <Filter>Levels\GnorcCove</Filter>
+    </ClCompile>
+    <ClCompile Include="level-treetops\tt-ramps.cpp">
+      <Filter>Levels\TreeTops</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\o_basicchest.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\o_crystalstatue.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\o_dragons.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\o_exitportal.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\o_exittext.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\o_firewood.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\o_largetorch.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\o_lifechest.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\o_lockedchest.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\o_metalchest.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\o_spottedchicken.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\o_metalbarrel.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\o_tntbarrel.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\o_gcdoor.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\o_gcplatform.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="level-gnorccove\gc-objects.cpp">
+      <Filter>Levels\GnorcCove</Filter>
+    </ClCompile>
+    <ClCompile Include="level-townsquare\ts-objects.cpp">
+      <Filter>Levels\TownSquare</Filter>
+    </ClCompile>
+    <ClCompile Include="level-treetops\tt-objects.cpp">
+      <Filter>Levels\TreeTops</Filter>
+    </ClCompile>
+    <ClCompile Include="objects.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

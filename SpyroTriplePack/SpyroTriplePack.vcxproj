@@ -141,44 +141,74 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="deathzones.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="graphics.h" />
-    <ClInclude Include="level-treetops\deathzones.h" />
-    <ClInclude Include="level-treetops\paths.h" />
     <ClInclude Include="levelranks.h" />
     <ClInclude Include="levels.h" />
     <ClInclude Include="leveltasks.h" />
     <ClInclude Include="mod.h" />
     <ClInclude Include="objects.h" />
+    <ClInclude Include="objects\o_basicchest.h" />
+    <ClInclude Include="objects\o_crystalstatue.h" />
+    <ClInclude Include="objects\o_dragons.h" />
+    <ClInclude Include="objects\o_exitportal.h" />
+    <ClInclude Include="objects\o_exittext.h" />
+    <ClInclude Include="objects\o_firewood.h" />
+    <ClInclude Include="objects\o_gcdoor.h" />
+    <ClInclude Include="objects\o_gcplatform.h" />
+    <ClInclude Include="objects\o_largetorch.h" />
+    <ClInclude Include="objects\o_lifechest.h" />
+    <ClInclude Include="objects\o_lockedchest.h" />
+    <ClInclude Include="objects\o_metalbarrel.h" />
+    <ClInclude Include="objects\o_metalchest.h" />
+    <ClInclude Include="objects\o_spottedchicken.h" />
+    <ClInclude Include="objects\o_tntbarrel.h" />
+    <ClInclude Include="paths.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="graphics.cpp" />
     <ClCompile Include="level-gnorccove\gc-deathzones.cpp" />
     <ClCompile Include="level-gnorccove\gc-graphics.cpp" />
     <ClCompile Include="level-gnorccove\gc-level.cpp" />
     <ClCompile Include="level-gnorccove\gc-levelranks.cpp" />
     <ClCompile Include="level-gnorccove\gc-leveltask.cpp" />
+    <ClCompile Include="level-gnorccove\gc-objects.cpp" />
     <ClCompile Include="level-gnorccove\gc-paths.cpp" />
     <ClCompile Include="level-townsquare\ts-deathzones.cpp" />
     <ClCompile Include="level-townsquare\ts-graphics.cpp" />
     <ClCompile Include="level-townsquare\ts-level.cpp" />
     <ClCompile Include="level-townsquare\ts-levelranks.cpp" />
     <ClCompile Include="level-townsquare\ts-leveltask.cpp" />
+    <ClCompile Include="level-townsquare\ts-objects.cpp" />
     <ClCompile Include="level-townsquare\ts-paths.cpp" />
     <ClCompile Include="level-treetops\tt-deathzones.cpp" />
     <ClCompile Include="level-treetops\tt-graphics.cpp" />
     <ClCompile Include="level-treetops\tt-level.cpp" />
     <ClCompile Include="level-treetops\tt-levelranks.cpp" />
     <ClCompile Include="level-treetops\tt-leveltask.cpp" />
+    <ClCompile Include="level-treetops\tt-objects.cpp" />
     <ClCompile Include="level-treetops\tt-paths.cpp" />
-    <ClCompile Include="levelranks.cpp" />
-    <ClCompile Include="levels.cpp" />
-    <ClCompile Include="leveltasks.cpp" />
+    <ClCompile Include="level-treetops\tt-ramps.cpp" />
     <ClCompile Include="mod.cpp" />
     <ClCompile Include="objects.cpp" />
+    <ClCompile Include="objects\o_basicchest.cpp" />
+    <ClCompile Include="objects\o_crystalstatue.cpp" />
+    <ClCompile Include="objects\o_dragons.cpp" />
+    <ClCompile Include="objects\o_exitportal.cpp" />
+    <ClCompile Include="objects\o_exittext.cpp" />
+    <ClCompile Include="objects\o_firewood.cpp" />
+    <ClCompile Include="objects\o_gcdoor.cpp" />
+    <ClCompile Include="objects\o_gcplatform.cpp" />
+    <ClCompile Include="objects\o_largetorch.cpp" />
+    <ClCompile Include="objects\o_lifechest.cpp" />
+    <ClCompile Include="objects\o_lockedchest.cpp" />
+    <ClCompile Include="objects\o_metalbarrel.cpp" />
+    <ClCompile Include="objects\o_metalchest.cpp" />
+    <ClCompile Include="objects\o_spottedchicken.cpp" />
+    <ClCompile Include="objects\o_tntbarrel.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
