@@ -1,5 +1,5 @@
 #pragma once
 
-void INIT_Graphics_GnorcCove(const char* path, const HelperFunctions& helperFunctions);
-void INIT_Graphics_TownSquare(const char* path, const HelperFunctions& helperFunctions);
-void INIT_Graphics_TreeTops(const char* path, const HelperFunctions& helperFunctions);
+void GC_INIT_Graphics(const char* path, const HelperFunctions& helperFunctions);
+void TS_INIT_Graphics(const char* path, const HelperFunctions& helperFunctions);
+void TT_INIT_Graphics(const char* path, const HelperFunctions& helperFunctions);
