@@ -7,10 +7,10 @@ void ANIMATEDWATER_GnorcCove()
 	if (CurrentLevel != LevelIDs_TwinklePark || GameState != 4 || GameState != 15)
 		return;
 
-	TEXLIST_GnorcCove.textures[10].texaddr = TEXLIST_GnorcCove_Water.textures[(FrameCounter / 2) % (LengthOfArray(TEX_GnorcCoveWater))].texaddr;
+	TEXLIST_GnorcCove.textures[10].texaddr = TEXLIST_GnorcCove_Water.textures[(FrameCounter / 2) % (LengthOfArray(TEX_GnorcCove_Water))].texaddr;
 }
 
-void TASK_GnorcCove(task* tp)
+void RD_GnorcCove(task* tp)
 {
 	auto twp = tp->twp;
 
@@ -23,9 +23,7 @@ void TASK_GnorcCove(task* tp)
 	}
 
 	SETVIEWDATA_GnorcCove();
-	ANIMATEDWATER_GnorcCove();
-
-	tp->disp(tp);
+	//ANIMATEDWATER_GnorcCove();
 }
 
 

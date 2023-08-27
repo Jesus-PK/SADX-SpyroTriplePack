@@ -1,6 +1,6 @@
 #include "pch.h"
 
-void DISPLAYHUD_TreeTops(task* tp)
+/*void DISPLAYHUD_TreeTops(task* tp)
 {
 	if (MissedFrames)
 		return;
@@ -9,28 +9,28 @@ void DISPLAYHUD_TreeTops(task* tp)
 	
 	if (CurrentCharacter == Characters_Tails)
 		DrawDragonHUD();
-}
+}*/
 
-void TASK_TreeTops(task* tp)
+void EXEC_TreeTops(task* tp)
 {
 	auto twp = tp->twp;
 
 	if (!twp->mode)
 	{
-		tp->disp = DISPLAYHUD_TreeTops;
+		//tp->disp = DISPLAYHUD_TreeTops;
 			
 		ADXTaskInit();
 		PlayMusic(MusicIDs_skydeck1);
 
-		CreateElementalTask(2, 2, ANIM_WoodenRamp);
-		CreateElementalTask(2, 2, ANIM_GrassRamp);
+		//CreateElementalTask(2, 2, ANIM_WoodenRamp);
+		//CreateElementalTask(2, 2, ANIM_GrassRamp);
 
 		twp->mode++;
 	}
 
 	SETVIEWDATA_TreeTops();
 	
-	tp->disp(tp);
+	//tp->disp(tp);
 }
 
 //	Level Destructor:

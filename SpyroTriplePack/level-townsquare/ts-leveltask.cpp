@@ -11,7 +11,7 @@ void ANIMATEDWATER_TownSquare()
 	TEXLIST_TownSquare.textures[1].texaddr = TEXLIST_TownSquare_Fountain.textures[(FrameCounter / 3) % (LengthOfArray(TEX_TownSquare_Fountain))].texaddr; // Fountain Animation
 }
 
-void TASK_TownSquare(task* tp)
+void RD_TownSquare(task* tp)
 {
 	auto twp = tp->twp;
 
@@ -24,7 +24,5 @@ void TASK_TownSquare(task* tp)
 	}
 
 	SETVIEWDATA_TownSquare();
-	ANIMATEDWATER_TownSquare();
-
-	tp->disp(tp);
+	//ANIMATEDWATER_TownSquare();
 }
