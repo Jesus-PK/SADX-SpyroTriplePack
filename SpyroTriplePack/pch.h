@@ -20,7 +20,7 @@
 	#include "levels.h"
 	#include "leveltasks.h"
 	#include "levelranks.h"
-	#include "objects.h"
+	
 	#include "paths.h"
 	#include "utils.h"
 
@@ -37,6 +37,7 @@
 	#include "o_lockedchest.h"
 	#include "o_metalbarrel.h"
 	#include "o_metalchest.h"
+	#include "o_skyboxes.h"
 	#include "o_spottedchicken.h"
 	#include "o_tntbarrel.h"
 

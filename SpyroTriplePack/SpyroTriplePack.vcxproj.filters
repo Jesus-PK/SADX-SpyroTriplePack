@@ -39,9 +39,6 @@
     <ClInclude Include="mod.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="objects.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="levels.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -106,6 +103,9 @@
       <Filter>Objects</Filter>
     </ClInclude>
     <ClInclude Include="objects\o_gcplatform.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\o_skyboxes.h">
       <Filter>Objects</Filter>
     </ClInclude>
   </ItemGroup>
@@ -245,8 +245,8 @@
     <ClCompile Include="level-treetops\tt-objects.cpp">
       <Filter>Levels\TreeTops</Filter>
     </ClCompile>
-    <ClCompile Include="objects.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="objects\o_skyboxes.cpp">
+      <Filter>Objects</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

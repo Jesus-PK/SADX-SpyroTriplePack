@@ -85,6 +85,9 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(SolutionDir)Release\*.dll" "D:\Juegos\Retail\SONICADVENTUREDX\mods\Spyro Triple Pack\*.dll" /Y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -105,6 +108,9 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(SolutionDir)Release\*.dll" "D:\Juegos\Retail\SONICADVENTUREDX\mods\Spyro Triple Pack\*.dll" /Y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -148,7 +154,6 @@
     <ClInclude Include="levels.h" />
     <ClInclude Include="leveltasks.h" />
     <ClInclude Include="mod.h" />
-    <ClInclude Include="objects.h" />
     <ClInclude Include="objects\o_basicchest.h" />
     <ClInclude Include="objects\o_crystalstatue.h" />
     <ClInclude Include="objects\o_dragons.h" />
@@ -162,6 +167,7 @@
     <ClInclude Include="objects\o_lockedchest.h" />
     <ClInclude Include="objects\o_metalbarrel.h" />
     <ClInclude Include="objects\o_metalchest.h" />
+    <ClInclude Include="objects\o_skyboxes.h" />
     <ClInclude Include="objects\o_spottedchicken.h" />
     <ClInclude Include="objects\o_tntbarrel.h" />
     <ClInclude Include="paths.h" />
@@ -193,7 +199,6 @@
     <ClCompile Include="level-treetops\tt-paths.cpp" />
     <ClCompile Include="level-treetops\tt-ramps.cpp" />
     <ClCompile Include="mod.cpp" />
-    <ClCompile Include="objects.cpp" />
     <ClCompile Include="objects\o_basicchest.cpp" />
     <ClCompile Include="objects\o_crystalstatue.cpp" />
     <ClCompile Include="objects\o_dragons.cpp" />
@@ -207,6 +212,7 @@
     <ClCompile Include="objects\o_lockedchest.cpp" />
     <ClCompile Include="objects\o_metalbarrel.cpp" />
     <ClCompile Include="objects\o_metalchest.cpp" />
+    <ClCompile Include="objects\o_skyboxes.cpp" />
     <ClCompile Include="objects\o_spottedchicken.cpp" />
     <ClCompile Include="objects\o_tntbarrel.cpp" />
     <ClCompile Include="pch.cpp">
