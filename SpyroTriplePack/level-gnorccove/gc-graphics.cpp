@@ -6,14 +6,14 @@ void STAGENAMES_GnorcCove(const char* path, const HelperFunctions& helperFunctio
 {
     if (HD_GUI)
     {
-        ReplaceTex("AVA_STNAM", "TX_ST11", "StageNames", "STP_HD-StageName-GC", 365038, 256, 16);
-        ReplaceTex("AVA_STNAM_E", "TX_ST11_e", "StageNames", "STP_HD-StageName-GC-E", 10000416, 256, 16);
+        ReplaceTex("AVA_STNAM", "TX_ST08", "StageNames", "STP_HD-StageName-GC", 365038, 256, 16);
+        ReplaceTex("AVA_STNAM_E", "TX_ST08_e", "StageNames", "STP_HD-StageName-GC-E", 10000416, 256, 16);
     }
     
     else
     {
-        ReplaceTex("AVA_STNAM", "TX_ST11", "StageNames", "STP_SD-StageName-GC", 365038, 256, 16);
-        ReplaceTex("AVA_STNAM_E", "TX_ST11_e", "StageNames", "STP_SD-StageName-GC-E", 10000416, 256, 16);
+        ReplaceTex("AVA_STNAM", "TX_ST08", "StageNames", "STP_SD-StageName-GC", 365038, 256, 16);
+        ReplaceTex("AVA_STNAM_E", "TX_ST08_e", "StageNames", "STP_SD-StageName-GC-E", 10000416, 256, 16);
     }
 }
 
@@ -112,6 +112,6 @@ void GC_INIT_Graphics(const char* path, const HelperFunctions& helperFunctions)
 {
     STAGENAMES_GnorcCove(path, helperFunctions);
     TITLECARDS_GnorcCove(path, helperFunctions);
-    MULTITHUMBNAILS_GnorcCove(path, helperFunctions);
-    STAGECREDITS_GnorcCove(path, helperFunctions);
+    //MULTITHUMBNAILS_GnorcCove(path, helperFunctions);
+    //STAGECREDITS_GnorcCove(path, helperFunctions);
 }

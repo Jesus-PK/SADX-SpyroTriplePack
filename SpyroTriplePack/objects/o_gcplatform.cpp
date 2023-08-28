@@ -69,5 +69,5 @@ void EXEC_GCPlatform(task* tp)
 
 void LOAD_GCPlatform()
 {
-    MDL_GCPlatform = LoadBasicModel("STP_Platform");
+    MDL_GCPlatform = LoadBasicModel("STP_GCPlatform");
 }

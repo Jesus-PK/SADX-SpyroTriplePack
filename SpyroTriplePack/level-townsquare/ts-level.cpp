@@ -80,25 +80,25 @@ void FILES_TownSquare(const HelperFunctions& helperFunctions)
 {
 	// SET Replacement:
 
-	ReplaceBIN("SET0700S", "SET_TownSquareS");
-	ReplaceBIN("SET0701K", "SET_TownSquareK");
+	ReplaceBIN("SET0700S", "STP_SET-TS-S");
+	ReplaceBIN("SET0701K", "STP_SET-TS-K");
 
 
 	// CAM Replacement:
 
-	ReplaceBIN("CAM0700S", "CAM_TownSquareS");
-	ReplaceBIN("CAM0701K", "CAM_TownSquareK");
+	ReplaceBIN("CAM0700S", "STP_CAM-TS-S");
+	ReplaceBIN("CAM0701K", "STP_CAM-TS-K");
 
 
 	// PL Replacement:
 
-	ReplaceBIN("PL_70B", "PL_TownSquare");
-	ReplaceBIN("PL_71B", "PL_TownSquare");
+	ReplaceBIN("PL_70B", "STP_PL-TS");
+	ReplaceBIN("PL_71B", "STP_PL-TS");
 
 
 	// OST Replacement:
 
-	helperFunctions.ReplaceFile("system\\sounddata\\bgm\\wma\\lstwrld1.wma", "system\\OST_TownSquare.adx");
+	helperFunctions.ReplaceFile("system\\sounddata\\bgm\\wma\\lstwrld1.wma", "system\\STP_OST-TS.adx");
 }
 
 

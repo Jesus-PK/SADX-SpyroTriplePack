@@ -4,9 +4,6 @@
 
 void ANIMATEDWATER_GnorcCove()
 {
-	if (CurrentLevel != LevelIDs_TwinklePark || GameState != 4 || GameState != 15)
-		return;
-
 	TEXLIST_GnorcCove.textures[10].texaddr = TEXLIST_GnorcCove_Water.textures[(FrameCounter / 2) % (LengthOfArray(TEX_GnorcCove_Water))].texaddr;
 }
 

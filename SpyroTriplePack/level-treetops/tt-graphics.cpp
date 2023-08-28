@@ -105,6 +105,6 @@ void TT_INIT_Graphics(const char* path, const HelperFunctions& helperFunctions)
 {
     STAGENAMES_TreeTops(path, helperFunctions);
     TITLECARDS_TreeTops(path, helperFunctions);
-    MULTITHUMBNAILS_TreeTops(path, helperFunctions);
-    STAGECREDITS_TreeTops(path, helperFunctions);
+    //MULTITHUMBNAILS_TreeTops(path, helperFunctions);
+    //STAGECREDITS_TreeTops(path, helperFunctions);
 }

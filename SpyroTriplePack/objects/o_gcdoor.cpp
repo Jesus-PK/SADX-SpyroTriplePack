@@ -69,5 +69,5 @@ void EXEC_GCDoor(task* tp)
 
 void LOAD_GCDoor()
 {
-    MDL_GCDoor = LoadBasicModel("STP_Door");
+    MDL_GCDoor = LoadBasicModel("STP_GCDoor");
 }

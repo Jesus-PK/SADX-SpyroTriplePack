@@ -80,27 +80,27 @@ void FILES_GnorcCove(const HelperFunctions& helperFunctions)
 {
 	// SET Replacement:
 
-	ReplaceBIN("SET0300S", "SET_GnorcCoveS");
-	ReplaceBIN("SET0301A", "SET_GnorcCoveA");
-	ReplaceBIN("SET0301B", "SET_GnorcCoveB");
+	ReplaceBIN("SET0300S", "STP_SET-GC-S");
+	ReplaceBIN("SET0301A", "STP_SET-GC-A");
+	ReplaceBIN("SET0301B", "STP_SET-GC-B");
 
 
 	// CAM Replacement:
 
-	ReplaceBIN("CAM0300S", "CAM_GnorcCoveS");
-	ReplaceBIN("CAM0301A", "CAM_GnorcCoveA");
-	ReplaceBIN("CAM0301B", "CAM_GnorcCoveB");
+	ReplaceBIN("CAM0300S", "STP_CAM-GC-S");
+	ReplaceBIN("CAM0301A", "STP_CAM-GC-A");
+	ReplaceBIN("CAM0301B", "STP_CAM-GC-B");
 
 
 	// PL Replacement:
 
-	ReplaceBIN("PL_30B", "PL_GnorcCove");
-	ReplaceBIN("PL_31B", "PL_GnorcCove");
+	ReplaceBIN("PL_30B", "STP_PL-GC");
+	ReplaceBIN("PL_31B", "STP_PL-GC");
 
 
 	// OST Replacement:
 
-	helperFunctions.ReplaceFile("system\\sounddata\\bgm\\wma\\twnklpk1.wma", "system\\OST_GnorcCove.adx");
+	helperFunctions.ReplaceFile("system\\sounddata\\bgm\\wma\\twnklpk1.wma", "system\\STP_OST-GC.adx");
 }
 
 

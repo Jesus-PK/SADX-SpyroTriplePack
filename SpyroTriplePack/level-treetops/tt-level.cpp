@@ -86,21 +86,21 @@ void FILES_TreeTops(const HelperFunctions& helperFunctions)
 {
 	// SET Replacement:
 
-	ReplaceBIN("SET0600S", "SET_TreeTopsS");
-	ReplaceBIN("SET0600M", "SET_TreeTopsM");
-	ReplaceBIN("SET0602K", "SET_TreeTopsK");
+	ReplaceBIN("SET0600S", "STP_SET-TT-S");
+	ReplaceBIN("SET0600M", "STP_SET-TT-M");
+	ReplaceBIN("SET0602K", "STP_SET-TT-K");
 
 
 	// CAM Replacement:
 
-	ReplaceBIN("CAM0600S", "CAM_TreeTopsS");
-	ReplaceBIN("CAM0600M", "CAM_TreeTopsM");
-	ReplaceBIN("CAM0602K", "CAM_TreeTopsK");
+	ReplaceBIN("CAM0600S", "STP_CAM-TT-S");
+	ReplaceBIN("CAM0600M", "STP_CAM-TT-M");
+	ReplaceBIN("CAM0602K", "STP_CAM-TT-K");
 
 
 	// OST Replacement:
 
-	helperFunctions.ReplaceFile("system\\sounddata\\bgm\\wma\\skydeck1.wma", "system\\OST_TreeTops.adx");
+	helperFunctions.ReplaceFile("system\\sounddata\\bgm\\wma\\skydeck1.wma", "system\\STP_OST-TT.adx");
 }
 
 
@@ -112,5 +112,5 @@ void TT_INIT_Level(const HelperFunctions& helperFunctions)
 	DEATHZONES_TreeTops();
 	STARTPOSITIONS_TreeTops(helperFunctions);
 	PATHS_TreeTops(helperFunctions);
-	FILES_TreeTops(helperFunctions);
+	//FILES_TreeTops(helperFunctions);
 }

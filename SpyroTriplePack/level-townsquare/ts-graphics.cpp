@@ -6,14 +6,14 @@ void STAGENAMES_TownSquare(const char* path, const HelperFunctions& helperFuncti
 {
     if (HD_GUI)
     {
-        ReplaceTex("AVA_STNAM", "TX_ST11", "StageNames", "STP_HD-StageName-TS", 365043, 128, 16);
-        ReplaceTex("AVA_STNAM_E", "TX_ST11_e", "StageNames", "STP_HD-StageName-TS-E", 10000421, 128, 16);
+        ReplaceTex("AVA_STNAM", "TX_ST13", "StageNames", "STP_HD-StageName-TS", 365043, 128, 16);
+        ReplaceTex("AVA_STNAM_E", "TX_ST13_e", "StageNames", "STP_HD-StageName-TS-E", 10000421, 128, 16);
     }
     
     else
     {
-        ReplaceTex("AVA_STNAM", "TX_ST11", "StageNames", "STP_SD-StageName-TS", 365043, 128, 16);
-        ReplaceTex("AVA_STNAM_E", "TX_ST11_e", "StageNames", "STP_SD-StageName-TS-E", 10000421, 128, 16);
+        ReplaceTex("AVA_STNAM", "TX_ST13", "StageNames", "STP_SD-StageName-TS", 365043, 128, 16);
+        ReplaceTex("AVA_STNAM_E", "TX_ST13_e", "StageNames", "STP_SD-StageName-TS-E", 10000421, 128, 16);
     }
 }
 
@@ -97,6 +97,6 @@ void TS_INIT_Graphics(const char* path, const HelperFunctions& helperFunctions)
 {
     STAGENAMES_TownSquare(path, helperFunctions);
     TITLECARDS_TownSquare(path, helperFunctions);
-    MULTITHUMBNAILS_TownSquare(path, helperFunctions);
-    STAGECREDITS_TownSquare(path, helperFunctions);
+    //MULTITHUMBNAILS_TownSquare(path, helperFunctions);
+    //STAGECREDITS_TownSquare(path, helperFunctions);
 }
