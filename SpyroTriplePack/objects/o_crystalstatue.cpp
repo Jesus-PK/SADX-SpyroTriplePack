@@ -13,6 +13,17 @@ ModelInfo* MDL_CSDebris03 = nullptr;
 CCL_INFO COLLI_CrystalStatue = { 0, CollisionShape_Sphere, 0x77, 0x20, 0x400, { 0.0f, 7.0f, 0.0f }, 11.5f, 0.0f, 0.0f, 0.0f, 0, 0, 0 };
 
 
+//  Crystal Statue - Rewards:
+
+void SetDragonRescued()
+{
+    AddEnemyScore(1000);
+    dsPlay_oneshot(SE_BOMB, 0, 0, 0);
+    AddNumRing(20);
+    DragonCount++;
+}
+
+
 //  Crystal Base - Main:
 
 void DISPLAY_CrystalBase(task* tp)
@@ -148,14 +159,6 @@ childtaskset CTS_CSDebris[] = {
 
 
 //  Crystal Statue - Main:
-
-void SetDragonRescued()
-{
-    AddEnemyScore(1000);
-    dsPlay_oneshot(SE_BOMB, 0, 0, 0);
-    AddNumRing(20);
-    DragonCount++;
-}
 
 void DISPLAY_CrystalStatue(task* tp)
 {

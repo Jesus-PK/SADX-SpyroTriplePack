@@ -9,7 +9,7 @@ ModelInfo* MDL_LKCDebris01 = nullptr;
 ModelInfo* MDL_LKCDebris02 = nullptr;
 ModelInfo* MDL_LKCDebris03 = nullptr;
 ModelInfo* MDL_LKCDebris04 = nullptr;
-ModelInfo* MDL_Number25 = nullptr;
+ModelInfo* MDL_Number50 = nullptr;
 
 ModelInfo* MDL_LKCKey = nullptr;
 
@@ -20,10 +20,28 @@ CCL_INFO COLLI_LKCKey = { 0, CollisionShape_Sphere, 0xF0, 0, 0, { 0.0f, 4.625f, 
 
 NJS_VECTOR POS_LKCTrigger = { 0, 0, 0 };
 
-const char* MSG_LockedChest[] = {
+const char** MSG_LockedChest;
+
+const char* MSG_LockedChest_EN[] = {
     "You need a key to open this chest!",
     NULL,
 };
+
+const char* MSG_LockedChest_JP[] = {
+    "\a\202\261\202\314\225\363\224\240\202\360\212\112\202\257\202\351\202\311\202\315\214\256\202\252\225\113\227\166\202\305\202\267\201\111",
+    NULL,
+};
+
+
+//  Locked Chest - Rewards:
+
+void SetLKCOpen()
+{
+    AddEnemyScore(2000);
+    dsPlay_oneshot(SE_BOMB, 0, 0, 0);
+    AddNumRing(50);
+    HasKey = 0;
+}
 
 
 //  Locked Chest Key - Main:
@@ -234,7 +252,7 @@ childtaskset CTS_LKCDebris[] = {
 
 //  Locked Chest - Value Number:
 
-void DISPLAY_Number25(task* tp)
+void DISPLAY_Number50(task* tp)
 {
     if (MissedFrames)
         return;
@@ -248,21 +266,45 @@ void DISPLAY_Number25(task* tp)
     njTranslateV(0, &twp->pos);
     njRotateXYZ(0, twp->ang.x, twp->ang.y, twp->ang.z);
     
-    dsDrawObject(MDL_Number25->getmodel());
+    dsDrawObject(MDL_Number50->getmodel());
     
     njPopMatrix(1u);
 }
 
+void EXEC_Number50(task* tp)
+{
+    if (!CheckRangeOutWithR(tp, 96100.0))
+    {
+        auto twp = tp->twp;
+
+        switch (twp->mode)
+        {
+            case 0:
+                
+                tp->disp = DISPLAY_Number50;
+                
+                twp->mode++;
+                
+                break;
+           
+            case 1:
+                
+                twp->ang.y += 750;
+                
+                break;
+        }
+
+        tp->disp(tp);
+    }
+}
+
+childtaskset CTS_Number50[] = {
+    { EXEC_Number50, 2, 0, {0}, {0}, 0 },
+    { 0 }
+};
+
 
 //  Chest Lid - Main:
-
-void SetLKCOpen()
-{
-    AddEnemyScore(2000);
-    dsPlay_oneshot(SE_BOMB, 0, 0, 0);
-    AddNumRing(50);
-    HasKey = 0;
-}
 
 void DISPLAY_LKCLid(task* tp)
 {
@@ -339,6 +381,7 @@ void EXEC_LKCLid(task* tp)
             {
                 if (HasKey == 0)
                 {
+                    MSG_LockedChest = (Language != JAPANESE) ? MSG_LockedChest_EN : MSG_LockedChest_JP;
                     DisplayHintText(MSG_LockedChest, 100);
 
                     twp->mode = 2;
@@ -350,9 +393,8 @@ void EXEC_LKCLid(task* tp)
 
                     Dead(tp);
 
-                    tp->disp = DISPLAY_Number25;
-
                     CreateChildrenTask(CTS_LKCDebris, tp);
+                    CreateChildrenTask(CTS_Number50, tp);
 
                     //  Necessary functions to kill a dyncol early:
                     WithdrawCollisionEntry(tp, (NJS_OBJECT*)twp->counter.ptr);
@@ -379,8 +421,6 @@ void EXEC_LKCLid(task* tp)
 
         case 3:
         {            
-            twp->ang.y += 750;
-
             if (++twp->wtimer > 120)
                 FreeTask(tp);
 
@@ -406,7 +446,7 @@ void LOAD_LockedChest()
     MDL_LKCDebris02 = LoadBasicModel("STP_LKCDebris02");
     MDL_LKCDebris03 = LoadBasicModel("STP_LKCDebris03");
     MDL_LKCDebris04 = LoadBasicModel("STP_LKCDebris04");
-    MDL_Number25 = LoadBasicModel("STP_Number25");
+    MDL_Number50 = LoadBasicModel("STP_Number50");
     MDL_LKCKey = LoadBasicModel("STP_LKCKey");
     MDL_LKCColli01 = LoadBasicModel("STP_LKCColli01");
     MDL_LKCColli02 = LoadBasicModel("STP_LKCColli02");

@@ -7,7 +7,7 @@
 ModelInfo* MDL_SpottedChicken = nullptr;
 AnimationFile* ANIM_SpottedChicken = nullptr;
 
-CCL_INFO COLLI_SpottedChicken = { 0, CollisionShape_Sphere, 0x77, 0, 0, { 0.0f, 0.0f, 0.0f }, 7.5f, 0.0f, 0.0f, 0.0f, 0, 0, 0 };
+CCL_INFO COLLI_SpottedChicken = { 0, CollisionShape_Sphere, 0x77, 0, 0, { 0.0f, 4.0f, 0.0f }, 4.0f, 0.0f, 0.0f, 0.0f, 0, 0, 0 };
 
 
 //  SpottedChicken - Main:
@@ -25,7 +25,7 @@ void DISPLAY_SpottedChicken(task* tp)
     
     njPushMatrix(0);
     
-    njTranslateV(0, &twp->pos);
+    njTranslate(0, twp->pos.x, twp->pos.y - 0.6f, twp->pos.z);
     njRotateXYZ(0, twp->ang.x, twp->ang.y, twp->ang.z);
     njScale(0, 2.0f, 2.0f, 2.0f);
 
@@ -45,7 +45,6 @@ void EXEC_SpottedChicken(task* tp)
     {
         case 0:
 
-            tp->disp = DISPLAY_SpottedChicken;
             CCL_Init(tp, &COLLI_SpottedChicken, 1, 4u);
 
             twp->mode++;
@@ -55,13 +54,23 @@ void EXEC_SpottedChicken(task* tp)
         case 1:
 
             SPEED_SpottedChicken += 0.075f;
-
+            
             break;
     }
 
     EntryColliList(twp);
 
     tp->disp(tp);
+}
+
+void INIT_SpottedChicken(task* tp)
+{
+    auto twp = tp->twp;
+
+    twp->scl.x = rand(); // This randomizes the animation start.
+    
+    tp->exec = EXEC_SpottedChicken;
+    tp->disp = DISPLAY_SpottedChicken;
 }
 
 

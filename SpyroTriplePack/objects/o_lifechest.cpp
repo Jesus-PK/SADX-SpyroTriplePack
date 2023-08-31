@@ -14,6 +14,16 @@ AnimationFile* ANIM_LifeChest = nullptr;
 CCL_INFO COLLI_LifeChest = { 0, CollisionShape_Sphere, 0x77, 0x20, 0x400, { 0.0f, 5.25f, 0.0f }, 8.0f, 0.0f, 0.0f, 0.0f, 0, 0, 0 };
 
 
+//  Life Chest - Rewards:
+
+void SetLCDestroyed()
+{
+    AddEnemyScore(250);
+    dsPlay_oneshot(SE_BOMB, 0, 0, 0);
+    GiveLives(1);
+}
+
+
 //  Life Chest - Debris Pieces:
 
 void DISPLAY_LCDebris(task* tp)
@@ -85,13 +95,6 @@ childtaskset CTS_LCDebris[] = {
 
 //  Life chest - Life Statue:
 
-void SetLCDestroyed()
-{
-    AddEnemyScore(250);
-    dsPlay_oneshot(SE_BOMB, 0, 0, 0);
-    GiveLives(1);
-}
-
 void DISPLAY_LCStatue(task* tp)
 {
     if (MissedFrames)
@@ -110,6 +113,38 @@ void DISPLAY_LCStatue(task* tp)
     
     njPopMatrix(1u);
 }
+
+void EXEC_LCStatue(task* tp)
+{
+    if (!CheckRangeOutWithR(tp, 96100.0))
+    {
+        auto twp = tp->twp;
+
+        switch (twp->mode)
+        {
+            case 0:
+                
+                tp->disp = DISPLAY_LCStatue;
+                
+                twp->mode++;
+                
+                break;
+           
+            case 1:
+                
+                twp->ang.y += 750;
+                
+                break;
+        }
+
+        tp->disp(tp);
+    }
+}
+
+childtaskset CTS_LCStatue[] = {
+    { EXEC_LCStatue, 2, 0, {0}, {0}, 0 },
+    { 0 }
+};
 
 
 //  Life Chest - Main:
@@ -175,9 +210,8 @@ void EXEC_LifeChest(task* tp)
                     
                     Dead(tp);
                     
-                    tp->disp = DISPLAY_LCStatue;
-                    
                     CreateChildrenTask(CTS_LCDebris, tp);
+                    CreateChildrenTask(CTS_LCStatue, tp);
 
                     twp->mode++;
                 }
@@ -188,8 +222,6 @@ void EXEC_LifeChest(task* tp)
             break;
 
         case 2:
-
-            twp->ang.y += 750;
 
             if (++twp->wtimer > 120)
                 FreeTask(tp);

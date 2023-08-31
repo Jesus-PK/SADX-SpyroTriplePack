@@ -48,7 +48,6 @@ void EXEC_LargeTorch(task* tp)
     {
         case 0:
 
-            tp->disp = DISPLAY_LargeTorch;
             CCL_Init(tp, arrayptrandlength(COLLI_LargeTorch), 4u);
 
             twp->mode++;
@@ -65,6 +64,16 @@ void EXEC_LargeTorch(task* tp)
     EntryColliList(twp);
 
     tp->disp(tp);
+}
+
+void INIT_LargeTorch(task* tp)
+{
+    auto twp = tp->twp;
+
+    twp->scl.x = rand();
+
+    tp->exec = EXEC_LargeTorch;
+    tp->disp = DISPLAY_LargeTorch;
 }
 
 

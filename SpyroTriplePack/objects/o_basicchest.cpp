@@ -11,6 +11,16 @@ ModelInfo* MDL_Number5 = nullptr;
 CCL_INFO COLLI_BasicChest = { 0, CollisionShape_Sphere, 0x77, 0x20, 0x400, { 0.0f, 5.25f, 0.0f }, 8.0f, 0.0f, 0.0f, 0.0f, 0, 0, 0 };
 
 
+//  Basic Chest - Rewards:
+
+void SetBCDestroyed()
+{
+    AddEnemyScore(50);
+    dsPlay_oneshot(SE_BOMB, 0, 0, 0);
+    AddNumRing(5);
+}
+
+
 //  Basic Chest - Debris Pieces:
 
 void DISPLAY_BCDebris(task* tp)
@@ -82,13 +92,6 @@ childtaskset CTS_BCDebris[] = {
 
 //  Basic chest - Value Number:
 
-void SetBCDestroyed()
-{
-    AddEnemyScore(50);
-    dsPlay_oneshot(SE_BOMB, 0, 0, 0);
-    AddNumRing(5);
-}
-
 void DISPLAY_Number5(task* tp)
 {
     if (MissedFrames)
@@ -108,6 +111,37 @@ void DISPLAY_Number5(task* tp)
     njPopMatrix(1u);
 }
 
+void EXEC_Number5(task* tp)
+{
+    if (!CheckRangeOutWithR(tp, 96100.0))
+    {
+        auto twp = tp->twp;
+
+        switch (twp->mode)
+        {
+            case 0:
+                
+                tp->disp = DISPLAY_Number5;
+                
+                twp->mode++;
+                
+                break;
+           
+            case 1:
+                
+                twp->ang.y += 750;
+                
+                break;
+        }
+
+        tp->disp(tp);
+    }
+}
+
+childtaskset CTS_Number5[] = {
+    { EXEC_Number5, 2, 0, {0}, {0}, 0 },
+    { 0 }
+};
 
 //  Basic Chest - Main:
 
@@ -165,9 +199,8 @@ void EXEC_BasicChest(task* tp)
                     
                     Dead(tp);
                     
-                    tp->disp = DISPLAY_Number5;
-                    
                     CreateChildrenTask(CTS_BCDebris, tp);
+                    CreateChildrenTask(CTS_Number5, tp);
 
                     twp->mode++;
                 }
@@ -178,8 +211,6 @@ void EXEC_BasicChest(task* tp)
             break;
 
         case 2:
-
-            twp->ang.y += 750;
 
             if (++twp->wtimer > 120)
                 FreeTask(tp);

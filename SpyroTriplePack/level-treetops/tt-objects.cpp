@@ -55,9 +55,9 @@ _OBJ_ITEMENTRY OBJECTLIST_TreeTops_Entries[] = {
 	{ 2, 2, 1, 1000000.0f, 0, EXEC_CrystalStatue, "O CRYSTAL STATUE"}, // ID 43
 	{ 2, 2, 1, 1000000.0f, 0, EXEC_ExitPortal, "O EXIT PORTAL"}, // ID 44
 	{ 2, 2, 1, 1000000.0f, 0, EXEC_ExitText, "O EXIT TEXT"}, // ID 45
-	{ 2, 2, 1, 1000000.0f, 0, EXEC_Firewood, "O FIREWOOD"}, // ID 46
-	{ 2, 2, 1, 1000000.0f, 0, EXEC_LargeTorch, "O LARGE TORCH"}, // ID 47
-	{ 2, 2, 1, 1000000.0f, 0, EXEC_SpottedChicken, "O SPOTTED CHICKEN"}, // ID 48
+	{ 2, 2, 1, 1000000.0f, 0, INIT_Firewood, "O FIREWOOD"}, // ID 46
+	{ 2, 2, 1, 1000000.0f, 0, INIT_LargeTorch, "O LARGE TORCH"}, // ID 47
+	{ 2, 2, 1, 1000000.0f, 0, INIT_SpottedChicken, "O SPOTTED CHICKEN"}, // ID 48
 	{ 2, 2, 1, 1000000.0f, 0, EXEC_Spyro, "O SPYRO LEDGE"} // ID 49
 };
 

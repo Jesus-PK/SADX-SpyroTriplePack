@@ -48,7 +48,6 @@ void EXEC_Firewood(task* tp)
     {
         case 0:
 
-            tp->disp = DISPLAY_Firewood;
             CCL_Init(tp, arrayptrandlength(COLLI_Firewood), 4u);
 
             twp->mode++;
@@ -65,6 +64,16 @@ void EXEC_Firewood(task* tp)
     EntryColliList(twp);
 
     tp->disp(tp);
+}
+
+void INIT_Firewood(task* tp)
+{
+    auto twp = tp->twp;
+
+    twp->scl.x = rand();
+
+    tp->exec = EXEC_Firewood;
+    tp->disp = DISPLAY_Firewood;
 }
 
 

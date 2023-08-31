@@ -11,6 +11,16 @@ ModelInfo* MDL_Number10 = nullptr;
 CCL_INFO COLLI_MetalChest = { 0, CollisionShape_Sphere, 0x77, 0x20, 0x400, { 0.0f, 5.25f, 0.0f }, 8.0f, 0.0f, 0.0f, 0.0f, 0, 0, 0 };
 
 
+//  Metal Chest - Rewards:
+
+void SetMCDestroyed()
+{
+    AddEnemyScore(100);
+    dsPlay_oneshot(SE_BOMB, 0, 0, 0);
+    AddNumRing(10);
+}
+
+
 //  Metal Chest - Debris Pieces:
 
 void DISPLAY_MCDebris(task* tp)
@@ -82,13 +92,6 @@ childtaskset CTS_MCDebris[] = {
 
 //  Metal Chest - Value Number:
 
-void SetMCDestroyed()
-{
-    AddEnemyScore(100);
-    dsPlay_oneshot(SE_BOMB, 0, 0, 0);
-    AddNumRing(10);
-}
-
 void DISPLAY_Number10(task* tp)
 {
     if (MissedFrames)
@@ -107,6 +110,38 @@ void DISPLAY_Number10(task* tp)
     
     njPopMatrix(1u);
 }
+
+void EXEC_Number10(task* tp)
+{
+    if (!CheckRangeOutWithR(tp, 96100.0))
+    {
+        auto twp = tp->twp;
+
+        switch (twp->mode)
+        {
+            case 0:
+                
+                tp->disp = DISPLAY_Number10;
+                
+                twp->mode++;
+                
+                break;
+           
+            case 1:
+                
+                twp->ang.y += 750;
+                
+                break;
+        }
+
+        tp->disp(tp);
+    }
+}
+
+childtaskset CTS_Number10[] = {
+    { EXEC_Number10, 2, 0, {0}, {0}, 0 },
+    { 0 }
+};
 
 
 //  Metal Chest - Main:
@@ -165,9 +200,8 @@ void EXEC_MetalChest(task* tp)
                     
                     Dead(tp);
                     
-                    tp->disp = DISPLAY_Number10;
-                    
                     CreateChildrenTask(CTS_MCDebris, tp);
+                    CreateChildrenTask(CTS_Number10, tp);
 
                     twp->mode++;
                 }
@@ -178,8 +212,6 @@ void EXEC_MetalChest(task* tp)
             break;
 
         case 2:
-
-            twp->ang.y += 750;
 
             if (++twp->wtimer > 120)
                 FreeTask(tp);

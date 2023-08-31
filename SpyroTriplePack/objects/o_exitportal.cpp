@@ -6,8 +6,15 @@ ModelInfo* MDL_ExitPortal = nullptr;
 
 NJS_POINT3 POS_ExitTrigger = { 0, 0, 0 };
 
-const char* MSG_ExitPortal[] = {
+const char** MSG_ExitPortal;
+
+const char* MSG_ExitPortal_EN[] = {
     "You need to rescue all 5 dragons before leaving!",
+    NULL,
+};
+
+const char* MSG_ExitPortal_JP[] = {
+    "\a  \217\157\224\255\202\267\202\351\221\117\202\3115\225\103\202\314\203\150\203\211\203\123\203\223\n\202\360\202\267\202\327\202\304\213\176\217\157\202\267\202\351\225\113\227\166\202\252\202\240\202\350\202\334\202\267!",
     NULL,
 };
 
@@ -90,7 +97,8 @@ void EXEC_ExitPortal(task* tp)
 
                 else
                 {
-                    DisplayHintText(MSG_ExitPortal, 100);
+                    MSG_ExitPortal = (Language != JAPANESE) ? MSG_ExitPortal_EN : MSG_ExitPortal_JP; // Quick ternary to check for the current language and fill the result on my const char**
+                    DisplayHintText(MSG_ExitPortal, 100); // I call the result of the previous ternary.
 
                     twp->mode++;
                 }
