@@ -13,6 +13,10 @@
 	#include "LandTableInfo.h"
 	#include "AnimationFile.h"
 
+	#include "IniFile.hpp"
+
+	#include "lanternapi.h"
+
 	#include "mod.h"
 
 	#include "deathzones.h"

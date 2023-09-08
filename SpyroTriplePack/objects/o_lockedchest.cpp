@@ -49,6 +49,7 @@ void SetLKCOpen()
 void KeyPickup()
 {
     AddEnemyScore(100);
+    dsPlay_oneshot(SE_ITEMGET, 0, 0, 0);
     HasKey = 1;
 }
 
@@ -82,7 +83,7 @@ void EXEC_LKCKey(task* tp)
     {
         case 0:
 
-            SetFlagNoRespawn(tp);
+            SetNoRevive(tp);
             
             tp->disp = DISPLAY_LKCKey;
             CCL_Init(tp, &COLLI_LKCKey, 1, 4u);
@@ -339,7 +340,7 @@ void EXEC_LKCLid(task* tp)
     {
         case 0:
         {
-            SetFlagNoRespawn(tp);
+            SetNoRevive(tp);
 
             auto object = GetMobileLandObject();
 
@@ -381,6 +382,8 @@ void EXEC_LKCLid(task* tp)
             {
                 if (HasKey == 0)
                 {
+                    dsPlay_oneshot(SE_P_JUMP2, 0, 0, 0);
+                    
                     MSG_LockedChest = (Language != JAPANESE) ? MSG_LockedChest_EN : MSG_LockedChest_JP;
                     DisplayHintText(MSG_LockedChest, 100);
 

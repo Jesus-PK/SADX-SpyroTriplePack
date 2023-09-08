@@ -78,12 +78,15 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)objects;$(ProjectDir)programming;$(ProjectDir)level-gnorccove;$(ProjectDir)level-townsquare;$(ProjectDir)level-treetops;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)objects;$(ProjectDir)programming;$(ProjectDir)lantern;$(ProjectDir)config;$(ProjectDir)level-gnorccove;$(ProjectDir)level-townsquare;$(ProjectDir)level-treetops;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>$(ProjectDir)lantern;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sadx-dc-lighting.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <DelayLoadDLLs>sadx-dc-lighting.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)Release\*.dll" "D:\Juegos\Retail\SONICADVENTUREDX\mods\Spyro Triple Pack\*.dll" /Y</Command>
@@ -99,7 +102,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)objects;$(ProjectDir)programming;$(ProjectDir)level-gnorccove;$(ProjectDir)level-townsquare;$(ProjectDir)level-treetops;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)objects;$(ProjectDir)programming;$(ProjectDir)lantern;$(ProjectDir)config;$(ProjectDir)level-gnorccove;$(ProjectDir)level-townsquare;$(ProjectDir)level-treetops;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -107,6 +110,9 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>$(ProjectDir)lantern;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sadx-dc-lighting.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <DelayLoadDLLs>sadx-dc-lighting.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)Release\*.dll" "D:\Juegos\Retail\SONICADVENTUREDX\mods\Spyro Triple Pack\*.dll" /Y</Command>
@@ -176,6 +182,8 @@
     <ClInclude Include="utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="config\IniFile.cpp" />
+    <ClCompile Include="config\TextConv.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="level-gnorccove\gc-deathzones.cpp" />
     <ClCompile Include="level-gnorccove\gc-graphics.cpp" />

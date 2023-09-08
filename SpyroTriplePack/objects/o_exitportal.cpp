@@ -97,6 +97,8 @@ void EXEC_ExitPortal(task* tp)
 
                 else
                 {
+                    dsPlay_oneshot(SE_P_JUMP2, 0, 0, 0);
+                    
                     MSG_ExitPortal = (Language != JAPANESE) ? MSG_ExitPortal_EN : MSG_ExitPortal_JP; // Quick ternary to check for the current language and fill the result on my const char**
                     DisplayHintText(MSG_ExitPortal, 100); // I call the result of the previous ternary.
 
