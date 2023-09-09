@@ -1,5 +1,11 @@
 #include "pch.h"
 
+//  Macros:
+
+#define ReplaceTex(pvm, pvr, folder, pngname, gbix, x, y) helperFunctions.ReplaceTexture(pvm, pvr, (std::string(path) + "\\textures\\" folder "\\" pngname ".png").c_str(), gbix, x, y);
+#define ReplacePVR(a, b) helperFunctions.ReplaceFile("system\\" a ".PVR", b);
+
+
 //  Stage Names:
 
 void STAGENAMES_TreeTops(const char* path, const HelperFunctions& helperFunctions)
@@ -74,20 +80,20 @@ void STAGECREDITS_TreeTops(const char* path, const HelperFunctions& helperFuncti
 {
     if (HD_GUI)
     {
-        ReplaceTex("ENDBG_SUPERSONIC_0_HD", "ss_ev006", "StageCredits", "STP_HD-Credits-TT-S00", 366154, 256, 256);
-        ReplaceTex("ENDBG_SUPERSONIC_0_HD", "ss_ev007", "StageCredits", "STP_HD-Credits-TT-S01", 366155, 256, 256);
-        ReplaceTex("ENDBG_TAILS_1_HD", "t_ev015", "StageCredits", "STP_HD-Credits-TT-T00", 366141, 256, 256);
-        ReplaceTex("ENDBG_KNUCKLES_2_HD", "k_ev021", "StageCredits", "STP_HD-Credits-TT-K00", 366070, 256, 256);
-        ReplaceTex("ENDBG_KNUCKLES_2_HD", "k_ev022", "StageCredits", "STP_HD-Credits-TT-K01", 366071, 256, 256);
+        ReplaceTex("ENDBG_SUPERSONIC_0", "ss_ev006", "StageCredits", "STP_HD-Credits-TT-S00", 366154, 256, 256);
+        ReplaceTex("ENDBG_SUPERSONIC_0", "ss_ev007", "StageCredits", "STP_HD-Credits-TT-S01", 366155, 256, 256);
+        ReplaceTex("ENDBG_TAILS_1", "t_ev015", "StageCredits", "STP_HD-Credits-TT-T00", 366141, 256, 256);
+        ReplaceTex("ENDBG_KNUCKLES_2", "k_ev021", "StageCredits", "STP_HD-Credits-TT-K00", 366070, 256, 256);
+        ReplaceTex("ENDBG_KNUCKLES_2", "k_ev022", "StageCredits", "STP_HD-Credits-TT-K01", 366071, 256, 256);
     }
 
     else if (DC_Conversion)
     {
-        ReplaceTex("ENDBG_SUPERSONIC_0_HD", "ss_ev006", "StageCredits", "STP_DC-Credits-TT-S00", 366154, 256, 256);
-        ReplaceTex("ENDBG_SUPERSONIC_0_HD", "ss_ev007", "StageCredits", "STP_DC-Credits-TT-S01", 366155, 256, 256);
-        ReplaceTex("ENDBG_TAILS_1_HD", "t_ev015", "StageCredits", "STP_DC-Credits-TT-T00", 366141, 256, 256);
-        ReplaceTex("ENDBG_KNUCKLES_2_HD", "k_ev021", "StageCredits", "STP_DC-Credits-TT-K00", 366070, 256, 256);
-        ReplaceTex("ENDBG_KNUCKLES_2_HD", "k_ev022", "StageCredits", "STP_DC-Credits-TT-K01", 366071, 256, 256);
+        ReplaceTex("ENDBG_SUPERSONIC_0", "ss_ev006", "StageCredits", "STP_DC-Credits-TT-S00", 366154, 256, 256);
+        ReplaceTex("ENDBG_SUPERSONIC_0", "ss_ev007", "StageCredits", "STP_DC-Credits-TT-S01", 366155, 256, 256);
+        ReplaceTex("ENDBG_TAILS_1", "t_ev015", "StageCredits", "STP_DC-Credits-TT-T00", 366141, 256, 256);
+        ReplaceTex("ENDBG_KNUCKLES_2", "k_ev021", "StageCredits", "STP_DC-Credits-TT-K00", 366070, 256, 256);
+        ReplaceTex("ENDBG_KNUCKLES_2", "k_ev022", "StageCredits", "STP_DC-Credits-TT-K01", 366071, 256, 256);
     }
 
     else
@@ -105,6 +111,6 @@ void TT_INIT_Graphics(const char* path, const HelperFunctions& helperFunctions)
 {
     STAGENAMES_TreeTops(path, helperFunctions);
     TITLECARDS_TreeTops(path, helperFunctions);
-    //MULTITHUMBNAILS_TreeTops(path, helperFunctions);
-    //STAGECREDITS_TreeTops(path, helperFunctions);
+    MULTITHUMBNAILS_TreeTops(path, helperFunctions);
+    STAGECREDITS_TreeTops(path, helperFunctions);
 }

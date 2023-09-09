@@ -1,17 +1,34 @@
 #include "pch.h"
 
+#include "o_basicchest.h"
+#include "o_crystalstatue.h"
+#include "o_dragons.h"
+#include "o_exitportal.h"
+#include "o_exittext.h"
+#include "o_firewood.h"
+#include "o_gcdoor.h"
+#include "o_gcplatform.h"
+#include "o_largetorch.h"
+#include "o_lifechest.h"
+#include "o_lockedchest.h"
+#include "o_metalbarrel.h"
+#include "o_metalchest.h"
+#include "o_skyboxes.h"
+#include "o_spottedchicken.h"
+#include "o_tntbarrel.h"
+
 //	Shared Textures:
 
-NJS_TEXNAME TEX_STP_Objects[38] = { 0 };
+NJS_TEXNAME TEX_STP_Objects[35] = { 0 };
 NJS_TEXLIST TEXLIST_STP_Objects = { arrayptrandlength(TEX_STP_Objects) };
 
-NJS_TEXNAME TEX_STP_Dragons[38] = { 0 };
+NJS_TEXNAME TEX_STP_Dragons[12] = { 0 };
 NJS_TEXLIST TEXLIST_STP_Dragons = { arrayptrandlength(TEX_STP_Dragons) };
 
 
 //	Load Object Assets:
 
-void STP_LoadObjects()
+void STP_LoadObjects(const HelperFunctions& helperFunctions)
 {
 	LOAD_BasicChest();
 	LOAD_CrystalStatue();
@@ -29,4 +46,9 @@ void STP_LoadObjects()
 	LOAD_GCPlatform();
 	LOAD_SpottedChicken();
 	LOAD_TNTBarrel();
+
+	//	Blacklist auto-mipmaps on Dragons textures:
+	
+	for (Uint32 i = 506002000; i < 506002011; i++)
+		helperFunctions.MipmapBlacklistGBIX(i);
 }

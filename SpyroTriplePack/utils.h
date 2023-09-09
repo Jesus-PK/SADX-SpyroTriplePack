@@ -1,5 +1,11 @@
 #pragma once
 
+//	Counters:
+
+extern bool HasKey;
+extern uint8_t DragonCount;
+
+
 //	Macros:
 
 #define ReplaceTex(pvm, pvr, folder, pngname, gbix, x, y) helperFunctions.ReplaceTexture(pvm, pvr, (std::string(path) + "\\textures\\" folder "\\" pngname ".png").c_str(), gbix, x, y);
@@ -7,11 +13,14 @@
 #define ReplacePVR(a, b) helperFunctions.ReplaceFile("system\\" a ".PVR", b);
 
 
-//	Bools and code to check active mods and Mod Loader API version check:
+//	Bools and code to check if certain mods are enabled / disabled & Mod Loader API version check:
 
 extern bool HD_GUI;
 extern bool DC_Conversion;
+extern bool HUD_Plus;
 extern bool Lantern_Engine;
+
+extern bool DC_HudTweaks;
 
 void CheckActiveMods(const HelperFunctions& helperFunctions);
 
@@ -79,8 +88,3 @@ FunctionPointer(void, CreateChildrenTask, (childtaskset* ctsp, task* tp), 0x40B9
 //	FunctionPointer for IsThisTaskPlayer function:
 
 FunctionPointer(Bool, IsThisTaskPlayer, (task* tp), 0x441AD0);
-
-
-//	FunctionPointer for SetFlagNoRespawn function:
-
-TaskFunc(SetFlagNoRespawn, 0x46C100);

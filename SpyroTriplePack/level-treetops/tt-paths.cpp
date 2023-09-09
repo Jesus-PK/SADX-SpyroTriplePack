@@ -124,4 +124,5 @@ LoopHead* PATHLIST_TreeTops[] = {
 };
 
 PathDataPtr PATHDATA_TreeTops00 = { levelact(LevelIDs_SkyDeck, 0), PATHLIST_TreeTops };
-PathDataPtr PATHDATA_TreeTops01 = { levelact(LevelIDs_SkyDeck, 2), PATHLIST_TreeTops };
+PathDataPtr PATHDATA_TreeTops01 = { levelact(LevelIDs_SkyDeck, 1), PATHLIST_TreeTops };
+PathDataPtr PATHDATA_TreeTops02 = { levelact(LevelIDs_SkyDeck, 2), PATHLIST_TreeTops };

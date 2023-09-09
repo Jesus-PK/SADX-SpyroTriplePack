@@ -111,6 +111,12 @@
     <ClInclude Include="objects.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="hud.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="texanims.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -191,9 +197,6 @@
     <ClCompile Include="level-gnorccove\gc-paths.cpp">
       <Filter>Levels\GnorcCove</Filter>
     </ClCompile>
-    <ClCompile Include="level-treetops\tt-ramps.cpp">
-      <Filter>Levels\TreeTops</Filter>
-    </ClCompile>
     <ClCompile Include="objects\o_basicchest.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
@@ -258,6 +261,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="config\TextConv.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="hud.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="texanims.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

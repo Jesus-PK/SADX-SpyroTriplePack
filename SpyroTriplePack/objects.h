@@ -32,7 +32,7 @@ extern NJS_TEXLIST TEXLIST_TreeTops;
 
 //	Load and Init Objects:
 
-void STP_LoadObjects();
+void STP_LoadObjects(const HelperFunctions& helperFunctions);
 
 void GC_INIT_Objects();
 void TS_INIT_Objects();

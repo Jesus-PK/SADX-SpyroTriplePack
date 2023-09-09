@@ -1,14 +1,27 @@
 #include "pch.h"
 
+#include "o_basicchest.h"
+#include "o_crystalstatue.h"
+#include "o_dragons.h"
+#include "o_exitportal.h"
+#include "o_exittext.h"
+#include "o_firewood.h"
+#include "o_largetorch.h"
+#include "o_lifechest.h"
+#include "o_lockedchest.h"
+#include "o_metalchest.h"
+#include "o_skyboxes.h"
+#include "o_spottedchicken.h"
+
 //	Textures:
 
 NJS_TEXNAME TEX_TreeTops[79] = { 0 };
 NJS_TEXLIST TEXLIST_TreeTops = { arrayptrandlength(TEX_TreeTops) };
 
 
-//	Object List:
+//	Object Lists:
 
-_OBJ_ITEMENTRY OBJECTLIST_TreeTops_Entries[] = {
+_OBJ_ITEMENTRY OBJECTLIST_TreeTops_LIST[] = {
 	{ 2, 3, 1, 1000000.0f, 0, (TaskFuncPtr)0x450370, "O RING" }, // ID 0
 	{ 2, 3, 1, 1000000.0f, 0, (TaskFuncPtr)0x79B2F0, "O RING GROUP" }, // ID 1
 	{ 2, 2, 1, 1000000.0f, 0, (TaskFuncPtr)0x7A4C30, "O SPRING GROUND" }, // ID 2
@@ -58,44 +71,44 @@ _OBJ_ITEMENTRY OBJECTLIST_TreeTops_Entries[] = {
 	{ 2, 2, 1, 1000000.0f, 0, INIT_Firewood, "O FIREWOOD"}, // ID 46
 	{ 2, 2, 1, 1000000.0f, 0, INIT_LargeTorch, "O LARGE TORCH"}, // ID 47
 	{ 2, 2, 1, 1000000.0f, 0, INIT_SpottedChicken, "O SPOTTED CHICKEN"}, // ID 48
-	{ 2, 2, 1, 1000000.0f, 0, EXEC_Spyro, "O SPYRO LEDGE"} // ID 49
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_Spyro, "O SPYRO LEDGE"}, // ID 49
+	{ 2, 2, 1, 4000000, 0, (TaskFuncPtr)0x4B8DC0, "O JUMP PANEL" }, // ID 50 - Don't touch the float, a lower value breaks the jump panel lol
+	{ 2, 2, 1, 1000000.0f, 0, (TaskFuncPtr)0x4E4C10, "O PLAYER UP WIND" } // ID 51
 };
 
-_OBJ_ITEMTABLE OBJECTLIST_TreeTops = { LengthOfArray(OBJECTLIST_TreeTops_Entries), 0, OBJECTLIST_TreeTops_Entries };
+_OBJ_ITEMTABLE OBJECTLIST_TreeTops = { LengthOfArray(OBJECTLIST_TreeTops_LIST), 0, OBJECTLIST_TreeTops_LIST };
 
 
 //	Texture List:
 
 TEX_PVMTABLE TEXTURELIST_TreeTops[] = {
-	{ "OBJ_SKYDECK", (TexList*)0x214BE40 },
-	{ "E_AIRCRAFT", (TexList*)0x9620F0 },
-	{ "OUM", (TexList*)0x9334EC },
-	{ "KUJA", (TexList*)0x93142C },
-	{ "MILESRACE", (TexList*)0x91BFC0 },
-	{ "SUPI_SUPI", (TexList*)0x96F518 },
-	{ "TUBA", (TexList*)0x92F2BC },
-	{ "LION", (TexList*)0x944094 },
-	{ "AIR_SIGNAL", (TexList*)0x96236C },
-	{ "SUKA", (TexList*)0x94789C },
-	{ "UNI_A_UNIBODY", (TexList*)0x96CB5C },
-	{ "TOGEBALL_TOGEBALL", (TexList*)0x96BC54 },
-	{ NULL, (TexList*)0x214B41C },
-
+	{ "OBJ_WINDY", (TexList*)0xC055D4 }, // Windy Valley OBJ Textures
+	{ "OUM", (TexList*)0x9334EC }, // Parrot
+	{ "KUJA", (TexList*)0x93142C }, // Peacock
+	{ "TUBA", (TexList*)0x92F2BC }, // Swallow
+	{ "LION", (TexList*)0x944094 }, // Leooooooooon, help!
+	{ "SUKA", (TexList*)0x94789C }, // Skunk
+	{ "E_SARU", (TexList*)0x962560 }, // Kiki
+	{ "E_BOMB", (TexList*)0x96B464 }, // Kiki Bomb
+	{ "SUPI_SUPI", (TexList*)0x96F518 }, // Spinner
+	{ "UNI_A_UNIBODY", (TexList*)0x96CB5C }, // Unidus Black
+	{ "UNI_C_UNIBODY", (TexList*)0x96DC48 }, // Unidus Red
+	{ "TOGEBALL_TOGEBALL", (TexList*)0x96BC54 }, // Spiked Ball 
+	{ "MILESRACE", (TexList*)0x91BFC0 }, // Tails Race Icons
+	
 	{ "STP_Objects", &TEXLIST_STP_Objects },
 	{ "STP_Dragons", &TEXLIST_STP_Dragons },
-	{ "UNI_C_UNIBODY", (TexList*)0x96DC48 },
-	{ "E_SARU", (TexList*)0x962560 },
-	{ "E_BOMB", (TexList*)0x96B464 },	
 	{ 0 }
 };
 
 
-//	Load Object List and Texture List:
+//	Init Objects:
 
 void TT_INIT_Objects()
 {
 	ListofPvmList[LevelIDs_SkyDeck] = TEXTURELIST_TreeTops;
-
+	
 	objItemTable[LevelIDs_SkyDeck * 8] = &OBJECTLIST_TreeTops;
+	objItemTable[LevelIDs_SkyDeck * 8 + 1] = &OBJECTLIST_TreeTops;
 	objItemTable[LevelIDs_SkyDeck * 8 + 2] = &OBJECTLIST_TreeTops;
 }

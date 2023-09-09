@@ -156,6 +156,7 @@
     <ClInclude Include="deathzones.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="graphics.h" />
+    <ClInclude Include="hud.h" />
     <ClInclude Include="levelranks.h" />
     <ClInclude Include="levels.h" />
     <ClInclude Include="leveltasks.h" />
@@ -179,12 +180,14 @@
     <ClInclude Include="objects\o_tntbarrel.h" />
     <ClInclude Include="paths.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="texanims.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="config\IniFile.cpp" />
     <ClCompile Include="config\TextConv.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="hud.cpp" />
     <ClCompile Include="level-gnorccove\gc-deathzones.cpp" />
     <ClCompile Include="level-gnorccove\gc-graphics.cpp" />
     <ClCompile Include="level-gnorccove\gc-level.cpp" />
@@ -206,7 +209,6 @@
     <ClCompile Include="level-treetops\tt-leveltask.cpp" />
     <ClCompile Include="level-treetops\tt-objects.cpp" />
     <ClCompile Include="level-treetops\tt-paths.cpp" />
-    <ClCompile Include="level-treetops\tt-ramps.cpp" />
     <ClCompile Include="mod.cpp" />
     <ClCompile Include="objects.cpp" />
     <ClCompile Include="objects\o_basicchest.cpp" />
@@ -235,6 +237,7 @@
     <ClCompile Include="programming\LandTableInfo.cpp" />
     <ClCompile Include="programming\ModelInfo.cpp" />
     <ClCompile Include="programming\Trampoline.cpp" />
+    <ClCompile Include="texanims.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

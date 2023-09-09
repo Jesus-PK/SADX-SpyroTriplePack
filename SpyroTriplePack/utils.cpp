@@ -1,16 +1,42 @@
 #include "pch.h"
 
-//	Bools and code to check active mods and Mod Loader API version check:
+//	Counters:
+
+bool HasKey = 0;
+uint8_t DragonCount{ 0 };
+
+
+//	Bools and code to check if certain mods are enabled / disabled - Also a function to check for the Mod Loader API version:
 
 bool HD_GUI = false;
 bool DC_Conversion = false;
+bool HUD_Plus = false;
 bool Lantern_Engine = false;
+
+bool DC_HudTweaks = false;
+
+void CheckDCConfig(const HelperFunctions& helperFunctions)
+{
+	auto DC_Mod = helperFunctions.Mods->find("sadx-dreamcast-conversion");
+
+	if (DC_Mod)
+	{
+		DC_Conversion = true;
+
+		const IniFile* DC_Config = new IniFile(std::string(DC_Mod->Folder) + "\\config.ini");
+
+		DC_HudTweaks = DC_Config->getBool("Branding", "HUDTweak", true);
+
+		delete DC_Config;
+	}
+}
 
 void CheckActiveMods(const HelperFunctions& helperFunctions)
 {
 	HD_GUI = helperFunctions.Mods->find("sadx-hd-gui") != nullptr;
-	DC_Conversion = helperFunctions.Mods->find("sadx-dreamcast-conversion") != nullptr;
+	CheckDCConfig(helperFunctions);
 	
+	HUD_Plus = GetModuleHandle(L"sadx-hud-plus") != nullptr;
 	Lantern_Engine = GetModuleHandle(L"sadx-dc-lighting") != nullptr;
 }
 

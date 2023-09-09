@@ -13,7 +13,14 @@ extern "C"
 		CheckActiveMods(helperFunctions);
 		CheckModLoaderVersion(helperFunctions);
 		
-		STP_LoadObjects();
+		STP_LoadObjects(helperFunctions);
+
+
+		//	Expand Draw Queue Memory Pool (Applies to the entire game):
+		
+		WriteData((Uint32*)0x408643, 0x100000ui32);
+		WriteData((Uint32*)0x40864D, 0x100000ui32);
+		WriteData((Uint32*)0x40866B, 0x100000ui32);
 
 		
 		//	Gnorc Cove INIT:
@@ -42,19 +49,10 @@ extern "C"
 		
 		//	Tree Tops INIT:
 
-		WriteData<5>((void*)0x422D84, 0x90); // Disable DC Conversion Sky Deck
-		
-		RoundMasterList[LevelIDs_SkyDeck] = EXEC_TreeTops;
-		ScrollMasterList[LevelIDs_SkyDeck] = BG_TreeTops;
-
 		TT_INIT_Level(helperFunctions);
+		TT_INIT_LevelTask();
 		TT_INIT_Objects();
 		TT_INIT_Graphics(path, helperFunctions);
-	}
-
-	__declspec(dllexport) void __cdecl OnFrame()
-	{
-		
 	}
 
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
