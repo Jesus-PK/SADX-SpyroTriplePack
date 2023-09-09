@@ -1,5 +1,13 @@
 #include "pch.h"
 
+#include "o_basicchest.h"
+#include "o_crystalstatue.h"
+#include "o_dragons.h"
+#include "o_exitportal.h"
+#include "o_exittext.h"
+#include "o_lifechest.h"
+#include "o_metalchest.h"
+
 //	Town Square Textures:
 
 NJS_TEXNAME TEX_TownSquare[64] = { 0 };
@@ -45,7 +53,7 @@ _OBJ_ITEMENTRY OBJECTLIST_TownSquare_Entries[] = {
 	{ 2, 2, 1, 1000000.0f, 0, EXEC_MetalChest, "O METAL CHEST"}, // ID 27
 	{ 2, 2, 1, 1000000.0f, 0, EXEC_ExitPortal, "O EXIT PORTAL"}, // ID 28
 	{ 2, 2, 1, 1000000.0f, 0, EXEC_ExitText, "O EXIT TEXT"}, // ID 29
-	{ 2, 2, 1, 1000000.0f, 0, EXEC_Spyro, "O SPABA"} // ID 30
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_Spyro, "O SPYRO LEDGE"} // ID 30
 };
 
 _OBJ_ITEMTABLE OBJECTLIST_TownSquare = { LengthOfArray(OBJECTLIST_TownSquare_Entries), 0, OBJECTLIST_TownSquare_Entries };
@@ -54,27 +62,24 @@ _OBJ_ITEMTABLE OBJECTLIST_TownSquare = { LengthOfArray(OBJECTLIST_TownSquare_Ent
 //	Texture List:
 
 TEX_PVMTABLE TEXTURELIST_TownSquare[] = {
-	{ "OBJ_RUIN", (TexList*)0x1FF84BC },
-	{ "OBJ_RUIN2", (TexList*)0x1FF86CC },
-	{ "E_LEON", (TexList*)0x9599F4 },
-	{ "PEN", (TexList*)0x92D39C },
-	{ "E_SNAKE", (TexList*)0x94E640 },
-	{ "LION", (TexList*)0x944094 },
-	{ "MOGU", (TexList*)0x93ECEC },
-	{ "ZOU", (TexList*)0x94160C },
-	{ "UNI_C_UNIBODY", (TexList*)0x96DC48 },
-	{ "GORI", (TexList*)0x945964 },
-
+	{ "PEN", (TexList*)0x92D39C }, // Penguin
+	{ "LION", (TexList*)0x944094 }, // Lion
+	{ "MOGU", (TexList*)0x93ECEC }, // Mole
+	{ "ZOU", (TexList*)0x94160C }, // Elephant
+	{ "GORI", (TexList*)0x945964 }, // Gorilla
+	{ "SUPI_SUPI", (TexList*)0x96F518 }, // Spinner
+	{ "UNI_A_UNIBODY", (TexList*)0x96CB5C }, // Unidus Black
+	{ "TOGEBALL_TOGEBALL", (TexList*)0x96BC54 }, // Spiked Ball
+	
 	{ "STP_TownSquare-Water", &TEXLIST_TownSquare_Water },
 	{ "STP_TownSquare-Fountain", &TEXLIST_TownSquare_Fountain },
 	{ "STP_Objects", &TEXLIST_STP_Objects },
 	{ "STP_Dragons", &TEXLIST_STP_Dragons },
-	{ "SUPI_SUPI", (TexList*)0x96F518 }, // Spinner Textures
-	{ "UNI_A_UNIBODY", (TexList*)0x96CB5C }, // Unidus Textures
-	{ "TOGEBALL_TOGEBALL", (TexList*)0x96BC54 }, // Spikeball Textures (Unidus / Trap)
 	{ 0 }
 };
 
+
+//	Init Objects:
 
 void TS_INIT_Objects()
 {
@@ -82,4 +87,5 @@ void TS_INIT_Objects()
 
 	objItemTable[LevelIDs_LostWorld * 8] = &OBJECTLIST_TownSquare;
 	objItemTable[LevelIDs_LostWorld * 8 + 1] = &OBJECTLIST_TownSquare;
+	objItemTable[LevelIDs_LostWorld * 8 + 2] = &OBJECTLIST_TownSquare;
 }

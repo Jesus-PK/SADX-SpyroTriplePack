@@ -92,7 +92,7 @@ TEX_PVMTABLE TEXTURELIST_GnorcCove[] = {
 };
 
 
-//	Load Object List and Texture List:
+//	Init Objects:
 
 void GC_INIT_Objects()
 {

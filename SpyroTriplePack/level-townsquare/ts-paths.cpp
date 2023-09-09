@@ -31,3 +31,4 @@ LoopHead* PATHLIST_TownSquare[] = {
 
 PathDataPtr PATHDATA_TownSquare00 = { levelact(LevelIDs_LostWorld, 0), PATHLIST_TownSquare };
 PathDataPtr PATHDATA_TownSquare01 = { levelact(LevelIDs_LostWorld, 1), PATHLIST_TownSquare };
+PathDataPtr PATHDATA_TownSquare02 = { levelact(LevelIDs_LostWorld, 2), PATHLIST_TownSquare };

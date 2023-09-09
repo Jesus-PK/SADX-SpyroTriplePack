@@ -1,4 +1,6 @@
 #include "pch.h"
+#include "deathzones.h"
+#include "paths.h"
 
 //	Custom FogData, DrawDistance and SkyboxDrawDistance values:
 
@@ -38,6 +40,7 @@ void LANDTABLE_TownSquare()
 
 	GeoLists[LevelIDs_LostWorld * 8] = MDL_TSLandtable->getlandtable();
 	GeoLists[LevelIDs_LostWorld * 8 + 1] = MDL_TSLandtable->getlandtable();
+	GeoLists[LevelIDs_LostWorld * 8 + 2] = MDL_TSLandtable->getlandtable();
 }
 
 
@@ -47,6 +50,7 @@ void DEATHZONES_TownSquare()
 {
 	KillingCollisionModelsListList[LevelIDs_LostWorld][0] = TSDeathzones00;
 	KillingCollisionModelsListList[LevelIDs_LostWorld][1] = TSDeathzones00;
+	KillingCollisionModelsListList[LevelIDs_LostWorld][2] = TSDeathzones00;
 }
 
 
@@ -54,6 +58,7 @@ void DEATHZONES_TownSquare()
 
 StartPosition TownSquare00 = { LevelIDs_LostWorld, 0, { 173.22f, -25.0f, 300.9f }, 0xC000 };
 StartPosition TownSquare01 = { LevelIDs_LostWorld, 1, { 173.22f, -25.0f, 300.9f }, 0xC000 };
+StartPosition TownSquare02 = { LevelIDs_LostWorld, 2, { 173.22f, -25.0f, 300.9f }, 0xC000 };
 
 void STARTPOSITIONS_TownSquare(const HelperFunctions& helperFunctions)
 {
@@ -61,6 +66,7 @@ void STARTPOSITIONS_TownSquare(const HelperFunctions& helperFunctions)
 	{
 		helperFunctions.RegisterStartPosition(i, TownSquare00);
 		helperFunctions.RegisterStartPosition(i, TownSquare01);
+		helperFunctions.RegisterStartPosition(i, TownSquare02);
 	}
 }
 
@@ -71,6 +77,7 @@ void PATHS_TownSquare(const HelperFunctions& helperFunctions)
 {
 	helperFunctions.RegisterPathList(PATHDATA_TownSquare00);
 	helperFunctions.RegisterPathList(PATHDATA_TownSquare01);
+	helperFunctions.RegisterPathList(PATHDATA_TownSquare02);
 }
 
 
@@ -106,6 +113,8 @@ void FILES_TownSquare(const HelperFunctions& helperFunctions)
 
 void TS_INIT_Level(const HelperFunctions& helperFunctions)
 {
+	WriteData<5>((void*)0x422DEF, 0x90); // Disable DC Conversion Lost World
+	
 	LANDTABLE_TownSquare();
 	DEATHZONES_TownSquare();
 	STARTPOSITIONS_TownSquare(helperFunctions);

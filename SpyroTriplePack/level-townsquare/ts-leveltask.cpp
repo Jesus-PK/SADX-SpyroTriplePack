@@ -1,12 +1,8 @@
 #include "pch.h"
+#include "o_skyboxes.h"
+#include "texanims.h"
 
 //	Animated Textures and Level Task:
-
-void ANIMATEDWATER_TownSquare()
-{
-	TEXLIST_TownSquare.textures[0].texaddr = TEXLIST_TownSquare_Water.textures[(FrameCounter / 2) % (LengthOfArray(TEX_TownSquare_Water))].texaddr; // Water Animation
-	TEXLIST_TownSquare.textures[1].texaddr = TEXLIST_TownSquare_Fountain.textures[(FrameCounter / 3) % (LengthOfArray(TEX_TownSquare_Fountain))].texaddr; // Fountain Animation
-}
 
 void RD_TownSquare(task* tp)
 {
@@ -17,9 +13,21 @@ void RD_TownSquare(task* tp)
 		ADXTaskInit();
 		PlayMusic(MusicIDs_lstwrld1);
 
+		SETVIEWDATA_TownSquare();
+
 		twp->mode++;
 	}
+	
+	TS_ANIM_Water();
+}
 
-	SETVIEWDATA_TownSquare();
-	ANIMATEDWATER_TownSquare();
+
+//	Init LevelTask:
+
+void TS_INIT_LevelTask()
+{
+	RoundMasterList[LevelIDs_LostWorld] = RD_TownSquare; // Level Task.
+	ScrollMasterList[LevelIDs_LostWorld] = BG_TownSquare; // Skybox Task.
+
+	WriteData<10>((void*)0x434A19, 0x90); // Remove "No Free-Cam" boxes in Lost World Act 2.
 }

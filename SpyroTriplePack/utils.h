@@ -1,16 +1,15 @@
 #pragma once
 
-//	Counters:
-
-extern bool HasKey;
-extern uint8_t DragonCount;
-
-
 //	Macros:
 
 #define ReplaceTex(pvm, pvr, folder, pngname, gbix, x, y) helperFunctions.ReplaceTexture(pvm, pvr, (std::string(path) + "\\textures\\" folder "\\" pngname ".png").c_str(), gbix, x, y);
 #define ReplaceBIN(a, b) helperFunctions.ReplaceFile("system\\" a ".BIN", "system\\" b ".BIN");
 #define ReplacePVR(a, b) helperFunctions.ReplaceFile("system\\" a ".PVR", b);
+
+//	Counters:
+
+extern bool HasKey;
+extern uint8_t DragonCount;
 
 
 //	Bools and code to check if certain mods are enabled / disabled & Mod Loader API version check:
