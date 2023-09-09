@@ -73,7 +73,7 @@ _OBJ_ITEMTABLE OBJECTLIST_GnorcCove = { LengthOfArray(OBJECTLIST_GnorcCove_Entri
 //	Texture List:
 
 TEX_PVMTABLE TEXTURELIST_GnorcCove[] = {
-	{ "OBJ_TWINKLE", (TexList*)0x279BF68 }, // Twinkle Park OBJ Textures
+	//{ "OBJ_TWINKLE", (TexList*)0x279BF68 }, // Twinkle Park OBJ Textures
 	{ "KOAR", (TexList*)0x9359B4 }, // Koala
 	{ "WARA", (TexList*)0x93852C }, // Wallaby
 	{ "USA", (TexList*)0x93CF74 }, // Rabbit

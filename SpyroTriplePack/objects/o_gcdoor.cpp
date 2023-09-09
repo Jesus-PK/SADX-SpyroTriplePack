@@ -12,7 +12,7 @@ void DISPLAY_GCDoor(task* tp)
 
     auto twp = tp->twp;
 
-    njSetTexture(&TEXLIST_STP_Objects);
+    njSetTexture(&TEXLIST_GnorcCove);
     
     njPushMatrix(0);
     
