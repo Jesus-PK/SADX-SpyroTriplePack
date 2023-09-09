@@ -25,24 +25,16 @@ extern "C"
 		
 		//	Gnorc Cove INIT:
 
-		WriteData<5>((void*)0x422C3E, 0x90); // Disable DC Conversion Twinkle Park
-		
-		RoundMasterList[LevelIDs_TwinklePark] = RD_GnorcCove;
-		ScrollMasterList[LevelIDs_TwinklePark] = BG_GnorcCove;
-
 		GC_INIT_Level(helperFunctions);
+		GC_INIT_LevelTask();
 		GC_INIT_Objects();
 		GC_INIT_Graphics(path, helperFunctions);
 
 		
 		//	Town Square INIT:
 
-		WriteData<5>((void*)0x422DEF, 0x90); // Disable DC Conversion Lost World
-		
-		RoundMasterList[LevelIDs_LostWorld] = RD_TownSquare;
-		ScrollMasterList[LevelIDs_LostWorld] = BG_TownSquare;
-
 		TS_INIT_Level(helperFunctions);
+		TS_INIT_LevelTask();
 		TS_INIT_Objects();
 		TS_INIT_Graphics(path, helperFunctions);
 		

@@ -10,7 +10,6 @@
 #include "o_lifechest.h"
 #include "o_lockedchest.h"
 #include "o_metalchest.h"
-#include "o_skyboxes.h"
 #include "o_spottedchicken.h"
 
 //	Textures:

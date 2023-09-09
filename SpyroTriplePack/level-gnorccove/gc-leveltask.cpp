@@ -1,11 +1,8 @@
 #include "pch.h"
+#include "o_skyboxes.h"
+#include "texanims.h"
 
 //	Animated Textures and Level Task:
-
-void ANIMATEDWATER_GnorcCove()
-{
-	TEXLIST_GnorcCove.textures[10].texaddr = TEXLIST_GnorcCove_Water.textures[(FrameCounter / 2) % (LengthOfArray(TEX_GnorcCove_Water))].texaddr;
-}
 
 void RD_GnorcCove(task* tp)
 {
@@ -16,18 +13,18 @@ void RD_GnorcCove(task* tp)
 		ADXTaskInit();
 		PlayMusic(MusicIDs_twnklpk1);
 
+		SETVIEWDATA_GnorcCove();
+
 		twp->mode++;
 	}
 
-	SETVIEWDATA_GnorcCove();
-	ANIMATEDWATER_GnorcCove();
+	GC_ANIM_Water();
 }
 
 
-//	FuncHooks for this level:
+//	Delete hardcoded metal drum in Amy's layout:
 
 FunctionHook<void> ADC_SetDrumCan_t(0x4C5610);
-FunctionHook<void> AmyMain_LoadZERO_t(0x486A40);
 
 void ADC_SetDrumCan_r()
 {
@@ -38,6 +35,11 @@ void ADC_SetDrumCan_r()
 		return ADC_SetDrumCan_t.Original();
 }
 
+
+//	Prevent ZERO from spawning as Amy:
+
+FunctionHook<void> AmyMain_LoadZERO_t(0x486A40);
+
 void AmyMain_LoadZERO_r()
 {
 	if (CurrentLevel == LevelIDs_TwinklePark)
@@ -47,8 +49,14 @@ void AmyMain_LoadZERO_r()
 		return AmyMain_LoadZERO_t.Original();
 }
 
-void INIT_AmyHooks_GnorcCove()
+
+//	Init LevelTask:
+
+void GC_INIT_LevelTask()
 {
+	RoundMasterList[LevelIDs_TwinklePark] = RD_GnorcCove; // Level Task.
+	ScrollMasterList[LevelIDs_TwinklePark] = BG_GnorcCove; // Skybox Task.
+	
 	ADC_SetDrumCan_t.Hook(ADC_SetDrumCan_r); //	Delete hardcoded metal drum in Amy's layout.
 	AmyMain_LoadZERO_t.Hook(AmyMain_LoadZERO_r); // Prevent ZERO from spawning as Amy.
 }

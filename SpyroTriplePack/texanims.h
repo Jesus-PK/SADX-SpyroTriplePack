@@ -1,8 +1,8 @@
 #pragma once
 
-void AnimatedWater_GnorcCove();
-void AnimatedWater_TownSquare();
+void GC_ANIM_Water();
+void TS_ANIM_Water();
 
 //	Tree Tops Texanims:
-void ANIM_WoodenRamp(task* tp);
-void ANIM_GrassRamp(task* tp);
+void TT_ANIM_WoodenRamp(task* tp);
+void TT_ANIM_GrassRamp(task* tp);

@@ -1,4 +1,6 @@
 #include "pch.h"
+#include "deathzones.h"
+#include "paths.h"
 
 //	Custom FogData, DrawDistance and SkyboxDrawDistance values:
 
@@ -38,6 +40,7 @@ void LANDTABLE_GnorcCove()
 
 	GeoLists[LevelIDs_TwinklePark * 8] = MDL_GCLandtable->getlandtable();
 	GeoLists[LevelIDs_TwinklePark * 8 + 1] = MDL_GCLandtable->getlandtable();
+	GeoLists[LevelIDs_TwinklePark * 8 + 2] = MDL_GCLandtable->getlandtable();
 }
 
 
@@ -47,6 +50,7 @@ void DEATHZONES_GnorcCove()
 {
 	KillingCollisionModelsListList[LevelIDs_TwinklePark][0] = GCDeathzones00;
 	KillingCollisionModelsListList[LevelIDs_TwinklePark][1] = GCDeathzones00;
+	KillingCollisionModelsListList[LevelIDs_TwinklePark][2] = GCDeathzones00;
 }
 
 
@@ -54,6 +58,7 @@ void DEATHZONES_GnorcCove()
 
 StartPosition GnorcCove00 = { LevelIDs_TwinklePark, 0, { -1010.9f, 25, 343.09f }, 0xC000 };
 StartPosition GnorcCove01 = { LevelIDs_TwinklePark, 1, { -1010.9f, 25, 343.09f }, 0xC000 };
+StartPosition GnorcCove02 = { LevelIDs_TwinklePark, 2, { -1010.9f, 25, 343.09f }, 0xC000 };
 
 void STARTPOSITIONS_GnorcCove(const HelperFunctions& helperFunctions)
 {
@@ -61,6 +66,7 @@ void STARTPOSITIONS_GnorcCove(const HelperFunctions& helperFunctions)
 	{
 		helperFunctions.RegisterStartPosition(i, GnorcCove00);
 		helperFunctions.RegisterStartPosition(i, GnorcCove01);
+		helperFunctions.RegisterStartPosition(i, GnorcCove02);
 	}
 }
 
@@ -71,6 +77,7 @@ void PATHS_GnorcCove(const HelperFunctions& helperFunctions)
 {
 	helperFunctions.RegisterPathList(PATHDATA_GnorcCove00);
 	helperFunctions.RegisterPathList(PATHDATA_GnorcCove01);
+	helperFunctions.RegisterPathList(PATHDATA_GnorcCove02);
 }
 
 
@@ -108,6 +115,8 @@ void FILES_GnorcCove(const HelperFunctions& helperFunctions)
 
 void GC_INIT_Level(const HelperFunctions& helperFunctions)
 {
+	WriteData<5>((void*)0x422C3E, 0x90); // Disable DC Conversion Twinkle Park
+	
 	LANDTABLE_GnorcCove();
 	DEATHZONES_GnorcCove();
 	STARTPOSITIONS_GnorcCove(helperFunctions);

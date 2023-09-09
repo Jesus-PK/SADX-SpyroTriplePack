@@ -13,6 +13,8 @@ void DISPLAY_GCSkybox(task* tp)
 {
     auto twp = tp->twp;
 
+    njSetTexture(&TEXLIST_STP_Objects);
+    
     Direct3D_SetNearFarPlanes(SkyboxDrawDistance.Minimum, SkyboxDrawDistance.Maximum);
 
     DisableFog();
@@ -56,6 +58,8 @@ void DISPLAY_TSSkybox(task* tp)
 {
     auto twp = tp->twp;
 
+    njSetTexture(&TEXLIST_STP_Objects);
+    
     Direct3D_SetNearFarPlanes(SkyboxDrawDistance.Minimum, SkyboxDrawDistance.Maximum);
 
     DisableFog();
@@ -99,6 +103,8 @@ void DISPLAY_TTSkybox(task* tp)
 {
     auto twp = tp->twp;
 
+    njSetTexture(&TEXLIST_STP_Objects);
+    
     Direct3D_SetNearFarPlanes(SkyboxDrawDistance.Minimum, SkyboxDrawDistance.Maximum);
 
     DisableFog();

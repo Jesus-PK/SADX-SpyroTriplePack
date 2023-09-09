@@ -2,7 +2,7 @@
 
 //  Gnorc Cove Texture Animations:
 
-void AnimatedWater_GnorcCove()
+void GC_ANIM_Water()
 {
 	TEXLIST_GnorcCove.textures[10].texaddr = TEXLIST_GnorcCove_Water.textures[(FrameCounter / 2) % (LengthOfArray(TEX_GnorcCove_Water))].texaddr;
 }
@@ -10,7 +10,7 @@ void AnimatedWater_GnorcCove()
 
 //  Town Square Texture Animations:
 
-void AnimatedWater_TownSquare()
+void TS_ANIM_Water()
 {
 	TEXLIST_TownSquare.textures[0].texaddr = TEXLIST_TownSquare_Water.textures[(FrameCounter / 2) % (LengthOfArray(TEX_TownSquare_Water))].texaddr; // Water Animation
 	TEXLIST_TownSquare.textures[1].texaddr = TEXLIST_TownSquare_Fountain.textures[(FrameCounter / 3) % (LengthOfArray(TEX_TownSquare_Fountain))].texaddr; // Fountain Animation
@@ -42,7 +42,7 @@ void DeleteTexture_WR(task* tp)
     TexID_Count_WR = TexID_Start_WR;
 }
 
-void ANIM_WoodenRamp(task* tp)
+void TT_ANIM_WoodenRamp(task* tp)
 {
     auto twp = tp->twp;
 
@@ -116,7 +116,7 @@ void DeleteTexture_GR(task* tp)
     TexID_Count_GR = TexID_Start_GR;
 }
 
-void ANIM_GrassRamp(task* tp)
+void TT_ANIM_GrassRamp(task* tp)
 {
     auto twp = tp->twp;
 

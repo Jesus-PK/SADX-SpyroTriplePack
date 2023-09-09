@@ -108,7 +108,7 @@ void FILES_TreeTops(const HelperFunctions& helperFunctions)
 
 	// OST Replacement:
 
-	helperFunctions.ReplaceFile("system\\sounddata\\bgm\\wma\\skydeck1.wma", "system\\OST_TreeTops.adx");
+	helperFunctions.ReplaceFile("system\\sounddata\\bgm\\wma\\skydeck1.wma", "system\\STP_OST-GC.adx");
 }
 
 

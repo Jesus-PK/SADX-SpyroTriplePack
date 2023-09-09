@@ -101,3 +101,4 @@ LoopHead* PATHLIST_GnorcCove[] = {
 
 PathDataPtr PATHDATA_GnorcCove00 = { levelact(LevelIDs_TwinklePark, 0), PATHLIST_GnorcCove };
 PathDataPtr PATHDATA_GnorcCove01 = { levelact(LevelIDs_TwinklePark, 1), PATHLIST_GnorcCove };
+PathDataPtr PATHDATA_GnorcCove02 = { levelact(LevelIDs_TwinklePark, 2), PATHLIST_GnorcCove };
