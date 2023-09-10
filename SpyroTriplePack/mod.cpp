@@ -27,6 +27,7 @@ extern "C"
 
 		GC_INIT_Level(helperFunctions);
 		GC_INIT_LevelTask();
+		GC_INIT_LevelRanks();
 		GC_INIT_Objects();
 		GC_INIT_Graphics(path, helperFunctions);
 
@@ -35,6 +36,7 @@ extern "C"
 
 		TS_INIT_Level(helperFunctions);
 		TS_INIT_LevelTask();
+		TS_INIT_LevelRanks();
 		TS_INIT_Objects();
 		TS_INIT_Graphics(path, helperFunctions);
 		
@@ -43,6 +45,7 @@ extern "C"
 
 		TT_INIT_Level(helperFunctions);
 		TT_INIT_LevelTask();
+		TT_INIT_LevelRanks();
 		TT_INIT_Objects();
 		TT_INIT_Graphics(path, helperFunctions);
 	}
