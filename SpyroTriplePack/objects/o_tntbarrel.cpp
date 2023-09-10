@@ -9,22 +9,15 @@ ModelInfo* MDL_TNTDebris03 = nullptr;
 ModelInfo* MDL_TNTDebris04 = nullptr;
 ModelInfo* MDL_TNTDebris05 = nullptr;
 
-DataArray(childtaskset, cts_tpbarrel, 0x27C6838, 5); // This is necessary to replace the debris pieces correctly - It's the cts function that spawns the debris pieces (cts_tpbarrel)
+//  I declare the original CTS function that OBarrel uses via a DataArray so I can edit the models that the CTS will load (I do it the same way as I do for my custom ChildTaskSets for my custom object debris):
 
-void OBarrel_Display_Texture(task* tp)
-{
-    njSetTexture(&TEXLIST_GnorcCove);
-}
+DataArray(childtaskset, cts_tpbarrel, 0x27C6838, 5);
 
-void OBarrel_Display_Model(task* tp)
-{
-    dsDrawObject(MDL_TNTBarrel->getmodel());
-}
 
-void TNTDebris_Texture()
-{
-    njSetTexture(&TEXLIST_GnorcCove);
-}
+//  TNT Barrel - Custom Display:
+
+//  I do a WriteJump on the original OBarrel_Display function with this one below so I can load my custom Texlist and Model more cleanly instead of doing a WriteData on the NJS_MODEL or WriteCall on the njSetTexture / ds_DrawObject.
+//  The original exec of the object (OBarrel) will call my custom display due to the WriteJump.
 
 void DISPLAY_TNTBarrel(task* tp)
 {
@@ -33,23 +26,30 @@ void DISPLAY_TNTBarrel(task* tp)
 
     auto twp = tp->twp;
 
-    njSetTexture(&TEXLIST_GnorcCove);
+    njSetTexture(&TEXLIST_STP_Objects);
 
     njPushMatrix(0);
 
     njTranslateV(0, &twp->pos);
     njRotateXYZ(0, twp->ang.x, twp->ang.y, twp->ang.z);
-
+    //njScale(0, 3.0, 3.0, 3.0);
+    
     dsDrawObject(MDL_TNTBarrel->getmodel());
 
     njPopMatrix(1u);
 }
 
+
+//  TNT Barrel Debris - Custom Display:
+
+//  Same deal as above, WriteJump on the original display function of the debris (0x623D80) so it can use my custom one. IIRC, this one is basically the same code but cleaner (from back when Kell taught me custom CTS).
+//  The original exec of the debris function (0x623E00) will call my custom display due to the WriteJump.
+
 void DISPLAY_TNTDebris(task* tp)
 {
     auto twp = tp->twp;
 
-    njSetTexture(&TEXLIST_GnorcCove);
+    njSetTexture(&TEXLIST_STP_Objects);
 
     njPushMatrix(0);
 
@@ -61,7 +61,7 @@ void DISPLAY_TNTDebris(task* tp)
     if (twp->ang.y)
         njRotateY(0, twp->ang.y);
 
-    njScale(0, 3.0, 3.0, 3.0);
+    //njScale(0, 3.0f, 3.0f, 3.0f);
     
     ds_DrawObjectClip((NJS_OBJECT*)twp->counter.ptr, 1.0F);
 
@@ -80,13 +80,8 @@ void LOAD_TNTBarrel()
     MDL_TNTDebris04 = LoadBasicModel("STP_TNTDebris04");
     MDL_TNTDebris05 = LoadBasicModel("STP_TNTDebris05");
 
-    //WriteData((NJS_OBJECT**)0x624167, MDL_TNTBarrel->getmodel()); // Replace TP explosive barrel model.
-
-    //WriteCall((void*)0x623CD1, OBarrel_Display_Texture);
-    //WriteCall((void*)0x623D17, OBarrel_Display_Model);
-
-    WriteJump((void*)0x623CC0, DISPLAY_TNTBarrel);
-    WriteJump((void*)0x623D80, DISPLAY_TNTDebris);
+    WriteJump((void*)0x623CC0, DISPLAY_TNTBarrel); // Replace OBarrel Display Function
+    WriteJump((void*)0x623D80, DISPLAY_TNTDebris); // Replace OBarrel Debris Display Function
 
     cts_tpbarrel[0].ptr = MDL_TNTDebris01->getmodel(); // Replace TP explosive barrel debris (cts pointers).
     cts_tpbarrel[1].ptr = MDL_TNTDebris02->getmodel();

@@ -122,5 +122,5 @@ void TT_INIT_Level(const HelperFunctions& helperFunctions)
 	DEATHZONES_TreeTops();
 	STARTPOSITIONS_TreeTops(helperFunctions);
 	PATHS_TreeTops(helperFunctions);
-	FILES_TreeTops(helperFunctions);
+	//FILES_TreeTops(helperFunctions);
 }
