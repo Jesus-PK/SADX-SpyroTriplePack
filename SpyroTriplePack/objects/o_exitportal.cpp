@@ -124,6 +124,8 @@ void EXEC_ExitPortal(task* tp)
 
                 twp->mode--; // Return to the previous case to repeat the process.
             }
+
+            break;
         }
     }
     
