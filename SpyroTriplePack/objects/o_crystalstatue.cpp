@@ -314,7 +314,7 @@ void EXEC_CrystalStatue(task* tp)
             break;
     }
 
-    Knuckles_KakeraGame_Set_CheckEme(twp->ang.z, &twp->pos); // This checks if the emerald ID exists and let's the radar track it, needs to be called every frame.
+    Knuckles_KakeraGame_Set_CheckEme(twp->ang.z, &twp->pos);
 
     tp->disp(tp);
 }

@@ -34,12 +34,12 @@ CCL_INFO COLLI_Lyle = { 0, CollisionShape_Capsule, 0x77, 0, 0, { 0.0f, 12.5f, 0.
 CCL_INFO COLLI_Jed = { 0, CollisionShape_Capsule, 0x77, 0, 0, { 0.0f, 12.5f, 0.0f }, 7.5f, 10.0f, 0.0f, 0.0f, 0, 0, 0 };
 CCL_INFO COLLI_Bruno = { 0, CollisionShape_Capsule, 0x77, 0, 0, { 0.0f, 15.0f, 0.0f }, 7.5f, 12.5f, 0.0f, 0.0f, 0, 0, 0 };
 CCL_INFO COLLI_Cleetus = { 0, CollisionShape_Capsule, 0x77, 0, 0, { 0.0f, 12.5f, 0.0f }, 7.5f, 10.0f, 0.0f, 0.0f, 0, 0, 0 };
-CCL_INFO COLLI_Lateef = { 0, CollisionShape_Capsule, 0x77, 0, 0, { 0.0f, 12.5f, 0.0f }, 7.5f, 10.0f, 0.0f, 0.0f, 0, 0, 0 };
-CCL_INFO COLLI_Tomas = { 0, CollisionShape_Capsule, 0x77, 0, 0, { 0.0f, 12.5f, 0.0f }, 7.5f, 10.0f, 0.0f, 0.0f, 0, 0, 0 };
-CCL_INFO COLLI_Nils = { 0, CollisionShape_Capsule, 0x77, 0, 0, { 0.0f, 12.5f, 0.0f }, 7.5f, 10.0f, 0.0f, 0.0f, 0, 0, 0 };
+CCL_INFO COLLI_Lateef = { 0, CollisionShape_Capsule, 0x77, 0, 0, { 0.0f, 15.0f, 0.0f }, 7.5f, 12.5f, 0.0f, 0.0f, 0, 0, 0 };
+CCL_INFO COLLI_Tomas = { 0, CollisionShape_Capsule, 0x77, 0, 0, { 0.0f, 17.5f, 0.0f }, 7.5f, 15.0f, 0.0f, 0.0f, 0, 0, 0 };
+CCL_INFO COLLI_Nils = { 0, CollisionShape_Capsule, 0x77, 0, 0, { 0.0f, 15.0f, 0.0f }, 7.5f, 12.5f, 0.0f, 0.0f, 0, 0, 0 };
 CCL_INFO COLLI_Devlin = { 0, CollisionShape_Capsule, 0x77, 0, 0, { 0.0f, 12.5f, 0.0f }, 7.5f, 10.0f, 0.0f, 0.0f, 0, 0, 0 };
 CCL_INFO COLLI_Alvar = { 0, CollisionShape_Capsule, 0x77, 0, 0, { 0.0f, 12.5f, 0.0f }, 7.5f, 10.0f, 0.0f, 0.0f, 0, 0, 0 };
-CCL_INFO COLLI_Thor = { 0, CollisionShape_Capsule, 0x77, 0, 0, { 0.0f, 12.5f, 0.0f }, 7.5f, 10.0f, 0.0f, 0.0f, 0, 0, 0 };
+CCL_INFO COLLI_Thor = { 0, CollisionShape_Capsule, 0x77, 0, 0, { 0.0f, 10.0f, 0.0f }, 7.5f, 15.0f, 0.0f, 0.0f, 0x4000, 0, 0 };
 
 
 //  Values:
@@ -306,7 +306,11 @@ void DISPLAY_Nils(task* tp)
     
     njPushMatrix(0);
     
-    njTranslate(0, twp->pos.x, twp->pos.y + 2.0f, twp->pos.z);
+    njTranslate(0,
+        twp->pos.x + njSin(twp->ang.y) * 5.0f,
+        twp->pos.y + 2.0f,
+        twp->pos.z + njCos(twp->ang.y) * 5.0f
+    );
     njRotateXYZ(0, twp->ang.x, twp->ang.y, twp->ang.z);
     njScaleV(0, &SCALE_Dragon);
 
@@ -330,7 +334,11 @@ void DISPLAY_Devlin(task* tp)
     
     njPushMatrix(0);
     
-    njTranslate(0, twp->pos.x, twp->pos.y + 2.0f, twp->pos.z);
+    njTranslate(0,
+        twp->pos.x + njSin(twp->ang.y) * 4.0f,
+        twp->pos.y + 2.0f,
+        twp->pos.z + njCos(twp->ang.y) * 4.0f
+    );
     njRotateXYZ(0, twp->ang.x, twp->ang.y, twp->ang.z);
     njScaleV(0, &SCALE_Dragon);
 
@@ -354,7 +362,11 @@ void DISPLAY_Alvar(task* tp)
     
     njPushMatrix(0);
     
-    njTranslate(0, twp->pos.x, twp->pos.y + 2.0f, twp->pos.z);
+    njTranslate(0,
+        twp->pos.x + njSin(twp->ang.y) * 4.0f,
+        twp->pos.y + 2.0f,
+        twp->pos.z + njCos(twp->ang.y) * 4.0f
+    );
     njRotateXYZ(0, twp->ang.x, twp->ang.y, twp->ang.z);
     njScaleV(0, &SCALE_Dragon);
 
@@ -391,10 +403,6 @@ void DISPLAY_Thor(task* tp)
 
 
 //  Dragons - Exec Functions:
-
-//  NOTE: Since these are child tasks and not SET objects, I use CheckRangeOutWithR to set up a custom range.
-//  In this case if (!CheckRangeOutWithR(tp, range)) whichs means: "If the object is not gonna be deleted, do what's in the condition".
-//  I don't use CheckRangeOut because this one picks up the range set in the object list, this is not the case for child objects since they are created manually and not part of the object list.
 
 void EXEC_Isaak(task* tp)
 {
@@ -610,7 +618,7 @@ void EXEC_Lateef(task* tp)
                 CCL_Init(tp, &COLLI_Lateef, 1, 4u);
 
                 POS_LateefSmoke.x = twp->pos.x;
-                POS_LateefSmoke.y = twp->pos.y + 18.0f;
+                POS_LateefSmoke.y = twp->pos.y + 15.0f;
                 POS_LateefSmoke.z = twp->pos.z;
 
                 twp->mode++;
@@ -619,9 +627,9 @@ void EXEC_Lateef(task* tp)
 
             case 1:
 
-                SPEED_Dragon += 0.33f; // Como?
+                SPEED_Dragon += 0.35f;
 
-                if (++twp->wtimer > 425)
+                if (++twp->wtimer > 410)
                 {
                     CreateSmoke(&POS_LateefSmoke, &VELO_DragonSmoke, 5.0f);
                     FreeTask(tp);
@@ -650,7 +658,7 @@ void EXEC_Tomas(task* tp)
                 CCL_Init(tp, &COLLI_Tomas, 1, 4u);
 
                 POS_TomasSmoke.x = twp->pos.x;
-                POS_TomasSmoke.y = twp->pos.y + 18.0f;
+                POS_TomasSmoke.y = twp->pos.y + 20.0f;
                 POS_TomasSmoke.z = twp->pos.z;
 
                 twp->mode++;
@@ -659,9 +667,9 @@ void EXEC_Tomas(task* tp)
 
             case 1:
 
-                SPEED_Dragon += 0.33f; // Como?
+                SPEED_Dragon += 0.35f;
 
-                if (++twp->wtimer > 425)
+                if (++twp->wtimer > 700)
                 {
                     CreateSmoke(&POS_TomasSmoke, &VELO_DragonSmoke, 5.0f);
                     FreeTask(tp);
@@ -690,7 +698,7 @@ void EXEC_Nils(task* tp)
                 CCL_Init(tp, &COLLI_Nils, 1, 4u);
 
                 POS_NilsSmoke.x = twp->pos.x;
-                POS_NilsSmoke.y = twp->pos.y + 18.0f;
+                POS_NilsSmoke.y = twp->pos.y + 12.0f;
                 POS_NilsSmoke.z = twp->pos.z;
 
                 twp->mode++;
@@ -699,9 +707,9 @@ void EXEC_Nils(task* tp)
 
             case 1:
 
-                SPEED_Dragon += 0.33f; // Como?
+                SPEED_Dragon += 0.375f;
 
-                if (++twp->wtimer > 425)
+                if (++twp->wtimer > 710)
                 {
                     CreateSmoke(&POS_NilsSmoke, &VELO_DragonSmoke, 5.0f);
                     FreeTask(tp);
@@ -730,7 +738,7 @@ void EXEC_Devlin(task* tp)
                 CCL_Init(tp, &COLLI_Devlin, 1, 4u);
 
                 POS_DevlinSmoke.x = twp->pos.x;
-                POS_DevlinSmoke.y = twp->pos.y + 18.0f;
+                POS_DevlinSmoke.y = twp->pos.y + 12.0f;
                 POS_DevlinSmoke.z = twp->pos.z;
 
                 twp->mode++;
@@ -739,9 +747,9 @@ void EXEC_Devlin(task* tp)
 
             case 1:
 
-                SPEED_Dragon += 0.33f; // Como?
+                SPEED_Dragon += 0.375f;
 
-                if (++twp->wtimer > 425)
+                if (++twp->wtimer > 650)
                 {
                     CreateSmoke(&POS_DevlinSmoke, &VELO_DragonSmoke, 5.0f);
                     FreeTask(tp);
@@ -770,7 +778,7 @@ void EXEC_Alvar(task* tp)
                 CCL_Init(tp, &COLLI_Alvar, 1, 4u);
 
                 POS_AlvarSmoke.x = twp->pos.x;
-                POS_AlvarSmoke.y = twp->pos.y + 18.0f;
+                POS_AlvarSmoke.y = twp->pos.y + 11.0f;
                 POS_AlvarSmoke.z = twp->pos.z;
 
                 twp->mode++;
@@ -779,9 +787,9 @@ void EXEC_Alvar(task* tp)
 
             case 1:
 
-                SPEED_Dragon += 0.33f; // Como?
+                SPEED_Dragon += 0.35f;
 
-                if (++twp->wtimer > 425)
+                if (++twp->wtimer > 960)
                 {
                     CreateSmoke(&POS_AlvarSmoke, &VELO_DragonSmoke, 5.0f);
                     FreeTask(tp);
@@ -810,7 +818,7 @@ void EXEC_Thor(task* tp)
                 CCL_Init(tp, &COLLI_Thor, 1, 4u);
 
                 POS_ThorSmoke.x = twp->pos.x;
-                POS_ThorSmoke.y = twp->pos.y + 18.0f;
+                POS_ThorSmoke.y = twp->pos.y + 11.0f;
                 POS_ThorSmoke.z = twp->pos.z;
 
                 twp->mode++;
@@ -819,9 +827,9 @@ void EXEC_Thor(task* tp)
 
             case 1:
 
-                SPEED_Dragon += 0.33f; // Como?
+                SPEED_Dragon += 0.35f;
 
-                if (++twp->wtimer > 425)
+                if (++twp->wtimer > 250)
                 {
                     CreateSmoke(&POS_ThorSmoke, &VELO_DragonSmoke, 5.0f);
                     FreeTask(tp);
