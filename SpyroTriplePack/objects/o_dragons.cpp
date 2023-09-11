@@ -8,6 +8,12 @@ ModelInfo* MDL_Lyle = nullptr;
 ModelInfo* MDL_Jed = nullptr;
 ModelInfo* MDL_Bruno = nullptr;
 ModelInfo* MDL_Cleetus = nullptr;
+ModelInfo* MDL_Lateef = nullptr;
+ModelInfo* MDL_Tomas = nullptr;
+ModelInfo* MDL_Nils = nullptr;
+ModelInfo* MDL_Devlin = nullptr;
+ModelInfo* MDL_Alvar = nullptr;
+ModelInfo* MDL_Thor = nullptr;
 
 AnimationFile* ANIM_Spyro = nullptr;
 AnimationFile* ANIM_Isaak = nullptr;
@@ -15,6 +21,12 @@ AnimationFile* ANIM_Lyle = nullptr;
 AnimationFile* ANIM_Jed = nullptr;
 AnimationFile* ANIM_Bruno = nullptr;
 AnimationFile* ANIM_Cleetus = nullptr;
+AnimationFile* ANIM_Lateef = nullptr;
+AnimationFile* ANIM_Tomas = nullptr;
+AnimationFile* ANIM_Nils = nullptr;
+AnimationFile* ANIM_Devlin = nullptr;
+AnimationFile* ANIM_Alvar = nullptr;
+AnimationFile* ANIM_Thor = nullptr;
 
 CCL_INFO COLLI_Spyro = { 0, CollisionShape_Capsule, 0x77, 0, 0, { 0.0f, 6.0f, 0.0f }, 6.0f, 3.0f, 0.0f, 0.0f, 0, 0, 0 };
 CCL_INFO COLLI_Isaak = { 0, CollisionShape_Capsule, 0x77, 0, 0, { 0.0f, 15.0f, 0.0f }, 7.5f, 12.5f, 0.0f, 0.0f, 0, 0, 0 };
@@ -22,6 +34,12 @@ CCL_INFO COLLI_Lyle = { 0, CollisionShape_Capsule, 0x77, 0, 0, { 0.0f, 12.5f, 0.
 CCL_INFO COLLI_Jed = { 0, CollisionShape_Capsule, 0x77, 0, 0, { 0.0f, 12.5f, 0.0f }, 7.5f, 10.0f, 0.0f, 0.0f, 0, 0, 0 };
 CCL_INFO COLLI_Bruno = { 0, CollisionShape_Capsule, 0x77, 0, 0, { 0.0f, 15.0f, 0.0f }, 7.5f, 12.5f, 0.0f, 0.0f, 0, 0, 0 };
 CCL_INFO COLLI_Cleetus = { 0, CollisionShape_Capsule, 0x77, 0, 0, { 0.0f, 12.5f, 0.0f }, 7.5f, 10.0f, 0.0f, 0.0f, 0, 0, 0 };
+CCL_INFO COLLI_Lateef = { 0, CollisionShape_Capsule, 0x77, 0, 0, { 0.0f, 12.5f, 0.0f }, 7.5f, 10.0f, 0.0f, 0.0f, 0, 0, 0 };
+CCL_INFO COLLI_Tomas = { 0, CollisionShape_Capsule, 0x77, 0, 0, { 0.0f, 12.5f, 0.0f }, 7.5f, 10.0f, 0.0f, 0.0f, 0, 0, 0 };
+CCL_INFO COLLI_Nils = { 0, CollisionShape_Capsule, 0x77, 0, 0, { 0.0f, 12.5f, 0.0f }, 7.5f, 10.0f, 0.0f, 0.0f, 0, 0, 0 };
+CCL_INFO COLLI_Devlin = { 0, CollisionShape_Capsule, 0x77, 0, 0, { 0.0f, 12.5f, 0.0f }, 7.5f, 10.0f, 0.0f, 0.0f, 0, 0, 0 };
+CCL_INFO COLLI_Alvar = { 0, CollisionShape_Capsule, 0x77, 0, 0, { 0.0f, 12.5f, 0.0f }, 7.5f, 10.0f, 0.0f, 0.0f, 0, 0, 0 };
+CCL_INFO COLLI_Thor = { 0, CollisionShape_Capsule, 0x77, 0, 0, { 0.0f, 12.5f, 0.0f }, 7.5f, 10.0f, 0.0f, 0.0f, 0, 0, 0 };
 
 
 //  Values:
@@ -38,6 +56,12 @@ NJS_POINT3 POS_LyleSmoke = { 0, 0, 0 };
 NJS_POINT3 POS_JedSmoke = { 0, 0, 0 };
 NJS_POINT3 POS_BrunoSmoke = { 0, 0, 0 };
 NJS_POINT3 POS_CleetusSmoke = { 0, 0, 0 };
+NJS_POINT3 POS_LateefSmoke = { 0, 0, 0 };
+NJS_POINT3 POS_TomasSmoke = { 0, 0, 0 };
+NJS_POINT3 POS_NilsSmoke = { 0, 0, 0 };
+NJS_POINT3 POS_DevlinSmoke = { 0, 0, 0 };
+NJS_POINT3 POS_AlvarSmoke = { 0, 0, 0 };
+NJS_POINT3 POS_ThorSmoke = { 0, 0, 0 };
 
 NJS_POINT3 VELO_DragonSmoke = { 0, 0, 0 };
 
@@ -216,6 +240,150 @@ void DISPLAY_Cleetus(task* tp)
 
     SetupChunkModelRender();
     njCnkAction(&ACTION_Cleetus, SPEED_Dragon);
+    ResetChunkModelRender();
+
+    njPopMatrix(1u);
+}
+
+void DISPLAY_Lateef(task* tp)
+{
+    if (MissedFrames)
+        return;
+
+    auto twp = tp->twp;
+
+    NJS_ACTION ACTION_Lateef = { MDL_Lateef->getmodel(), ANIM_Lateef->getmotion() };
+
+    njSetTexture(&TEXLIST_STP_Dragons);
+    
+    njPushMatrix(0);
+    
+    njTranslate(0, twp->pos.x, twp->pos.y + 2.0f, twp->pos.z);
+    njRotateXYZ(0, twp->ang.x, twp->ang.y, twp->ang.z);
+    njScaleV(0, &SCALE_Dragon);
+
+    SetupChunkModelRender();
+    njCnkAction(&ACTION_Lateef, SPEED_Dragon);
+    ResetChunkModelRender();
+
+    njPopMatrix(1u);
+}
+
+void DISPLAY_Tomas(task* tp)
+{
+    if (MissedFrames)
+        return;
+
+    auto twp = tp->twp;
+
+    NJS_ACTION ACTION_Tomas = { MDL_Tomas->getmodel(), ANIM_Tomas->getmotion() };
+
+    njSetTexture(&TEXLIST_STP_Dragons);
+    
+    njPushMatrix(0);
+    
+    njTranslate(0, twp->pos.x, twp->pos.y + 2.0f, twp->pos.z);
+    njRotateXYZ(0, twp->ang.x, twp->ang.y, twp->ang.z);
+    njScaleV(0, &SCALE_Dragon);
+
+    SetupChunkModelRender();
+    njCnkAction(&ACTION_Tomas, SPEED_Dragon);
+    ResetChunkModelRender();
+
+    njPopMatrix(1u);
+}
+
+void DISPLAY_Nils(task* tp)
+{
+    if (MissedFrames)
+        return;
+
+    auto twp = tp->twp;
+
+    NJS_ACTION ACTION_Nils = { MDL_Nils->getmodel(), ANIM_Nils->getmotion() };
+
+    njSetTexture(&TEXLIST_STP_Dragons);
+    
+    njPushMatrix(0);
+    
+    njTranslate(0, twp->pos.x, twp->pos.y + 2.0f, twp->pos.z);
+    njRotateXYZ(0, twp->ang.x, twp->ang.y, twp->ang.z);
+    njScaleV(0, &SCALE_Dragon);
+
+    SetupChunkModelRender();
+    njCnkAction(&ACTION_Nils, SPEED_Dragon);
+    ResetChunkModelRender();
+
+    njPopMatrix(1u);
+}
+
+void DISPLAY_Devlin(task* tp)
+{
+    if (MissedFrames)
+        return;
+
+    auto twp = tp->twp;
+
+    NJS_ACTION ACTION_Devlin = { MDL_Devlin->getmodel(), ANIM_Devlin->getmotion() };
+
+    njSetTexture(&TEXLIST_STP_Dragons);
+    
+    njPushMatrix(0);
+    
+    njTranslate(0, twp->pos.x, twp->pos.y + 2.0f, twp->pos.z);
+    njRotateXYZ(0, twp->ang.x, twp->ang.y, twp->ang.z);
+    njScaleV(0, &SCALE_Dragon);
+
+    SetupChunkModelRender();
+    njCnkAction(&ACTION_Devlin, SPEED_Dragon);
+    ResetChunkModelRender();
+
+    njPopMatrix(1u);
+}
+
+void DISPLAY_Alvar(task* tp)
+{
+    if (MissedFrames)
+        return;
+
+    auto twp = tp->twp;
+
+    NJS_ACTION ACTION_Alvar = { MDL_Alvar->getmodel(), ANIM_Alvar->getmotion() };
+
+    njSetTexture(&TEXLIST_STP_Dragons);
+    
+    njPushMatrix(0);
+    
+    njTranslate(0, twp->pos.x, twp->pos.y + 2.0f, twp->pos.z);
+    njRotateXYZ(0, twp->ang.x, twp->ang.y, twp->ang.z);
+    njScaleV(0, &SCALE_Dragon);
+
+    SetupChunkModelRender();
+    njCnkAction(&ACTION_Alvar, SPEED_Dragon);
+    ResetChunkModelRender();
+
+    njPopMatrix(1u);
+}
+
+void DISPLAY_Thor(task* tp)
+{
+    if (MissedFrames)
+        return;
+
+    auto twp = tp->twp;
+
+    NJS_ACTION ACTION_Thor = { MDL_Thor->getmodel(), ANIM_Thor->getmotion() };
+
+    njSetTexture(&TEXLIST_STP_Dragons);
+    
+    njPushMatrix(0);
+    
+    njTranslate(0, twp->pos.x, twp->pos.y + 2.0f, twp->pos.z);
+    njRotateXYZ(0, twp->ang.x, twp->ang.y, twp->ang.z);
+    njScaleV(0, &SCALE_Dragon);
+
+    SetupChunkModelRender();
+    njCnkAction(&ACTION_Thor, SPEED_Dragon);
     ResetChunkModelRender();
 
     njPopMatrix(1u);
@@ -428,6 +596,246 @@ void EXEC_Cleetus(task* tp)
     }
 }
 
+void EXEC_Lateef(task* tp)
+{
+    if (!CheckRangeOutWithR(tp, 250000.0f))
+    {
+        auto twp = tp->twp;
+
+        switch (twp->mode)
+        {
+            case 0:
+
+                tp->disp = DISPLAY_Lateef;
+                CCL_Init(tp, &COLLI_Lateef, 1, 4u);
+
+                POS_LateefSmoke.x = twp->pos.x;
+                POS_LateefSmoke.y = twp->pos.y + 18.0f;
+                POS_LateefSmoke.z = twp->pos.z;
+
+                twp->mode++;
+
+                break;
+
+            case 1:
+
+                SPEED_Dragon += 0.33f; // Como?
+
+                if (++twp->wtimer > 425)
+                {
+                    CreateSmoke(&POS_LateefSmoke, &VELO_DragonSmoke, 5.0f);
+                    FreeTask(tp);
+                }
+
+                break;
+        }
+
+        EntryColliList(twp);
+
+        tp->disp(tp);
+    }
+}
+
+void EXEC_Tomas(task* tp)
+{
+    if (!CheckRangeOutWithR(tp, 250000.0f))
+    {
+        auto twp = tp->twp;
+
+        switch (twp->mode)
+        {
+            case 0:
+
+                tp->disp = DISPLAY_Tomas;
+                CCL_Init(tp, &COLLI_Tomas, 1, 4u);
+
+                POS_TomasSmoke.x = twp->pos.x;
+                POS_TomasSmoke.y = twp->pos.y + 18.0f;
+                POS_TomasSmoke.z = twp->pos.z;
+
+                twp->mode++;
+
+                break;
+
+            case 1:
+
+                SPEED_Dragon += 0.33f; // Como?
+
+                if (++twp->wtimer > 425)
+                {
+                    CreateSmoke(&POS_TomasSmoke, &VELO_DragonSmoke, 5.0f);
+                    FreeTask(tp);
+                }
+
+                break;
+        }
+
+        EntryColliList(twp);
+
+        tp->disp(tp);
+    }
+}
+
+void EXEC_Nils(task* tp)
+{
+    if (!CheckRangeOutWithR(tp, 250000.0f))
+    {
+        auto twp = tp->twp;
+
+        switch (twp->mode)
+        {
+            case 0:
+
+                tp->disp = DISPLAY_Nils;
+                CCL_Init(tp, &COLLI_Nils, 1, 4u);
+
+                POS_NilsSmoke.x = twp->pos.x;
+                POS_NilsSmoke.y = twp->pos.y + 18.0f;
+                POS_NilsSmoke.z = twp->pos.z;
+
+                twp->mode++;
+
+                break;
+
+            case 1:
+
+                SPEED_Dragon += 0.33f; // Como?
+
+                if (++twp->wtimer > 425)
+                {
+                    CreateSmoke(&POS_NilsSmoke, &VELO_DragonSmoke, 5.0f);
+                    FreeTask(tp);
+                }
+
+                break;
+        }
+
+        EntryColliList(twp);
+
+        tp->disp(tp);
+    }
+}
+
+void EXEC_Devlin(task* tp)
+{
+    if (!CheckRangeOutWithR(tp, 250000.0f))
+    {
+        auto twp = tp->twp;
+
+        switch (twp->mode)
+        {
+            case 0:
+
+                tp->disp = DISPLAY_Devlin;
+                CCL_Init(tp, &COLLI_Devlin, 1, 4u);
+
+                POS_DevlinSmoke.x = twp->pos.x;
+                POS_DevlinSmoke.y = twp->pos.y + 18.0f;
+                POS_DevlinSmoke.z = twp->pos.z;
+
+                twp->mode++;
+
+                break;
+
+            case 1:
+
+                SPEED_Dragon += 0.33f; // Como?
+
+                if (++twp->wtimer > 425)
+                {
+                    CreateSmoke(&POS_DevlinSmoke, &VELO_DragonSmoke, 5.0f);
+                    FreeTask(tp);
+                }
+
+                break;
+        }
+
+        EntryColliList(twp);
+
+        tp->disp(tp);
+    }
+}
+
+void EXEC_Alvar(task* tp)
+{
+    if (!CheckRangeOutWithR(tp, 250000.0f))
+    {
+        auto twp = tp->twp;
+
+        switch (twp->mode)
+        {
+            case 0:
+
+                tp->disp = DISPLAY_Alvar;
+                CCL_Init(tp, &COLLI_Alvar, 1, 4u);
+
+                POS_AlvarSmoke.x = twp->pos.x;
+                POS_AlvarSmoke.y = twp->pos.y + 18.0f;
+                POS_AlvarSmoke.z = twp->pos.z;
+
+                twp->mode++;
+
+                break;
+
+            case 1:
+
+                SPEED_Dragon += 0.33f; // Como?
+
+                if (++twp->wtimer > 425)
+                {
+                    CreateSmoke(&POS_AlvarSmoke, &VELO_DragonSmoke, 5.0f);
+                    FreeTask(tp);
+                }
+
+                break;
+        }
+
+        EntryColliList(twp);
+
+        tp->disp(tp);
+    }
+}
+
+void EXEC_Thor(task* tp)
+{
+    if (!CheckRangeOutWithR(tp, 250000.0f))
+    {
+        auto twp = tp->twp;
+
+        switch (twp->mode)
+        {
+            case 0:
+
+                tp->disp = DISPLAY_Thor;
+                CCL_Init(tp, &COLLI_Thor, 1, 4u);
+
+                POS_ThorSmoke.x = twp->pos.x;
+                POS_ThorSmoke.y = twp->pos.y + 18.0f;
+                POS_ThorSmoke.z = twp->pos.z;
+
+                twp->mode++;
+
+                break;
+
+            case 1:
+
+                SPEED_Dragon += 0.33f; // Como?
+
+                if (++twp->wtimer > 425)
+                {
+                    CreateSmoke(&POS_ThorSmoke, &VELO_DragonSmoke, 5.0f);
+                    FreeTask(tp);
+                }
+
+                break;
+        }
+
+        EntryColliList(twp);
+
+        tp->disp(tp);
+    }
+}
+
 
 //  Dragons - ChildTaskSet:
 
@@ -456,6 +864,36 @@ childtaskset CTS_Cleetus[] = {
     { 0 }
 };
 
+childtaskset CTS_Lateef[] = {
+    { EXEC_Lateef, 2, 0, {0}, {0}, 0 },
+    { 0 }
+};
+
+childtaskset CTS_Tomas[] = {
+    { EXEC_Tomas, 2, 0, {0}, {0}, 0 },
+    { 0 }
+};
+
+childtaskset CTS_Nils[] = {
+    { EXEC_Nils, 2, 0, {0}, {0}, 0 },
+    { 0 }
+};
+
+childtaskset CTS_Devlin[] = {
+    { EXEC_Devlin, 2, 0, {0}, {0}, 0 },
+    { 0 }
+};
+
+childtaskset CTS_Alvar[] = {
+    { EXEC_Alvar, 2, 0, {0}, {0}, 0 },
+    { 0 }
+};
+
+childtaskset CTS_Thor[] = {
+    { EXEC_Thor, 2, 0, {0}, {0}, 0 },
+    { 0 }
+};
+
 
 //  Dragons - Load Assets:
 
@@ -467,6 +905,12 @@ void LOAD_Dragons()
     MDL_Jed = LoadChunkModel("STP_Jed");
     MDL_Bruno = LoadChunkModel("STP_Bruno");
     MDL_Cleetus = LoadChunkModel("STP_Cleetus");
+    MDL_Lateef = LoadChunkModel("STP_Lateef");
+    MDL_Tomas = LoadChunkModel("STP_Tomas");
+    MDL_Nils = LoadChunkModel("STP_Nils");
+    MDL_Devlin = LoadChunkModel("STP_Devlin");
+    MDL_Alvar = LoadChunkModel("STP_Alvar");
+    MDL_Thor = LoadChunkModel("STP_Thor");
 
     ANIM_Spyro = LoadObjectAnim("STP_SpyroLEDGE");
     ANIM_Isaak = LoadObjectAnim("STP_Isaak");
@@ -474,4 +918,10 @@ void LOAD_Dragons()
     ANIM_Jed = LoadObjectAnim("STP_Jed");
     ANIM_Bruno = LoadObjectAnim("STP_Bruno");
     ANIM_Cleetus = LoadObjectAnim("STP_Cleetus");
+    ANIM_Lateef = LoadObjectAnim("STP_Lateef");
+    ANIM_Tomas = LoadObjectAnim("STP_Tomas");
+    ANIM_Nils = LoadObjectAnim("STP_Nils");
+    ANIM_Devlin = LoadObjectAnim("STP_Devlin");
+    ANIM_Alvar = LoadObjectAnim("STP_Alvar");
+    ANIM_Thor = LoadObjectAnim("STP_Thor");
 }
