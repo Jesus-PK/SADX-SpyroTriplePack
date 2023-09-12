@@ -108,6 +108,16 @@ void EXEC_ExitPortal(task* tp)
                     }
                 }
 
+                else if (CurrentCharacter == Characters_Big)
+                {
+                    if (++twp->wtimer > 3) // For Big I setup a very small timer so he can have enough frames to fully land onto the portal (so his win anim doesn't play with him floating)
+                    {
+                        LoadLevelResults();
+
+                        twp->mode = 3;
+                    }
+                }
+                
                 else
                 {
                     LoadLevelResults();
