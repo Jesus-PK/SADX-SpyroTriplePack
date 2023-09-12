@@ -39,7 +39,7 @@ void SetLKCOpen()
 {
     AddEnemyScore(2000);
     dsPlay_oneshot(SE_BOMB, 0, 0, 0);
-    AddNumRing(50);
+    (CurrentLevel == LevelIDs_SkyDeck) ? AddNumRing(50) : GetThunderBarrierP(0);
     HasKey = 0;
 }
 

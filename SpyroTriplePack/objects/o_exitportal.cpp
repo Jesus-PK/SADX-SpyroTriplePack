@@ -85,32 +85,35 @@ void EXEC_ExitPortal(task* tp)
         
         case 1:
         {           
-            if (CheckCollisionP(&POS_ExitTrigger, 12.0f) && CurrentCharacter == Characters_Tails)
+            if (CheckCollisionP(&POS_ExitTrigger, 12.0f))
             {
-                if (DragonCount >= 5)
+                if (CurrentCharacter == Characters_Tails && CurrentLevel == LevelIDs_SkyDeck)
                 {
-                    SetTailsRaceVictory();
-                    LoadLevelResults();
-                    
-                    twp->mode = 3; // Jumping to a case that doesn't exit so the code finish for good.
+                    if (DragonCount >= 5)
+                    {
+                        SetTailsRaceVictory();
+                        LoadLevelResults();
+
+                        twp->mode = 3;
+                    }
+
+                    else
+                    {
+                        dsPlay_oneshot(SE_P_JUMP2, 0, 0, 0);
+
+                        MSG_ExitPortal = (Language != JAPANESE) ? MSG_ExitPortal_EN : MSG_ExitPortal_JP;
+                        DisplayHintText(MSG_ExitPortal, 100);
+
+                        twp->mode++;
+                    }
                 }
 
                 else
                 {
-                    dsPlay_oneshot(SE_P_JUMP2, 0, 0, 0);
-                    
-                    MSG_ExitPortal = (Language != JAPANESE) ? MSG_ExitPortal_EN : MSG_ExitPortal_JP; // Quick ternary to check for the current language and fill the result on my const char**
-                    DisplayHintText(MSG_ExitPortal, 100); // I call the result of the previous ternary.
+                    LoadLevelResults();
 
-                    twp->mode++;
+                    twp->mode = 3;
                 }
-            }
-
-            else if (CheckCollisionP(&POS_ExitTrigger, 12.0f) && CurrentCharacter != Characters_Tails)
-            {
-                LoadLevelResults();
-
-                twp->mode = 3;
             }
 
             break;

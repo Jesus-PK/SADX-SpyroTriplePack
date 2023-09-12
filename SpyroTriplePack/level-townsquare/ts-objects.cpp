@@ -53,7 +53,10 @@ _OBJ_ITEMENTRY OBJECTLIST_TownSquare_Entries[] = {
 	{ 2, 2, 1, 1000000.0f, 0, EXEC_MetalChest, "O METAL CHEST"}, // ID 27
 	{ 2, 2, 1, 1000000.0f, 0, EXEC_ExitPortal, "O EXIT PORTAL"}, // ID 28
 	{ 2, 2, 1, 1000000.0f, 0, EXEC_ExitText, "O EXIT TEXT"}, // ID 29
-	{ 2, 2, 1, 1000000.0f, 0, EXEC_Spyro, "O SPYRO LEDGE"} // ID 30
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_Spyro, "O SPYRO LEDGE"}, // ID 30
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_LifeChest, "O LIFE CHEST"}, // ID 31
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_CrystalBase, "O CRYSTAL BASE"}, // ID 32
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_CrystalStatue, "O CRYSTAL STATUE"} // ID 33
 };
 
 _OBJ_ITEMTABLE OBJECTLIST_TownSquare = { LengthOfArray(OBJECTLIST_TownSquare_Entries), 0, OBJECTLIST_TownSquare_Entries };

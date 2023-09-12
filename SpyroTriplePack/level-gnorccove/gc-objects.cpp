@@ -58,13 +58,19 @@ _OBJ_ITEMENTRY OBJECTLIST_GnorcCove_Entries[] = {
 	{ 2, 2, 1, 1000000.0f, 0, (TaskFuncPtr)0x7B0A70, "E ZERO" }, // ID 30
 	{ 2, 2, 1, 1000000.0f, 0, EXEC_BasicChest, "O BASIC CHEST"}, // ID 31
 	{ 2, 2, 1, 1000000.0f, 0, EXEC_MetalChest, "O METAL CHEST"}, // ID 32
-	{ 2, 2, 1, 1000000.0f, 0, EXEC_ExitPortal, "O EXIT PORTAL"}, // ID 
-	{ 2, 2, 1, 1000000.0f, 0, EXEC_ExitText, "O EXIT TEXT"}, // ID 
-	{ 3, 3, 1, 1000000.0f, 0, (TaskFuncPtr)0x624020, "O BARREL" }, // ID 
-	{ 2, 2, 1, 1000000.0f, 0, EXEC_MetalBarrel, "O METAL BARREL"}, // ID 
-	{ 2, 2, 1, 1000000.0f, 0, EXEC_GCPlatform, "O GC PLATFORM"}, // ID 
-	{ 2, 2, 1, 1000000.0f, 0, EXEC_GCDoor, "O GC DOOR"}, // ID 
-	{ 2, 2, 1, 1000000.0f, 0, EXEC_Spyro, "O SPYRO LEDGE"} // ID 
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_ExitPortal, "O EXIT PORTAL"}, // ID 33
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_ExitText, "O EXIT TEXT"}, // ID 34
+	{ 3, 3, 1, 1000000.0f, 0, (TaskFuncPtr)0x624020, "O TNT BARREL" }, // ID 35
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_MetalBarrel, "O METAL BARREL"}, // ID 36
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_GCPlatform, "O GC PLATFORM"}, // ID 37
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_GCDoor, "O GC DOOR"}, // ID 38
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_Spyro, "O SPYRO LEDGE"}, // ID 39
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_LifeChest, "O LIFE CHEST"}, // ID 40
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_LockedChest, "O LOCKED CHEST"}, // ID 41
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_LKCLid, "O LOCKED CHEST LID"}, // ID 42
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_LKCKey, "O LOCKED CHEST KEY"}, // ID 43
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_CrystalBase, "O CRYSTAL BASE"}, // ID 44
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_CrystalStatue, "O CRYSTAL STATUE"} // ID 45
 };
 
 _OBJ_ITEMTABLE OBJECTLIST_GnorcCove = { LengthOfArray(OBJECTLIST_GnorcCove_Entries), 0, OBJECTLIST_GnorcCove_Entries };
@@ -73,7 +79,6 @@ _OBJ_ITEMTABLE OBJECTLIST_GnorcCove = { LengthOfArray(OBJECTLIST_GnorcCove_Entri
 //	Texture List:
 
 TEX_PVMTABLE TEXTURELIST_GnorcCove[] = {
-	//{ "OBJ_TWINKLE", (TexList*)0x279BF68 }, // Twinkle Park OBJ Textures
 	{ "KOAR", (TexList*)0x9359B4 }, // Koala
 	{ "WARA", (TexList*)0x93852C }, // Wallaby
 	{ "USA", (TexList*)0x93CF74 }, // Rabbit
