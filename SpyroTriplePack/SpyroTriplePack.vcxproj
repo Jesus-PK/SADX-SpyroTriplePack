@@ -178,6 +178,7 @@
     <ClInclude Include="objects\o_skyboxes.h" />
     <ClInclude Include="objects\o_spottedchicken.h" />
     <ClInclude Include="objects\o_tntbarrel.h" />
+    <ClInclude Include="o_froggy.h" />
     <ClInclude Include="paths.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="texanims.h" />
@@ -227,6 +228,7 @@
     <ClCompile Include="objects\o_skyboxes.cpp" />
     <ClCompile Include="objects\o_spottedchicken.cpp" />
     <ClCompile Include="objects\o_tntbarrel.cpp" />
+    <ClCompile Include="o_froggy.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

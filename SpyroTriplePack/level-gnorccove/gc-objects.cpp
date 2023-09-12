@@ -5,6 +5,7 @@
 #include "o_dragons.h"
 #include "o_exitportal.h"
 #include "o_exittext.h"
+#include "o_froggy.h"
 #include "o_gcdoor.h"
 #include "o_gcplatform.h"
 #include "o_lifechest.h"
@@ -56,21 +57,22 @@ _OBJ_ITEMENTRY OBJECTLIST_GnorcCove_Entries[] = {
 	{ 3, 3, 1, 250000.0f, 0, (TaskFuncPtr)0x7B2E00, "E BUYON" }, // ID 28
 	{ 2, 3, 1, 250000.0f, 0, (TaskFuncPtr)0x4A6700, "E EGGKEEPER" }, // ID 29
 	{ 2, 2, 1, 1000000.0f, 0, (TaskFuncPtr)0x7B0A70, "E ZERO" }, // ID 30
-	{ 2, 2, 1, 1000000.0f, 0, EXEC_BasicChest, "O BASIC CHEST"}, // ID 31
-	{ 2, 2, 1, 1000000.0f, 0, EXEC_MetalChest, "O METAL CHEST"}, // ID 32
-	{ 2, 2, 1, 1000000.0f, 0, EXEC_ExitPortal, "O EXIT PORTAL"}, // ID 33
-	{ 2, 2, 1, 1000000.0f, 0, EXEC_ExitText, "O EXIT TEXT"}, // ID 34
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_BasicChest, "O BASIC CHEST" }, // ID 31
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_MetalChest, "O METAL CHEST" }, // ID 32
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_ExitPortal, "O EXIT PORTAL" }, // ID 33
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_ExitText, "O EXIT TEXT" }, // ID 34
 	{ 3, 3, 1, 1000000.0f, 0, (TaskFuncPtr)0x624020, "O TNT BARREL" }, // ID 35
-	{ 2, 2, 1, 1000000.0f, 0, EXEC_MetalBarrel, "O METAL BARREL"}, // ID 36
-	{ 2, 2, 1, 1000000.0f, 0, EXEC_GCPlatform, "O GC PLATFORM"}, // ID 37
-	{ 2, 2, 1, 1000000.0f, 0, EXEC_GCDoor, "O GC DOOR"}, // ID 38
-	{ 2, 2, 1, 1000000.0f, 0, EXEC_Spyro, "O SPYRO LEDGE"}, // ID 39
-	{ 2, 2, 1, 1000000.0f, 0, EXEC_LifeChest, "O LIFE CHEST"}, // ID 40
-	{ 2, 2, 1, 1000000.0f, 0, EXEC_LockedChest, "O LOCKED CHEST"}, // ID 41
-	{ 2, 2, 1, 1000000.0f, 0, EXEC_LKCLid, "O LOCKED CHEST LID"}, // ID 42
-	{ 2, 2, 1, 1000000.0f, 0, EXEC_LKCKey, "O LOCKED CHEST KEY"}, // ID 43
-	{ 2, 2, 1, 1000000.0f, 0, EXEC_CrystalBase, "O CRYSTAL BASE"}, // ID 44
-	{ 2, 2, 1, 1000000.0f, 0, EXEC_CrystalStatue, "O CRYSTAL STATUE"} // ID 45
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_MetalBarrel, "O METAL BARREL" }, // ID 36
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_GCPlatform, "O GC PLATFORM" }, // ID 37
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_GCDoor, "O GC DOOR" }, // ID 38
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_Spyro, "O SPYRO LEDGE" }, // ID 39
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_LifeChest, "O LIFE CHEST" }, // ID 40
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_LockedChest, "O LOCKED CHEST" }, // ID 41
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_LKCLid, "O LOCKED CHEST LID" }, // ID 42
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_LKCKey, "O LOCKED CHEST KEY" }, // ID 43
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_CrystalBase, "O CRYSTAL BASE" }, // ID 44
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_CrystalStatue, "O CRYSTAL STATUE" }, // ID 45
+	{ 2, 2, 1, 1000000.0f, 0, EXEC_Froggy, "O FROGGY" } // ID 46
 };
 
 _OBJ_ITEMTABLE OBJECTLIST_GnorcCove = { LengthOfArray(OBJECTLIST_GnorcCove_Entries), 0, OBJECTLIST_GnorcCove_Entries };
