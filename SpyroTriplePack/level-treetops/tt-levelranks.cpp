@@ -22,11 +22,11 @@ BOOL TT_CheckMissionRequirements_r(int mission, int character, int level)
                     break;
 
                 case Characters_Tails:
-                    return (time < 3600) ? 1 : 0; // 1 Minute
+                    return (time <= 3600) ? 1 : 0; // 1 Minute
                     break;
 
                 case Characters_Knuckles:
-                    return (time < 5400) ? 1 : 0; // 1:30 Minutes
+                    return (time <= 5400) ? 1 : 0; // 1:30 Minutes
                     break;
 
                 default:
@@ -37,7 +37,7 @@ BOOL TT_CheckMissionRequirements_r(int mission, int character, int level)
             break;
         }       
         case 1: // Rank B           
-            return (Rings >= 375) ? 1 : 0; // 75% of total rings
+            return (Rings >= 375) ? 1 : 0; // 75% of total rings (375 of 500)
             break;
 
         default: // Rank C           
@@ -49,14 +49,12 @@ BOOL TT_CheckMissionRequirements_r(int mission, int character, int level)
 
 //	Mission Cards:
 
-NJS_TEXNAME TEX_TTMission[36] = { 0 };
+NJS_TEXNAME TEX_TreeTops_MissionCards[36] = { 0 };
 
-DataPointer(NJS_TEXANIM, MissionSpriteAnim, 0x917784);
+FunctionHook<void> TT_LoadStageMissionImage_t(0x457450);
+FunctionHook<void> TT_LoadMissionCardResult_t(0x457BB0);
 
-FunctionHook<void> LoadStageMissionImage_t(0x457450);
-FunctionHook<void> LoadMissionCardResult_t(0x457BB0);
-
-void HD_GetMissionTypeCheck()
+void TT_HD_GetMissionTypeCheck()
 {
 	int character = GetPlayerNumber();
 	int level = ((__int16)ssActNumber | (ssStageNumber << 8)) >> 8;
@@ -109,7 +107,7 @@ void HD_GetMissionTypeCheck()
 	}
 }
 
-void SD_GetMissionTypeCheck()
+void TT_SD_GetMissionTypeCheck()
 {
 	int character = GetPlayerNumber();
 	int level = ((__int16)ssActNumber | (ssStageNumber << 8)) >> 8;
@@ -162,20 +160,20 @@ void SD_GetMissionTypeCheck()
 	}
 }
 
-void LoadStageMissionImage_r()
+void TT_LoadStageMissionImage_r()
 {
     if (CurrentLevel != LevelIDs_SkyDeck)
     {
         MissionSpriteAnim.texid = 0;
-        return LoadStageMissionImage_t.Original();
+        return TT_LoadStageMissionImage_t.Original();
     }
 
-    StageMissionTexlist.textures = TEX_TTMission;
+    StageMissionTexlist.textures = TEX_TreeTops_MissionCards;
     StageMissionTexlist.nbTexture = 1;
     
-    LoadPVM("TreeTops_MissionCards", &StageMissionTexlist);
+    LoadPVM("STP_TreeTops-MissionCards", &StageMissionTexlist);
     
-    HD_GUI ? HD_GetMissionTypeCheck() : SD_GetMissionTypeCheck(); // If HD_GUI is enabled, load HD cards : else load SD cards.
+    HD_GUI ? TT_HD_GetMissionTypeCheck() : TT_SD_GetMissionTypeCheck(); // If HD_GUI is enabled, load HD cards : else load SD cards.
 
     task* task = CreateElementalTask(LoadObj_Data1, 6, (TaskFuncPtr)0x457B60);
     
@@ -188,20 +186,20 @@ void LoadStageMissionImage_r()
     task->dest = (TaskFuncPtr)FreeStageMissionImage;
 }
 
-void LoadMissionCardResult_r()
+void TT_LoadMissionCardResult_r()
 {
     if (CurrentLevel != LevelIDs_SkyDeck)
     {
         MissionSpriteAnim.texid = 0;
-        return LoadMissionCardResult_t.Original();
+        return TT_LoadMissionCardResult_t.Original();
     }
 
-    StageMissionTexlist.textures = TEX_TTMission;
+    StageMissionTexlist.textures = TEX_TreeTops_MissionCards;
     StageMissionTexlist.nbTexture = 1;
     
-    LoadPVM("TreeTops_MissionCards", &StageMissionTexlist);
+    LoadPVM("STP_TreeTops-MissionCards", &StageMissionTexlist);
 
-    HD_GUI ? HD_GetMissionTypeCheck() : SD_GetMissionTypeCheck();
+    HD_GUI ? TT_HD_GetMissionTypeCheck() : TT_SD_GetMissionTypeCheck();
 
     task* tp = CreateElementalTask(LoadObj_Data1, 6, (TaskFuncPtr)0x457B60);
     
@@ -221,6 +219,6 @@ void TT_INIT_LevelRanks()
 {
     TT_CheckMissionRequirements_t.Hook(TT_CheckMissionRequirements_r); // Init level ranks hook.
     
-    //LoadStageMissionImage_t.Hook(LoadStageMissionImage_r); // Init mission cards (Level Start) hook.
-    //LoadMissionCardResult_t.Hook(LoadMissionCardResult_r); // Init mission cards (Level Result) hook.
+    TT_LoadStageMissionImage_t.Hook(TT_LoadStageMissionImage_r); // Init mission cards (Level Start) hook.
+    TT_LoadMissionCardResult_t.Hook(TT_LoadMissionCardResult_r); // Init mission cards (Level Result) hook.
 }
