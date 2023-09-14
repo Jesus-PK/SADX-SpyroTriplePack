@@ -51,6 +51,6 @@ void STP_LoadObjects(const HelperFunctions& helperFunctions)
 
 	//	Blacklist auto-mipmaps on Dragons textures:
 	
-	for (Uint32 i = 506002000; i < 506002011; i++)
+	for (Uint32 i = 600007000; i < 600007017; i++)
 		helperFunctions.MipmapBlacklistGBIX(i);
 }

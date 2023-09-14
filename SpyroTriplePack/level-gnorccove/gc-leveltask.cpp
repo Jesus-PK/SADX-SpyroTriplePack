@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "hud.h"
 #include "o_skyboxes.h"
 #include "texanims.h"
 
@@ -18,6 +19,9 @@ void RD_GnorcCove(task* tp)
 		twp->mode++;
 	}
 
+	if (CurrentCharacter == Characters_Amy)
+		DrawKeyHUD();
+	
 	GC_ANIM_Water();
 }
 
