@@ -10,6 +10,7 @@ ModelInfo* MDL_LKCDebris02 = nullptr;
 ModelInfo* MDL_LKCDebris03 = nullptr;
 ModelInfo* MDL_LKCDebris04 = nullptr;
 ModelInfo* MDL_Number50 = nullptr;
+ModelInfo* MDL_ItemMagneticBarrier = nullptr;
 
 ModelInfo* MDL_LKCKey = nullptr;
 
@@ -251,7 +252,7 @@ childtaskset CTS_LKCDebris[] = {
 };
 
 
-//  Locked Chest - Value Number:
+//  Locked Chest - Reward CTS:
 
 void DISPLAY_Number50(task* tp)
 {
@@ -301,6 +302,58 @@ void EXEC_Number50(task* tp)
 
 childtaskset CTS_Number50[] = {
     { EXEC_Number50, 2, 0, {0}, {0}, 0 },
+    { 0 }
+};
+
+
+void DISPLAY_ItemMagneticBarrier(task* tp)
+{
+    if (MissedFrames)
+        return;
+
+    auto twp = tp->twp;
+
+    njSetTexture(&OBJ_REGULAR_TEXLIST);
+    
+    njPushMatrix(0);
+    
+    njTranslateV(0, &twp->pos);
+    njRotateXYZ(0, twp->ang.x, twp->ang.y, twp->ang.z);
+    
+    dsDrawObject(MDL_ItemMagneticBarrier->getmodel());
+    
+    njPopMatrix(1u);
+}
+
+void EXEC_ItemMagneticBarrier(task* tp)
+{
+    if (!CheckRangeOutWithR(tp, 96100.0))
+    {
+        auto twp = tp->twp;
+
+        switch (twp->mode)
+        {
+            case 0:
+                
+                tp->disp = DISPLAY_ItemMagneticBarrier;
+                
+                twp->mode++;
+                
+                break;
+           
+            case 1:
+                
+                twp->ang.y += 750;
+                
+                break;
+        }
+
+        tp->disp(tp);
+    }
+}
+
+childtaskset CTS_ItemMagneticBarrier[] = {
+    { EXEC_ItemMagneticBarrier, 2, 0, {0}, {0}, 0 },
     { 0 }
 };
 
@@ -397,7 +450,7 @@ void EXEC_LKCLid(task* tp)
                     Dead(tp);
 
                     CreateChildrenTask(CTS_LKCDebris, tp);
-                    CreateChildrenTask(CTS_Number50, tp);
+                    (CurrentLevel == LevelIDs_SkyDeck) ? CreateChildrenTask(CTS_Number50, tp) : CreateChildrenTask(CTS_ItemMagneticBarrier, tp);
 
                     //  Necessary functions to kill a dyncol early:
                     WithdrawCollisionEntry(tp, (NJS_OBJECT*)twp->counter.ptr);
@@ -450,6 +503,7 @@ void LOAD_LockedChest()
     MDL_LKCDebris03 = LoadBasicModel("STP_LKCDebris03");
     MDL_LKCDebris04 = LoadBasicModel("STP_LKCDebris04");
     MDL_Number50 = LoadBasicModel("STP_Number50");
+    MDL_ItemMagneticBarrier = LoadBasicModel("STP_ItemMagneticBarrier");
     MDL_LKCKey = LoadBasicModel("STP_LKCKey");
     MDL_LKCColli01 = LoadBasicModel("STP_LKCColli01");
     MDL_LKCColli02 = LoadBasicModel("STP_LKCColli02");
