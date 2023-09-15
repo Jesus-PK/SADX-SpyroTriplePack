@@ -20,6 +20,8 @@ extern "C"
 
 		CheckActiveMods(helperFunctions);
 		CheckModLoaderVersion(helperFunctions);
+
+		SplashScreen_SHC(path, helperFunctions);
 		
 		STP_LoadObjects(helperFunctions);
 

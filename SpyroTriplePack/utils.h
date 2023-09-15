@@ -25,6 +25,8 @@ void CheckActiveMods(const HelperFunctions& helperFunctions);
 
 void CheckModLoaderVersion(const HelperFunctions& helperFunctions);
 
+void SplashScreen_SHC(const char* path, const HelperFunctions& helperFunctions);
+
 
 //	Functions to load models, landtables and animations:
 

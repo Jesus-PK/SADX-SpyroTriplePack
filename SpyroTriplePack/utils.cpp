@@ -51,6 +51,19 @@ void CheckModLoaderVersion(const HelperFunctions& helperFunctions)
 }
 
 
+//	SHC Splash Screen:
+
+void SplashScreen_SHC(const char* path, const HelperFunctions& helperFunctions)
+{
+	ReplaceTex("SEGALOGO_E", "segalogo0", "SplashScreen", "SplashScreen-SHC_00", 9420000, 256, 256);
+	ReplaceTex("SEGALOGO_E", "segalogo1", "SplashScreen", "SplashScreen-SHC_01", 9420001, 256, 256);
+	ReplaceTex("SEGALOGO_E", "segalogo2", "SplashScreen", "SplashScreen-SHC_02", 9420002, 256, 256);
+	ReplaceTex("SEGALOGO_E", "segalogo3", "SplashScreen", "SplashScreen-SHC_03", 9420003, 256, 256);
+	ReplaceTex("SEGALOGO_E", "segalogo4", "SplashScreen", "SplashScreen-SHC_04", 9420004, 256, 256);
+	ReplaceTex("SEGALOGO_E", "segalogo5", "SplashScreen", "SplashScreen-SHC_05", 9420005, 256, 256);
+}
+
+
 //	Functions to load models, landtables and animations:
 
 ModelInfo* LoadBasicModel(const char* name)
