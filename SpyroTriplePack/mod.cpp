@@ -2,6 +2,14 @@
 
 HelperFunctions HelperFunctionsGlobal;
 
+DataArray(SoundTestEntry, Soundtest_ActionStage, 0x7EFBE0, 40); // Manual DataArray definition for all the entries in the Action Stage SoundTest list (40 in total) - It's the exact same deal as when I did the CTS DataArray for the TNT Barrel debris, just different things since it uses the "SoundTestEntry" struct.
+
+SoundTestEntry SpyroMusicList[] = {
+	{ "Town Square", 63 }, // Text - ID (Every entry has a different one, check them on IDA - It might not be 100% necessary but justin case)
+	{ "Tree Tops", 81 },
+	{ "Gnorc Cove", 104 }
+};
+
 extern "C"
 {
 	__declspec(dllexport) void __cdecl Init(const char* path, const HelperFunctions& helperFunctions)
@@ -14,6 +22,10 @@ extern "C"
 		CheckModLoaderVersion(helperFunctions);
 		
 		STP_LoadObjects(helperFunctions);
+
+		Soundtest_ActionStage[9] = SpyroMusicList[0]; // Specify the entry nº we are gonna replace on the first array, the defined one - Specify the entry nº we are gonna replace on our second array, the custom one with our text to replace.
+		Soundtest_ActionStage[12] = SpyroMusicList[1];
+		Soundtest_ActionStage[23] = SpyroMusicList[2];
 
 
 		//	Expand Draw Queue Memory Pool (Applies to the entire game):
