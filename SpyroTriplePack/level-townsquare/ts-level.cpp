@@ -87,16 +87,26 @@ void FILES_TownSquare(const HelperFunctions& helperFunctions)
 {
 	// SET Replacement:
 
-	ReplaceBIN("SET0700S", "STP_SET-TownSquare-S");
-	ReplaceBIN("SET0701K", "STP_SET-TownSquare-K");
-
+	ReplaceBIN("SET0700S", "STP_SET-TownSquare-S"); // Target
+	ReplaceBIN("SET0701S", "STP_SET-TownSquare-S");
+	ReplaceBIN("SET0702S", "STP_SET-TownSquare-S");
+	
+	ReplaceBIN("SET0700K", "STP_SET-TownSquare-K");
+	ReplaceBIN("SET0701K", "STP_SET-TownSquare-K"); // Target
+	ReplaceBIN("SET0702K", "STP_SET-TownSquare-K");
+	
 
 	// CAM Replacement:
 
-	ReplaceBIN("CAM0700S", "STP_CAM-TownSquare-S");
-	ReplaceBIN("CAM0701K", "STP_CAM-TownSquare-K");
+	ReplaceBIN("CAM0700S", "STP_CAM-TownSquare-S"); // Target
+	ReplaceBIN("CAM0701S", "STP_CAM-TownSquare-S");
+	ReplaceBIN("CAM0702S", "STP_CAM-TownSquare-S");
 
+	ReplaceBIN("CAM0700K", "STP_CAM-TownSquare-K");
+	ReplaceBIN("CAM0701K", "STP_CAM-TownSquare-K"); // Target
+	ReplaceBIN("CAM0702K", "STP_CAM-TownSquare-K");
 
+	
 	// PL & SL Replacement:
 
 	ReplaceBIN("PL_70B", "STP_PL");

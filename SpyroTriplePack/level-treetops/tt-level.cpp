@@ -87,17 +87,33 @@ void FILES_TreeTops(const HelperFunctions& helperFunctions)
 {
 	// SET Replacement:
 
-	ReplaceBIN("SET0600S", "STP_SET-TreeTops-S");
-	ReplaceBIN("SET0600M", "STP_SET-TreeTops-M");
-	ReplaceBIN("SET0602K", "STP_SET-TreeTops-K");
+	ReplaceBIN("SET0600S", "STP_SET-TreeTops-S"); // Target
+	ReplaceBIN("SET0601S", "STP_SET-TreeTops-S");
+	ReplaceBIN("SET0602S", "STP_SET-TreeTops-S");
 
+	ReplaceBIN("SET0600M", "STP_SET-TreeTops-M"); // Target
+	ReplaceBIN("SET0601M", "STP_SET-TreeTops-M");
+	ReplaceBIN("SET0602M", "STP_SET-TreeTops-M");
+
+	ReplaceBIN("SET0600K", "STP_SET-TreeTops-K");
+	ReplaceBIN("SET0601K", "STP_SET-TreeTops-K");
+	ReplaceBIN("SET0602K", "STP_SET-TreeTops-K"); // Target
+	
 
 	// CAM Replacement:
 
-	ReplaceBIN("CAM0600S", "STP_CAM-TreeTops-S");
-	ReplaceBIN("CAM0600M", "STP_CAM-TreeTops-M");
-	ReplaceBIN("CAM0602K", "STP_CAM-TreeTops-K");
+	ReplaceBIN("CAM0600S", "STP_CAM-TreeTops-S"); // Target
+	ReplaceBIN("CAM0601S", "STP_CAM-TreeTops-S");
+	ReplaceBIN("CAM0602S", "STP_CAM-TreeTops-S");
 
+	ReplaceBIN("CAM0600M", "STP_CAM-TreeTops-M"); // Target
+	ReplaceBIN("CAM0601M", "STP_CAM-TreeTops-M");
+	ReplaceBIN("CAM0602M", "STP_CAM-TreeTops-M");
+
+	ReplaceBIN("CAM0600K", "STP_CAM-TreeTops-K");
+	ReplaceBIN("CAM0601K", "STP_CAM-TreeTops-K");
+	ReplaceBIN("CAM0602K", "STP_CAM-TreeTops-K"); // Target
+	
 
 	//	PL Replacement:
 

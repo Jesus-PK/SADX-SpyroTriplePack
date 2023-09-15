@@ -87,16 +87,32 @@ void FILES_GnorcCove(const HelperFunctions& helperFunctions)
 {
 	// SET Replacement:
 
-	ReplaceBIN("SET0300S", "STP_SET-GnorcCove-S");
-	ReplaceBIN("SET0301A", "STP_SET-GnorcCove-A");
-	ReplaceBIN("SET0301B", "STP_SET-GnorcCove-B");
+	ReplaceBIN("SET0300S", "STP_SET-GnorcCove-S"); // Target - This means that this SET / CAM file is the only playable act through normal means, anything else is extra for Debug / NoLimit.
+	ReplaceBIN("SET0301S", "STP_SET-GnorcCove-S");
+	ReplaceBIN("SET0302S", "STP_SET-GnorcCove-S");
+	
+	ReplaceBIN("SET0300A", "STP_SET-GnorcCove-A");
+	ReplaceBIN("SET0301A", "STP_SET-GnorcCove-A"); // Target
+	ReplaceBIN("SET0302A", "STP_SET-GnorcCove-A");
 
+	ReplaceBIN("SET0300B", "STP_SET-GnorcCove-B");
+	ReplaceBIN("SET0301B", "STP_SET-GnorcCove-B"); // Target
+	ReplaceBIN("SET0302B", "STP_SET-GnorcCove-B");
+	
 
 	// CAM Replacement:
 
-	ReplaceBIN("CAM0300S", "STP_CAM-GnorcCove-S");
-	ReplaceBIN("CAM0301A", "STP_CAM-GnorcCove-A");
-	ReplaceBIN("CAM0301B", "STP_CAM-GnorcCove-B");
+	ReplaceBIN("CAM0300S", "STP_CAM-GnorcCove-S"); // Target
+	ReplaceBIN("CAM0301S", "STP_CAM-GnorcCove-S");
+	ReplaceBIN("CAM0302S", "STP_CAM-GnorcCove-S");
+	
+	ReplaceBIN("CAM0300A", "STP_CAM-GnorcCove-A");
+	ReplaceBIN("CAM0301A", "STP_CAM-GnorcCove-A"); // Target
+	ReplaceBIN("CAM0302A", "STP_CAM-GnorcCove-A");
+	
+	ReplaceBIN("CAM0300B", "STP_CAM-GnorcCove-B");
+	ReplaceBIN("CAM0301B", "STP_CAM-GnorcCove-B"); // Target
+	ReplaceBIN("CAM0302B", "STP_CAM-GnorcCove-B");
 
 
 	// PL & SL Replacement:
