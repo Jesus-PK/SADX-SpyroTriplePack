@@ -91,6 +91,11 @@ void STAGECREDITS_TownSquare(const char* path, const HelperFunctions& helperFunc
 }
 
 
+//	Sound Test Entries:
+
+SoundTestEntry TS_SoundTestEntry = { "Town Square:  Spyro the Dragon", 63 };
+
+
 //  Init Graphics:
 
 void TS_INIT_Graphics(const char* path, const HelperFunctions& helperFunctions)
@@ -99,4 +104,6 @@ void TS_INIT_Graphics(const char* path, const HelperFunctions& helperFunctions)
     TITLECARDS_TownSquare(path, helperFunctions);
     MULTITHUMBNAILS_TownSquare(path, helperFunctions);
     STAGECREDITS_TownSquare(path, helperFunctions);
+
+    Soundtest_ActionStage[9] = TS_SoundTestEntry;
 }

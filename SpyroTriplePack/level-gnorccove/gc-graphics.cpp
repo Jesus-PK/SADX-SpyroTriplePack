@@ -106,6 +106,11 @@ void STAGECREDITS_GnorcCove(const char* path, const HelperFunctions& helperFunct
 }
 
 
+//	Sound Test Entries:
+
+SoundTestEntry GC_SoundTestEntry = { "Gnorc Cove:  Spyro the Dragon", 104 };
+
+
 //  Init Graphics:
 
 void GC_INIT_Graphics(const char* path, const HelperFunctions& helperFunctions)
@@ -114,4 +119,6 @@ void GC_INIT_Graphics(const char* path, const HelperFunctions& helperFunctions)
     TITLECARDS_GnorcCove(path, helperFunctions);
     MULTITHUMBNAILS_GnorcCove(path, helperFunctions);
     STAGECREDITS_GnorcCove(path, helperFunctions);
+
+    Soundtest_ActionStage[23] = GC_SoundTestEntry;
 }

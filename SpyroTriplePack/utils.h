@@ -89,3 +89,8 @@ FunctionPointer(void, CreateChildrenTask, (childtaskset* ctsp, task* tp), 0x40B9
 //	FunctionPointer for IsThisTaskPlayer function:
 
 FunctionPointer(Bool, IsThisTaskPlayer, (task* tp), 0x441AD0);
+
+
+//	DataArray for all the entries in Sound Test - Action Stage:
+
+DataArray(SoundTestEntry, Soundtest_ActionStage, 0x7EFBE0, 40);
