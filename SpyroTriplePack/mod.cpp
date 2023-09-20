@@ -1,5 +1,7 @@
 #include "pch.h"
 
+//	Mod Version: v1.0.0
+
 HelperFunctions HelperFunctionsGlobal;
 
 extern "C"
