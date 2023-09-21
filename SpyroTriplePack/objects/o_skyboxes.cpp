@@ -51,6 +51,11 @@ void BG_GnorcCove(task* tp)
     tp->disp = DISPLAY_GCSkybox;
 }
 
+void LOAD_GCSkybox()
+{
+    MDL_GCSkybox = LoadBasicModel("STP_GnorcCove-Skybox");
+}
+
 
 //  Town Square Skybox:
 
@@ -94,6 +99,11 @@ void BG_TownSquare(task* tp)
 {    
     tp->exec = EXEC_TSSkybox;
     tp->disp = DISPLAY_TSSkybox;
+}
+
+void LOAD_TSSkybox()
+{
+    MDL_TSSkybox = LoadBasicModel("STP_TownSquare-Skybox");
 }
 
 
@@ -141,12 +151,7 @@ void BG_TreeTops(task* tp)
     tp->disp = DISPLAY_TTSkybox;
 }
 
-
-//  Load Assets:
-
-void LOAD_Skyboxes()
+void LOAD_TTSkybox()
 {
-    MDL_GCSkybox = LoadBasicModel("STP_GnorcCove-Skybox");
-    MDL_TSSkybox = LoadBasicModel("STP_TownSquare-Skybox");
     MDL_TTSkybox = LoadBasicModel("STP_TreeTops-Skybox");
 }

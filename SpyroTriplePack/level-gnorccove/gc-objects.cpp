@@ -12,6 +12,7 @@
 #include "o_lockedchest.h"
 #include "o_metalbarrel.h"
 #include "o_metalchest.h"
+#include "o_skyboxes.h"
 #include "o_tntbarrel.h"
 
 //	Gnorc Cove Textures:
@@ -108,4 +109,11 @@ void GC_INIT_Objects()
 	objItemTable[LevelIDs_TwinklePark * 8] = &OBJECTLIST_GnorcCove;
 	objItemTable[LevelIDs_TwinklePark * 8 + 1] = &OBJECTLIST_GnorcCove;
 	objItemTable[LevelIDs_TwinklePark * 8 + 2] = &OBJECTLIST_GnorcCove;
+
+	LOAD_GCSkybox();
+	LOAD_Froggy();
+	LOAD_GCDoor();
+	LOAD_GCPlatform();
+	LOAD_MetalBarrel();
+	LOAD_TNTBarrel();
 }

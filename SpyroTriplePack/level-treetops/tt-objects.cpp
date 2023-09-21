@@ -10,6 +10,7 @@
 #include "o_lifechest.h"
 #include "o_lockedchest.h"
 #include "o_metalchest.h"
+#include "o_skyboxes.h"
 #include "o_spottedchicken.h"
 
 //	Textures:
@@ -110,4 +111,9 @@ void TT_INIT_Objects()
 	objItemTable[LevelIDs_SkyDeck * 8] = &OBJECTLIST_TreeTops;
 	objItemTable[LevelIDs_SkyDeck * 8 + 1] = &OBJECTLIST_TreeTops;
 	objItemTable[LevelIDs_SkyDeck * 8 + 2] = &OBJECTLIST_TreeTops;
+
+	LOAD_TTSkybox();
+	LOAD_Firewood();
+	LOAD_LargeTorch();
+	LOAD_SpottedChicken();
 }

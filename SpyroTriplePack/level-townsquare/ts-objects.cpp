@@ -7,6 +7,7 @@
 #include "o_exittext.h"
 #include "o_lifechest.h"
 #include "o_metalchest.h"
+#include "o_skyboxes.h"
 
 //	Town Square Textures:
 
@@ -91,4 +92,6 @@ void TS_INIT_Objects()
 	objItemTable[LevelIDs_LostWorld * 8] = &OBJECTLIST_TownSquare;
 	objItemTable[LevelIDs_LostWorld * 8 + 1] = &OBJECTLIST_TownSquare;
 	objItemTable[LevelIDs_LostWorld * 8 + 2] = &OBJECTLIST_TownSquare;
+
+	LOAD_TSSkybox();
 }

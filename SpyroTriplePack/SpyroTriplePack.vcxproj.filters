@@ -117,7 +117,7 @@
     <ClInclude Include="texanims.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="o_froggy.h">
+    <ClInclude Include="objects\o_froggy.h">
       <Filter>Objects</Filter>
     </ClInclude>
   </ItemGroup>
@@ -272,7 +272,7 @@
     <ClCompile Include="texanims.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="o_froggy.cpp">
+    <ClCompile Include="objects\o_froggy.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
   </ItemGroup>

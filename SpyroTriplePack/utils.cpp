@@ -6,6 +6,24 @@ bool HasKey = 0;
 uint8_t DragonCount{ 0 };
 
 
+//	Bools and code to read this mod config file:
+
+bool EnableTownSquare = false;
+bool EnableGnorcCove = false;
+bool EnableTreeTops = false;
+
+void CheckConfigFile(const char* path, const HelperFunctions& helperFunctions)
+{
+	const IniFile* STP_Config = new IniFile(std::string(path) + "\\config.ini");
+
+	EnableTownSquare = STP_Config->getBool("Levels", "EnableTownSquare", true);
+	EnableGnorcCove = STP_Config->getBool("Levels", "EnableGnorcCove", true);
+	EnableTreeTops = STP_Config->getBool("Levels", "EnableTreeTops", true);
+
+	delete STP_Config;
+}
+
+
 //	Bools and code to check if certain mods are enabled / disabled - Also a function to check for the Mod Loader API version:
 
 bool HD_GUI = false;

@@ -12,6 +12,15 @@ extern bool HasKey;
 extern uint8_t DragonCount;
 
 
+//	Bools and code to read this mod config file:
+
+extern bool EnableTownSquare;
+extern bool EnableGnorcCove;
+extern bool EnableTreeTops;
+
+void CheckConfigFile(const char* path, const HelperFunctions& helperFunctions);
+
+
 //	Bools and code to check if certain mods are enabled / disabled & Mod Loader API version check:
 
 extern bool HD_GUI;
