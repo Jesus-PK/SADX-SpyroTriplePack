@@ -1,6 +1,6 @@
 #include "pch.h"
 
-//	Mod Version: v1.0.0
+//	Mod Version: v1.1.0
 
 HelperFunctions HelperFunctionsGlobal;
 
