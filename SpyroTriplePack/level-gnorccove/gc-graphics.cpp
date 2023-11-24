@@ -6,14 +6,14 @@ void STAGENAMES_GnorcCove()
 {
     if (HD_GUI)
     {
-        ReplaceTEX("AVA_STNAM", "TX_ST08", "StageNames", "STP_HD-StageName-JP-GnorcCove", 365038, 256, 16);
-        ReplaceTEX("AVA_STNAM_E", "TX_ST08_e", "StageNames", "STP_HD-StageName-EN-GnorcCove", 10000416, 256, 16);
+        ReplaceTEX("AVA_STNAM", "TX_ST08", "StageNames", "STP_HD_StageName_GnorcCove-JP", 365038, 256, 16);
+        ReplaceTEX("AVA_STNAM_E", "TX_ST08_e", "StageNames", "STP_HD_StageName_GnorcCove-EN", 10000416, 256, 16);
     }
     
     else
     {
-        ReplaceTEX("AVA_STNAM", "TX_ST08", "StageNames", "STP_SD-StageName-JP-GnorcCove", 365038, 256, 16);
-        ReplaceTEX("AVA_STNAM_E", "TX_ST08_e", "StageNames", "STP_SD-StageName-EN-GnorcCove", 10000416, 256, 16);
+        ReplaceTEX("AVA_STNAM", "TX_ST08", "StageNames", "STP_SD_StageName_GnorcCove-JP", 365038, 256, 16);
+        ReplaceTEX("AVA_STNAM_E", "TX_ST08_e", "StageNames", "STP_SD_StageName_GnorcCove-EN", 10000416, 256, 16);
     }
 }
 
@@ -30,10 +30,11 @@ void TITLECARDS_GnorcCove()
         const char* HD_Index = index.c_str();
 
         ReplacePVR("S_STAGE05", HD_Index);
-        ReplacePVR("S_STAGE05_E", HD_Index);
         ReplacePVR("A_STAGE01", HD_Index);
-        ReplacePVR("A_STAGE01_E", HD_Index);
         ReplacePVR("B_STAGE01", HD_Index);
+
+        ReplacePVR("S_STAGE05_E", HD_Index);       
+        ReplacePVR("A_STAGE01_E", HD_Index);      
         ReplacePVR("B_STAGE01_E", HD_Index);
     }
 
@@ -43,17 +44,19 @@ void TITLECARDS_GnorcCove()
         const char* SD_Index = index.c_str();
 
         ReplacePVR("S_STAGE05", SD_Index);
-        ReplacePVR("S_STAGE05_E", SD_Index);
         ReplacePVR("A_STAGE01", SD_Index);
-        ReplacePVR("A_STAGE01_E", SD_Index);
         ReplacePVR("B_STAGE01", SD_Index);
+
+        ReplacePVR("S_STAGE05_E", SD_Index);       
+        ReplacePVR("A_STAGE01_E", SD_Index);       
         ReplacePVR("B_STAGE01_E", SD_Index);
 
         ReplacePVR("S_STAGE05_DC", SD_Index);
-        ReplacePVR("S_STAGE05_E_DC", SD_Index);
         ReplacePVR("A_STAGE01_DC", SD_Index);
-        ReplacePVR("A_STAGE01_E_DC", SD_Index);
         ReplacePVR("B_STAGE01_DC", SD_Index);
+
+        ReplacePVR("S_STAGE05_E_DC", SD_Index);        
+        ReplacePVR("A_STAGE01_E_DC", SD_Index);        
         ReplacePVR("B_STAGE01_E_DC", SD_Index);
     }
 }
@@ -75,40 +78,40 @@ void STAGECREDITS_GnorcCove()
 {
     if (HD_GUI)
     {
-        ReplaceTEX("ENDBG_SONIC_1", "s_ev017", "StageCredits", "STP_HD_StageCredits-GnorcCove-S00", 366016, 256, 256);
-        ReplaceTEX("ENDBG_AMY_0", "a_ev008", "StageCredits", "STP_HD_StageCredits-GnorcCove-A00", 366034, 256, 256);
-        ReplaceTEX("ENDBG_AMY_0", "a_ev009", "StageCredits", "STP_HD_StageCredits-GnorcCove-A01", 366035, 256, 256);
-        ReplaceTEX("ENDBG_AMY_1", "a_ev010", "StageCredits", "STP_HD_StageCredits-GnorcCove-A02", 366036, 256, 256);
-        ReplaceTEX("ENDBG_BIG_0", "b_ev006", "StageCredits", "STP_HD_StageCredits-GnorcCove-B00", 366082, 256, 256);
-        ReplaceTEX("ENDBG_BIG_0", "b_ev007", "StageCredits", "STP_HD_StageCredits-GnorcCove-B01", 366083, 256, 256);
+        ReplaceTEX("ENDBG_SONIC_1", "s_ev017", "StageCredits", "STP_HD_StageCredits_GnorcCove-S00", 366016, 256, 256);
+        ReplaceTEX("ENDBG_AMY_0", "a_ev008", "StageCredits", "STP_HD_StageCredits_GnorcCove-A00", 366034, 256, 256);
+        ReplaceTEX("ENDBG_AMY_0", "a_ev009", "StageCredits", "STP_HD_StageCredits_GnorcCove-A01", 366035, 256, 256);
+        ReplaceTEX("ENDBG_AMY_1", "a_ev010", "StageCredits", "STP_HD_StageCredits_GnorcCove-A02", 366036, 256, 256);
+        ReplaceTEX("ENDBG_BIG_0", "b_ev006", "StageCredits", "STP_HD_StageCredits_GnorcCove-B00", 366082, 256, 256);
+        ReplaceTEX("ENDBG_BIG_0", "b_ev007", "StageCredits", "STP_HD_StageCredits_GnorcCove-B01", 366083, 256, 256);
     }
 
     else if (DC_Conversion)
     {
-        ReplaceTEX("ENDBG_SONIC_1", "s_ev017", "StageCredits", "STP_DC_StageCredits-GnorcCove-S00", 366016, 256, 256);
-        ReplaceTEX("ENDBG_AMY_0", "a_ev008", "StageCredits", "STP_DC_StageCredits-GnorcCove-A00", 366034, 256, 256);
-        ReplaceTEX("ENDBG_AMY_0", "a_ev009", "StageCredits", "STP_DC_StageCredits-GnorcCove-A01", 366035, 256, 256);
-        ReplaceTEX("ENDBG_AMY_1", "a_ev010", "StageCredits", "STP_DC_StageCredits-GnorcCove-A02", 366036, 256, 256);
-        ReplaceTEX("ENDBG_BIG_0", "b_ev006", "StageCredits", "STP_DC_StageCredits-GnorcCove-B00", 366082, 256, 256);
-        ReplaceTEX("ENDBG_BIG_0", "b_ev007", "StageCredits", "STP_DC_StageCredits-GnorcCove-B01", 366083, 256, 256);
+        ReplaceTEX("ENDBG_SONIC_1", "s_ev017", "StageCredits", "STP_DC_StageCredits_GnorcCove-S00", 366016, 256, 256);
+        ReplaceTEX("ENDBG_AMY_0", "a_ev008", "StageCredits", "STP_DC_StageCredits_GnorcCove-A00", 366034, 256, 256);
+        ReplaceTEX("ENDBG_AMY_0", "a_ev009", "StageCredits", "STP_DC_StageCredits_GnorcCove-A01", 366035, 256, 256);
+        ReplaceTEX("ENDBG_AMY_1", "a_ev010", "StageCredits", "STP_DC_StageCredits_GnorcCove-A02", 366036, 256, 256);
+        ReplaceTEX("ENDBG_BIG_0", "b_ev006", "StageCredits", "STP_DC_StageCredits_GnorcCove-B00", 366082, 256, 256);
+        ReplaceTEX("ENDBG_BIG_0", "b_ev007", "StageCredits", "STP_DC_StageCredits_GnorcCove-B01", 366083, 256, 256);
     }
 
     else
     {
-        ReplaceTEX("ENDBG_SONIC_1", "sonic_17", "StageCredits", "STP_DX_StageCredits-GnorcCove-S00", 366016, 512, 512);
-        ReplaceTEX("ENDBG_AMY_0", "amy_04", "StageCredits", "STP_DX_StageCredits-GnorcCove-A00", 366030, 512, 512);
-        ReplaceTEX("ENDBG_AMY_0", "amy_05", "StageCredits", "STP_DX_StageCredits-GnorcCove-A01", 366031, 512, 512);
-        ReplaceTEX("ENDBG_AMY_0", "amy_06", "StageCredits", "STP_DX_StageCredits-GnorcCove-A02", 366032, 512, 512);
-        ReplaceTEX("ENDBG_AMY_0", "amy_07", "StageCredits", "STP_DX_StageCredits-GnorcCove-A03", 366033, 512, 512);
-        ReplaceTEX("ENDBG_BIG_0", "big_04", "StageCredits", "STP_DX_StageCredits-GnorcCove-B00", 366080, 512, 512);
-        ReplaceTEX("ENDBG_BIG_0", "big_05", "StageCredits", "STP_DX_StageCredits-GnorcCove-B01", 366081, 512, 512);
+        ReplaceTEX("ENDBG_SONIC_1", "sonic_17", "StageCredits", "STP_DX_StageCredits_GnorcCove-S00", 366016, 512, 512);
+        ReplaceTEX("ENDBG_AMY_0", "amy_04", "StageCredits", "STP_DX_StageCredits_GnorcCove-A00", 366030, 512, 512);
+        ReplaceTEX("ENDBG_AMY_0", "amy_05", "StageCredits", "STP_DX_StageCredits_GnorcCove-A01", 366031, 512, 512);
+        ReplaceTEX("ENDBG_AMY_0", "amy_06", "StageCredits", "STP_DX_StageCredits_GnorcCove-A02", 366032, 512, 512);
+        ReplaceTEX("ENDBG_AMY_0", "amy_07", "StageCredits", "STP_DX_StageCredits_GnorcCove-A03", 366033, 512, 512);
+        ReplaceTEX("ENDBG_BIG_0", "big_04", "StageCredits", "STP_DX_StageCredits_GnorcCove-B00", 366080, 512, 512);
+        ReplaceTEX("ENDBG_BIG_0", "big_05", "StageCredits", "STP_DX_StageCredits_GnorcCove-B01", 366081, 512, 512);
     }
 }
 
 
 //	Sound Test Entries:
 
-SoundTestEntry GC_SoundTestEntry = { "Gnorc Cove:  Spyro the Dragon", 104 };
+SoundTestEntry SoundTestEntry_GnorcCove = { "Gnorc Cove:  Spyro the Dragon", 104 };
 
 
 //  Init Graphics:
@@ -120,5 +123,5 @@ void GC_INIT_Graphics()
     MULTITHUMBNAILS_GnorcCove();
     STAGECREDITS_GnorcCove();
 
-    Soundtest_ActionStage[23] = GC_SoundTestEntry;
+    Soundtest_ActionStage[23] = SoundTestEntry_GnorcCove;
 }
