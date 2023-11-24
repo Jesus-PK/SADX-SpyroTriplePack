@@ -3,6 +3,7 @@
 //  HD GUI check for sprites:
 
 int ArrayID;
+int DragonTarget;
 float SpriteHeight_Icon;
 float SpriteHeight_Counter;
 float SpriteWidth_Key;
@@ -12,6 +13,11 @@ void SetSpriteSettings()
     //  Set Array ID:
     
     HD_GUI ? ArrayID = 1 : ArrayID = 0;
+
+
+    //  Set Dragon Counter Value:
+
+    (CurrentLevel == LevelIDs_SkyDeck) ? DragonTarget = 5 : DragonTarget = 4;
 
 
     //  Set sprite Height and Width values:
@@ -68,12 +74,12 @@ void DrawDragonCountHUD()
     SPRITE_DragonIcon.p.y = SpriteHeight_Icon;
     late_DrawSprite2D(&SPRITE_DragonIcon, ArrayID, 22046.496f, NJD_SPRITE_ALPHA, LATE_LIG); // This draws the custom dragon icon.
 
-    if (DragonCount >= 5) // This changes the sprite color to green when the condition is met (wrote if equal or greater than the value as a failsafe) - The sprite needs to have the NJD_SPRITE_COLOR flag.
+    if (DragonCount >= DragonTarget) // This changes the sprite color to green when the condition is met (wrote if equal or greater than the value as a failsafe) - The sprite needs to have the NJD_SPRITE_COLOR flag.
         SetMaterial(1.0f, 0.0f, 1.0f, 0.0f);
     
     SPRITE_DragonCounter.p.x = 576.0f;
     SPRITE_DragonCounter.p.y = SpriteHeight_Counter; // It's enough calling the height once unless we need a different height for the other sprites.
-    late_DrawSprite2D(&SPRITE_DragonCounter, 5, 22046.496f, NJD_SPRITE_ALPHA, LATE_LIG); // This draws the right number - Static, put manual ID from the array (In this case 5 since the max amount is gonna be 5 dragons).
+    late_DrawSprite2D(&SPRITE_DragonCounter, DragonTarget, 22046.496f, NJD_SPRITE_ALPHA, LATE_LIG); // This draws the right number - Static, put manual ID from the array (In this case 5 since the max amount is gonna be 5 dragons).
     
     SPRITE_DragonCounter.p.x -= 16.0f; // Doing "-=" makes it so it uses the substracted value from the one that was used previously (SPRITE_DragonCounter.p.x at the very top).
     late_DrawSprite2D(&SPRITE_DragonCounter, 6, 22046.496f, NJD_SPRITE_ALPHA, LATE_LIG); // This draws the slash character - ID 6 from the array.

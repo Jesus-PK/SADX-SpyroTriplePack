@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "hud.h"
 #include "o_skyboxes.h"
 #include "texanims.h"
 
@@ -19,6 +20,9 @@ void RD_TownSquare(task* tp)
 	}
 	
 	TS_ANIM_Water();
+
+	if (CurrentCharacter == Characters_Sonic)
+		DrawDragonHUD();
 }
 
 
