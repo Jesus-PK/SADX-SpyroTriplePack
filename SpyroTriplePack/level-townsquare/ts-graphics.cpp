@@ -2,7 +2,7 @@
 
 //  Stage Names:
 
-void STAGENAMES_TownSquare(const char* path, const HelperFunctions& helperFunctions)
+void STAGENAMES_TownSquare()
 {
     if (HD_GUI)
     {
@@ -20,9 +20,9 @@ void STAGENAMES_TownSquare(const char* path, const HelperFunctions& helperFuncti
 
 //  TitleCards:
 
-void TITLECARDS_TownSquare(const char* path, const HelperFunctions& helperFunctions)
+void TITLECARDS_TownSquare()
 {
-    std::string index = path;
+    std::string index = ModPath;
 
     if (HD_GUI)
     {
@@ -55,7 +55,7 @@ void TITLECARDS_TownSquare(const char* path, const HelperFunctions& helperFuncti
 
 //  Multiplayer Thumbnails:
 
-void MULTITHUMBNAILS_TownSquare(const char* path, const HelperFunctions& helperFunctions)
+void MULTITHUMBNAILS_TownSquare()
 {
 	ReplaceTEX("AVA_MULTI", "multistg0700", "MultiThumbnails", "STP_Multi_TownSquare-S", 54926008, 128, 72);
 	ReplaceTEX("AVA_MULTI", "multistg0701", "MultiThumbnails", "STP_Multi_TownSquare-K", 71757014, 128, 72);
@@ -64,7 +64,7 @@ void MULTITHUMBNAILS_TownSquare(const char* path, const HelperFunctions& helperF
 
 //  Stage Credits:
 
-void STAGECREDITS_TownSquare(const char* path, const HelperFunctions& helperFunctions)
+void STAGECREDITS_TownSquare()
 {
     if (HD_GUI)
     {
@@ -98,12 +98,12 @@ SoundTestEntry TS_SoundTestEntry = { "Town Square:  Spyro the Dragon", 63 };
 
 //  Init Graphics:
 
-void TS_INIT_Graphics(const char* path, const HelperFunctions& helperFunctions)
+void TS_INIT_Graphics()
 {
-    STAGENAMES_TownSquare(path, helperFunctions);
-    TITLECARDS_TownSquare(path, helperFunctions);
-    MULTITHUMBNAILS_TownSquare(path, helperFunctions);
-    STAGECREDITS_TownSquare(path, helperFunctions);
+    STAGENAMES_TownSquare();
+    TITLECARDS_TownSquare();
+    MULTITHUMBNAILS_TownSquare();
+    STAGECREDITS_TownSquare();
 
     Soundtest_ActionStage[9] = TS_SoundTestEntry;
 }

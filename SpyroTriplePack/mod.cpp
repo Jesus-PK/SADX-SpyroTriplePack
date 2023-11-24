@@ -14,11 +14,11 @@ extern "C"
 		
 		//	Shared INIT:
 
-		CheckConfigFile(path, helperFunctions);
-		CheckActiveMods(helperFunctions);
+		CheckConfigFile();
+		CheckActiveMods();
 		ExpandDrawQueueMemoryPool();
 		
-		STP_LoadSharedObjects(helperFunctions);
+		STP_LoadSharedObjects();
 
 
 		//	Expand Draw Queue Memory Pool (Applies to the entire game):
@@ -32,11 +32,11 @@ extern "C"
 
 		if (EnableGnorcCove)
 		{
-			GC_INIT_Level(helperFunctions);
+			GC_INIT_Level();
 			GC_INIT_LevelTask();
 			GC_INIT_LevelRanks();
 			GC_INIT_Objects();
-			GC_INIT_Graphics(path, helperFunctions);
+			GC_INIT_Graphics();
 		}
 
 		
@@ -44,11 +44,11 @@ extern "C"
 
 		if (EnableTownSquare)
 		{
-			TS_INIT_Level(helperFunctions);
+			TS_INIT_Level();
 			TS_INIT_LevelTask();
 			TS_INIT_LevelRanks();
 			TS_INIT_Objects();
-			TS_INIT_Graphics(path, helperFunctions);
+			TS_INIT_Graphics();
 		}
 		
 		
@@ -56,11 +56,11 @@ extern "C"
 
 		if (EnableTreeTops)
 		{
-			TT_INIT_Level(helperFunctions);
+			TT_INIT_Level();
 			TT_INIT_LevelTask();
 			TT_INIT_LevelRanks();
 			TT_INIT_Objects();
-			TT_INIT_Graphics(path, helperFunctions);
+			TT_INIT_Graphics();
 		}
 	}
 

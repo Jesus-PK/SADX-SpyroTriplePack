@@ -1,14 +1,8 @@
 #include "pch.h"
 
-//  Macros:
-
-#define ReplaceTEX(pvm, pvr, folder, pngname, gbix, x, y) helperFunctions.ReplaceTexture(pvm, pvr, (std::string(path) + "\\textures\\" folder "\\" pngname ".png").c_str(), gbix, x, y);
-#define ReplacePVR(a, b) helperFunctions.ReplaceFile("system\\" a ".PVR", b);
-
-
 //  Stage Names:
 
-void STAGENAMES_TreeTops(const char* path, const HelperFunctions& helperFunctions)
+void STAGENAMES_TreeTops()
 {
     if (HD_GUI)
     {
@@ -26,9 +20,9 @@ void STAGENAMES_TreeTops(const char* path, const HelperFunctions& helperFunction
 
 //  TitleCards:
 
-void TITLECARDS_TreeTops(const char* path, const HelperFunctions& helperFunctions)
+void TITLECARDS_TreeTops()
 {
-    std::string index = path;
+    std::string index = ModPath;
 
     if (HD_GUI)
     {
@@ -67,7 +61,7 @@ void TITLECARDS_TreeTops(const char* path, const HelperFunctions& helperFunction
 
 //  Multiplayer Thumbnails:
 
-void MULTITHUMBNAILS_TreeTops(const char* path, const HelperFunctions& helperFunctions)
+void MULTITHUMBNAILS_TreeTops()
 {
 	ReplaceTEX("AVA_MULTI", "multistg0600", "MultiThumbnails", "STP_Multi_TreeTops-S", 54926007, 128, 72);
 	ReplaceTEX("AVA_MULTI", "multistg0602", "MultiThumbnails", "STP_Multi_TreeTops-K", 71757015, 128, 72);
@@ -76,7 +70,7 @@ void MULTITHUMBNAILS_TreeTops(const char* path, const HelperFunctions& helperFun
 
 //  Stage Credits:
 
-void STAGECREDITS_TreeTops(const char* path, const HelperFunctions& helperFunctions)
+void STAGECREDITS_TreeTops()
 {
     if (HD_GUI)
     {
@@ -112,12 +106,12 @@ SoundTestEntry TT_SoundTestEntry = { "Tree Tops:  Spyro the Dragon", 81 };
 
 //  Init Graphics:
 
-void TT_INIT_Graphics(const char* path, const HelperFunctions& helperFunctions)
+void TT_INIT_Graphics()
 {
-    STAGENAMES_TreeTops(path, helperFunctions);
-    TITLECARDS_TreeTops(path, helperFunctions);
-    MULTITHUMBNAILS_TreeTops(path, helperFunctions);
-    STAGECREDITS_TreeTops(path, helperFunctions);
+    STAGENAMES_TreeTops();
+    TITLECARDS_TreeTops();
+    MULTITHUMBNAILS_TreeTops();
+    STAGECREDITS_TreeTops();
 
     Soundtest_ActionStage[12] = TT_SoundTestEntry;
 }

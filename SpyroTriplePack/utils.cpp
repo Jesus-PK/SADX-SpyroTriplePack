@@ -12,9 +12,9 @@ bool EnableTownSquare = false;
 bool EnableGnorcCove = false;
 bool EnableTreeTops = false;
 
-void CheckConfigFile(const char* path, const HelperFunctions& helperFunctions)
+void CheckConfigFile()
 {
-	const IniFile* STP_Config = new IniFile(std::string(path) + "\\config.ini");
+	const IniFile* STP_Config = new IniFile(std::string(ModPath) + "\\config.ini");
 
 	EnableTownSquare = STP_Config->getBool("Levels", "EnableTownSquare", true);
 	EnableGnorcCove = STP_Config->getBool("Levels", "EnableGnorcCove", true);
@@ -33,9 +33,9 @@ bool Lantern_Engine = false;
 
 bool DC_HudTweaks = false;
 
-void CheckDCConfig(const HelperFunctions& helperFunctions)
+void CheckDCConfig()
 {
-	auto DC_Mod = helperFunctions.Mods->find("sadx-dreamcast-conversion");
+	auto DC_Mod = HelperFunctionsGlobal.Mods->find("sadx-dreamcast-conversion");
 
 	if (DC_Mod)
 	{
@@ -49,10 +49,10 @@ void CheckDCConfig(const HelperFunctions& helperFunctions)
 	}
 }
 
-void CheckActiveMods(const HelperFunctions& helperFunctions)
+void CheckActiveMods()
 {
-	HD_GUI = helperFunctions.Mods->find("sadx-hd-gui") != nullptr;
-	CheckDCConfig(helperFunctions);
+	HD_GUI = HelperFunctionsGlobal.Mods->find("sadx-hd-gui") != nullptr;
+	CheckDCConfig();
 	
 	HUD_Plus = GetModuleHandle(L"sadx-hud-plus") != nullptr;
 	Lantern_Engine = GetModuleHandle(L"sadx-dc-lighting") != nullptr;
@@ -96,12 +96,12 @@ ModelInfo* LoadBasicModel(const char* name)
 
 //  Function for loading LandTables:
 
-void LoadLandTable(LandTableInfo** info, const char* name, const HelperFunctions& helperFunctions, NJS_TEXLIST* texlist)
+void LoadLandTable(LandTableInfo** info, const char* name, NJS_TEXLIST* texlist)
 {
 	std::string fullPath = "system\\landtables\\";
 	fullPath = fullPath + name + ".sa1lvl";
 
-	LandTableInfo* land = new LandTableInfo(helperFunctions.GetReplaceablePath(fullPath.c_str()));
+	LandTableInfo* land = new LandTableInfo(HelperFunctionsGlobal.GetReplaceablePath(fullPath.c_str()));
 
 	if (land->getlandtable() == nullptr)
 	{

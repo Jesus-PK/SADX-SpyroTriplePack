@@ -20,7 +20,7 @@ NJS_TEXLIST TEXLIST_STP_Dragons = { arrayptrandlength(TEX_STP_Dragons) };
 
 //	Load Object Assets:
 
-void STP_LoadSharedObjects(const HelperFunctions& helperFunctions)
+void STP_LoadSharedObjects()
 {
 	LOAD_BasicChest();
 	LOAD_CrystalStatue();
@@ -34,5 +34,5 @@ void STP_LoadSharedObjects(const HelperFunctions& helperFunctions)
 	//	Blacklist auto-mipmaps on Dragons textures:
 	
 	for (Uint32 i = 600007000; i < 600007017; i++)
-		helperFunctions.MipmapBlacklistGBIX(i);
+		HelperFunctionsGlobal.MipmapBlacklistGBIX(i);
 }

@@ -36,7 +36,7 @@ LandTableInfo* MDL_TTLandtable = nullptr;
 
 void LANDTABLE_TreeTops()
 {
-	LoadLandTable(&MDL_TTLandtable, "STP_Landtable-TreeTops", HelperFunctionsGlobal, &TEXLIST_TreeTops);
+	LoadLandTable(&MDL_TTLandtable, "STP_Landtable-TreeTops", &TEXLIST_TreeTops);
 
 	GeoLists[LevelIDs_SkyDeck * 8] = MDL_TTLandtable->getlandtable();
 	GeoLists[LevelIDs_SkyDeck * 8 + 1] = MDL_TTLandtable->getlandtable();
@@ -60,30 +60,30 @@ StartPosition TreeTops00 = { LevelIDs_SkyDeck, 0, { 707.124f, 75.0f, 861.509f },
 StartPosition TreeTops01 = { LevelIDs_SkyDeck, 1, { 707.124f, 75.0f, 861.509f }, 0x9500 };
 StartPosition TreeTops02 = { LevelIDs_SkyDeck, 2, { 707.124f, 75.0f, 861.509f }, 0x9500 };
 
-void STARTPOSITIONS_TreeTops(const HelperFunctions& helperFunctions)
+void STARTPOSITIONS_TreeTops()
 {
 	for (unsigned char i = 0; i < Characters_MetalSonic; ++i)
 	{
-		helperFunctions.RegisterStartPosition(i, TreeTops00);
-		helperFunctions.RegisterStartPosition(i, TreeTops01);
-		helperFunctions.RegisterStartPosition(i, TreeTops02);
+		HelperFunctionsGlobal.RegisterStartPosition(i, TreeTops00);
+		HelperFunctionsGlobal.RegisterStartPosition(i, TreeTops01);
+		HelperFunctionsGlobal.RegisterStartPosition(i, TreeTops02);
 	}
 }
 
 
 //	Paths:
 
-void PATHS_TreeTops(const HelperFunctions& helperFunctions)
+void PATHS_TreeTops()
 {
-	helperFunctions.RegisterPathList(PATHDATA_TreeTops00);
-	helperFunctions.RegisterPathList(PATHDATA_TreeTops01);
-	helperFunctions.RegisterPathList(PATHDATA_TreeTops02);
+	HelperFunctionsGlobal.RegisterPathList(PATHDATA_TreeTops00);
+	HelperFunctionsGlobal.RegisterPathList(PATHDATA_TreeTops01);
+	HelperFunctionsGlobal.RegisterPathList(PATHDATA_TreeTops02);
 }
 
 
 //	File Replacements:
 
-void FILES_TreeTops(const HelperFunctions& helperFunctions)
+void FILES_TreeTops()
 {
 	// SET Replacement:
 
@@ -125,19 +125,19 @@ void FILES_TreeTops(const HelperFunctions& helperFunctions)
 
 	// OST Replacement:
 
-	helperFunctions.ReplaceFile("system\\sounddata\\bgm\\wma\\skydeck1.wma", "system\\STP_OST-TreeTops.adx");
+	HelperFunctionsGlobal.ReplaceFile("system\\sounddata\\bgm\\wma\\skydeck1.wma", "system\\STP_OST-TreeTops.adx");
 }
 
 
 //	Init Level:
 
-void TT_INIT_Level(const HelperFunctions& helperFunctions)
+void TT_INIT_Level()
 {
 	WriteData<5>((void*)0x422D84, 0x90); // Disable DC Conversion Sky Deck
 	
 	LANDTABLE_TreeTops();
 	DEATHZONES_TreeTops();
-	STARTPOSITIONS_TreeTops(helperFunctions);
-	PATHS_TreeTops(helperFunctions);
-	FILES_TreeTops(helperFunctions);
+	STARTPOSITIONS_TreeTops();
+	PATHS_TreeTops();
+	FILES_TreeTops();
 }

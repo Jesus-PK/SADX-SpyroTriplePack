@@ -2,7 +2,7 @@
 
 //  Stage Names:
 
-void STAGENAMES_GnorcCove(const char* path, const HelperFunctions& helperFunctions)
+void STAGENAMES_GnorcCove()
 {
     if (HD_GUI)
     {
@@ -20,9 +20,9 @@ void STAGENAMES_GnorcCove(const char* path, const HelperFunctions& helperFunctio
 
 //  TitleCards:
 
-void TITLECARDS_GnorcCove(const char* path, const HelperFunctions& helperFunctions)
+void TITLECARDS_GnorcCove()
 {
-    std::string index = path;
+    std::string index = ModPath;
 
     if (HD_GUI)
     {
@@ -61,7 +61,7 @@ void TITLECARDS_GnorcCove(const char* path, const HelperFunctions& helperFunctio
 
 //  Multiplayer Thumbnails:
 
-void MULTITHUMBNAILS_GnorcCove(const char* path, const HelperFunctions& helperFunctions)
+void MULTITHUMBNAILS_GnorcCove()
 {
 	ReplaceTEX("AVA_MULTI", "multistg0300", "MultiThumbnails", "STP_Multi_GnorcCove-S", 54926004, 128, 72);
 	ReplaceTEX("AVA_MULTI", "multistg0301", "MultiThumbnails", "STP_Multi_GnorcCove-B", 71757016, 192, 108);
@@ -71,7 +71,7 @@ void MULTITHUMBNAILS_GnorcCove(const char* path, const HelperFunctions& helperFu
 
 //  Stage Credits:
 
-void STAGECREDITS_GnorcCove(const char* path, const HelperFunctions& helperFunctions)
+void STAGECREDITS_GnorcCove()
 {
     if (HD_GUI)
     {
@@ -113,12 +113,12 @@ SoundTestEntry GC_SoundTestEntry = { "Gnorc Cove:  Spyro the Dragon", 104 };
 
 //  Init Graphics:
 
-void GC_INIT_Graphics(const char* path, const HelperFunctions& helperFunctions)
+void GC_INIT_Graphics()
 {
-    STAGENAMES_GnorcCove(path, helperFunctions);
-    TITLECARDS_GnorcCove(path, helperFunctions);
-    MULTITHUMBNAILS_GnorcCove(path, helperFunctions);
-    STAGECREDITS_GnorcCove(path, helperFunctions);
+    STAGENAMES_GnorcCove();
+    TITLECARDS_GnorcCove();
+    MULTITHUMBNAILS_GnorcCove();
+    STAGECREDITS_GnorcCove();
 
     Soundtest_ActionStage[23] = GC_SoundTestEntry;
 }

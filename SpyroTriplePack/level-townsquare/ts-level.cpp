@@ -36,7 +36,7 @@ LandTableInfo* MDL_TSLandtable = nullptr;
 
 void LANDTABLE_TownSquare()
 {
-	LoadLandTable(&MDL_TSLandtable, "STP_Landtable-TownSquare", HelperFunctionsGlobal, &TEXLIST_TownSquare);
+	LoadLandTable(&MDL_TSLandtable, "STP_Landtable-TownSquare", &TEXLIST_TownSquare);
 
 	GeoLists[LevelIDs_LostWorld * 8] = MDL_TSLandtable->getlandtable();
 	GeoLists[LevelIDs_LostWorld * 8 + 1] = MDL_TSLandtable->getlandtable();
@@ -60,30 +60,30 @@ StartPosition TownSquare00 = { LevelIDs_LostWorld, 0, { 173.22f, -25.0f, 300.9f 
 StartPosition TownSquare01 = { LevelIDs_LostWorld, 1, { 173.22f, -25.0f, 300.9f }, 0xC000 };
 StartPosition TownSquare02 = { LevelIDs_LostWorld, 2, { 173.22f, -25.0f, 300.9f }, 0xC000 };
 
-void STARTPOSITIONS_TownSquare(const HelperFunctions& helperFunctions)
+void STARTPOSITIONS_TownSquare()
 {
 	for (unsigned char i = 0; i < Characters_MetalSonic; ++i)
 	{
-		helperFunctions.RegisterStartPosition(i, TownSquare00);
-		helperFunctions.RegisterStartPosition(i, TownSquare01);
-		helperFunctions.RegisterStartPosition(i, TownSquare02);
+		HelperFunctionsGlobal.RegisterStartPosition(i, TownSquare00);
+		HelperFunctionsGlobal.RegisterStartPosition(i, TownSquare01);
+		HelperFunctionsGlobal.RegisterStartPosition(i, TownSquare02);
 	}
 }
 
 
 //	Paths:
 
-void PATHS_TownSquare(const HelperFunctions& helperFunctions)
+void PATHS_TownSquare()
 {
-	helperFunctions.RegisterPathList(PATHDATA_TownSquare00);
-	helperFunctions.RegisterPathList(PATHDATA_TownSquare01);
-	helperFunctions.RegisterPathList(PATHDATA_TownSquare02);
+	HelperFunctionsGlobal.RegisterPathList(PATHDATA_TownSquare00);
+	HelperFunctionsGlobal.RegisterPathList(PATHDATA_TownSquare01);
+	HelperFunctionsGlobal.RegisterPathList(PATHDATA_TownSquare02);
 }
 
 
 //	File Replacements:
 
-void FILES_TownSquare(const HelperFunctions& helperFunctions)
+void FILES_TownSquare()
 {
 	// SET Replacement:
 
@@ -118,19 +118,19 @@ void FILES_TownSquare(const HelperFunctions& helperFunctions)
 
 	// OST Replacement:
 
-	helperFunctions.ReplaceFile("system\\sounddata\\bgm\\wma\\lstwrld1.wma", "system\\STP_OST-TownSquare.adx");
+	HelperFunctionsGlobal.ReplaceFile("system\\sounddata\\bgm\\wma\\lstwrld1.wma", "system\\STP_OST-TownSquare.adx");
 }
 
 
 //	Level Init:
 
-void TS_INIT_Level(const HelperFunctions& helperFunctions)
+void TS_INIT_Level()
 {
 	WriteData<5>((void*)0x422DEF, 0x90); // Disable DC Conversion Lost World
 	
 	LANDTABLE_TownSquare();
 	DEATHZONES_TownSquare();
-	STARTPOSITIONS_TownSquare(helperFunctions);
-	PATHS_TownSquare(helperFunctions);
-	FILES_TownSquare(helperFunctions);
+	STARTPOSITIONS_TownSquare();
+	PATHS_TownSquare();
+	FILES_TownSquare();
 }

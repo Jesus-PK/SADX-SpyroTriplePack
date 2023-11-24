@@ -19,7 +19,7 @@ extern bool EnableTownSquare;
 extern bool EnableGnorcCove;
 extern bool EnableTreeTops;
 
-void CheckConfigFile(const char* path, const HelperFunctions& helperFunctions);
+void CheckConfigFile();
 
 
 //	Bools and code to check if certain mods or config options are enabled:
@@ -31,7 +31,7 @@ extern bool Lantern_Engine;
 
 extern bool DC_HudTweaks;
 
-void CheckActiveMods(const HelperFunctions& helperFunctions);
+void CheckActiveMods();
 
 
 //	Expand Draw Queue Memory Pool (Applies to the entire game):
@@ -43,7 +43,7 @@ void ExpandDrawQueueMemoryPool();
 
 ModelInfo* LoadBasicModel(const char* name);
 
-void LoadLandTable(LandTableInfo** info, const char* name, const HelperFunctions& helperFunctions, NJS_TEXLIST* texlist);
+void LoadLandTable(LandTableInfo** info, const char* name, NJS_TEXLIST* texlist);
 
 ModelInfo* LoadChunkModel(const char* name);
 
