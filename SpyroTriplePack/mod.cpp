@@ -1,22 +1,22 @@
 #include "pch.h"
 
-//	Mod Version: v1.1.0
+//	Mod Version: v1.2.0 (WIP)
 
+std::string ModPath;
 HelperFunctions HelperFunctionsGlobal;
 
 extern "C"
 {
 	__declspec(dllexport) void __cdecl Init(const char* path, const HelperFunctions& helperFunctions)
 	{
+		ModPath = path;
 		HelperFunctionsGlobal = helperFunctions;
 		
 		//	Shared INIT:
 
 		CheckConfigFile(path, helperFunctions);
 		CheckActiveMods(helperFunctions);
-		CheckModLoaderVersion(helperFunctions);
-
-		SplashScreen_SHC(path, helperFunctions);
+		ExpandDrawQueueMemoryPool();
 		
 		STP_LoadSharedObjects(helperFunctions);
 

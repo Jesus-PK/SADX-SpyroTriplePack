@@ -24,7 +24,7 @@ void CheckConfigFile(const char* path, const HelperFunctions& helperFunctions)
 }
 
 
-//	Bools and code to check if certain mods are enabled / disabled - Also a function to check for the Mod Loader API version:
+//	Bools and code to check if certain mods or config options are enabled:
 
 bool HD_GUI = false;
 bool DC_Conversion = false;
@@ -58,31 +58,18 @@ void CheckActiveMods(const HelperFunctions& helperFunctions)
 	Lantern_Engine = GetModuleHandle(L"sadx-dc-lighting") != nullptr;
 }
 
-void CheckModLoaderVersion(const HelperFunctions& helperFunctions)
+
+//	Expand Draw Queue Memory Pool (Applies to the entire game):
+
+void ExpandDrawQueueMemoryPool()
 {
-	if (helperFunctions.Version < 16)
-	{
-		MessageBox(WindowHandle,
-			L"ERROR! Your version of the Mod Loader doesn't support API Version 16.\n\nThis will make some functionalities of the mod not available.\n\nPlease exit the game and update the Mod Loader for the best experience.",
-			L"Tree Tops Error: Mod Loader Out of Date", MB_OK | MB_ICONERROR);
-	}
+	WriteData((Uint32*)0x408643, 0x100000ui32);
+	WriteData((Uint32*)0x40864D, 0x100000ui32);
+	WriteData((Uint32*)0x40866B, 0x100000ui32);
 }
 
 
-//	SHC Splash Screen:
-
-void SplashScreen_SHC(const char* path, const HelperFunctions& helperFunctions)
-{
-	ReplaceTex("SEGALOGO_E", "segalogo0", "SplashScreen", "SplashScreen-SHC_00", 9420000, 256, 256);
-	ReplaceTex("SEGALOGO_E", "segalogo1", "SplashScreen", "SplashScreen-SHC_01", 9420001, 256, 256);
-	ReplaceTex("SEGALOGO_E", "segalogo2", "SplashScreen", "SplashScreen-SHC_02", 9420002, 256, 256);
-	ReplaceTex("SEGALOGO_E", "segalogo3", "SplashScreen", "SplashScreen-SHC_03", 9420003, 256, 256);
-	ReplaceTex("SEGALOGO_E", "segalogo4", "SplashScreen", "SplashScreen-SHC_04", 9420004, 256, 256);
-	ReplaceTex("SEGALOGO_E", "segalogo5", "SplashScreen", "SplashScreen-SHC_05", 9420005, 256, 256);
-}
-
-
-//	Functions to load models, landtables and animations:
+//	Function for loading Basic Models:
 
 ModelInfo* LoadBasicModel(const char* name)
 {
@@ -105,6 +92,9 @@ ModelInfo* LoadBasicModel(const char* name)
 
     return mdl;
 }
+
+
+//  Function for loading LandTables:
 
 void LoadLandTable(LandTableInfo** info, const char* name, const HelperFunctions& helperFunctions, NJS_TEXLIST* texlist)
 {
@@ -130,6 +120,9 @@ void LoadLandTable(LandTableInfo** info, const char* name, const HelperFunctions
 	}
 }
 
+
+//	Function for loading Chunk Models:
+
 ModelInfo* LoadChunkModel(const char* name)
 {
 	PrintDebug("[STP] Loading chunk model: %s... ", name);
@@ -151,6 +144,40 @@ ModelInfo* LoadChunkModel(const char* name)
 	
 	return mdl;
 }
+
+
+//	Functions for rendering Chunk Models:
+
+void SetupWorldMatrix()
+{
+    ProjectToWorldSpace();
+    Direct3D_SetWorldTransform();
+    memcpy(_nj_current_matrix_ptr_, &ViewMatrix, sizeof(NJS_MATRIX));
+}
+
+void SetupChunkModelRender()
+{
+    SetupWorldMatrix();
+    Direct3D_SetChunkModelRenderState();
+}
+
+void ResetChunkModelRender()
+{
+    Direct3D_ResetWorldTransform();
+    Direct3D_UnsetChunkModelRenderState();
+
+	CnkRestoreSpecular();
+}
+
+FunctionPointer(void, _njCnkDrawModel, (NJS_CNK_MODEL* a3), 0x789750);
+
+void njCnkAction(NJS_ACTION* action, float frame)
+{
+	DisplayAnimationFrame(action, frame, (QueuedModelFlagsB)0, 0, (void(__cdecl*)(NJS_MODEL_SADX*, int, int))_njCnkDrawModel);
+}
+
+
+//	Functions for loading Animations:
 
 inline AnimationFile* LoadANM(const char* type, const char* name)
 {	
@@ -183,38 +210,7 @@ AnimationFile* LoadObjectAnim(const char* name)
 }
 
 
-//	Chunk-display functions:
-
-void SetupWorldMatrix()
-{
-    ProjectToWorldSpace();
-    Direct3D_SetWorldTransform();
-    memcpy(_nj_current_matrix_ptr_, &ViewMatrix, sizeof(NJS_MATRIX));
-}
-
-void SetupChunkModelRender()
-{
-    SetupWorldMatrix();
-    Direct3D_SetChunkModelRenderState();
-}
-
-void ResetChunkModelRender()
-{
-    Direct3D_ResetWorldTransform();
-    Direct3D_UnsetChunkModelRenderState();
-
-	CnkRestoreSpecular();
-}
-
-FunctionPointer(void, _njCnkDrawModel, (NJS_CNK_MODEL* a3), 0x789750);
-
-void njCnkAction(NJS_ACTION* action, float frame)
-{
-	DisplayAnimationFrame(action, frame, (QueuedModelFlagsB)0, 0, (void(__cdecl*)(NJS_MODEL_SADX*, int, int))_njCnkDrawModel);
-}
-
-
-//	Sprite-rendering functions:
+//	Functions for rendering Sprites:
 
 void SetSpriteParam()
 {

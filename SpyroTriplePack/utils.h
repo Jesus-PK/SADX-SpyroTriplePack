@@ -2,9 +2,10 @@
 
 //	Macros:
 
-#define ReplaceTex(pvm, pvr, folder, pngname, gbix, x, y) helperFunctions.ReplaceTexture(pvm, pvr, (std::string(path) + "\\textures\\" folder "\\" pngname ".png").c_str(), gbix, x, y);
-#define ReplaceBIN(a, b) helperFunctions.ReplaceFile("system\\" a ".BIN", "system\\" b ".BIN");
-#define ReplacePVR(a, b) helperFunctions.ReplaceFile("system\\" a ".PVR", b);
+#define ReplaceTEX(pvm, tex_name, folder, png_name, gbix, width, height) HelperFunctionsGlobal.ReplaceTexture(pvm, tex_name, (std::string(ModPath) + "\\textures\\" folder "\\" png_name ".png").c_str(), gbix, width, height);
+#define ReplaceBIN(a, b) HelperFunctionsGlobal.ReplaceFile("system\\" a ".BIN", "system\\" b ".BIN");
+#define ReplacePVR(a, b) HelperFunctionsGlobal.ReplaceFile("system\\" a ".PVR", b);
+
 
 //	Counters:
 
@@ -21,7 +22,7 @@ extern bool EnableTreeTops;
 void CheckConfigFile(const char* path, const HelperFunctions& helperFunctions);
 
 
-//	Bools and code to check if certain mods are enabled / disabled & Mod Loader API version check:
+//	Bools and code to check if certain mods or config options are enabled:
 
 extern bool HD_GUI;
 extern bool DC_Conversion;
@@ -32,12 +33,13 @@ extern bool DC_HudTweaks;
 
 void CheckActiveMods(const HelperFunctions& helperFunctions);
 
-void CheckModLoaderVersion(const HelperFunctions& helperFunctions);
 
-void SplashScreen_SHC(const char* path, const HelperFunctions& helperFunctions);
+//	Expand Draw Queue Memory Pool (Applies to the entire game):
+
+void ExpandDrawQueueMemoryPool();
 
 
-//	Functions to load models, landtables and animations:
+//	Functions for loading Models and Animations:
 
 ModelInfo* LoadBasicModel(const char* name);
 
@@ -49,7 +51,7 @@ inline AnimationFile* LoadANM(const char* type, const char* name);
 AnimationFile* LoadObjectAnim(const char* name);
 
 
-//	Chunk-display functions:
+//	Functions for rendering Chunk Models:
 
 void SetupWorldMatrix();
 void SetupChunkModelRender();
@@ -58,7 +60,7 @@ void ResetChunkModelRender();
 void njCnkAction(NJS_ACTION* action, float frame);
 
 
-//	Sprite-rendering functions:
+//	Functions for rendering Sprites:
 
 void SetSpriteParam();
 void ResetSpriteParam();
@@ -80,7 +82,7 @@ enum CollisionShapes
 };
 
 
-//	ChildTaskSet (CTS) struct and FunctionPointer for custom CTS and replacements:
+//	ChildTaskSet (CTS) struct and FunctionPointer for custom CTS:
 
 struct childtaskset
 {
