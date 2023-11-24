@@ -36,6 +36,7 @@ BOOL TT_CheckMissionRequirements_r(int mission, int character, int level)
             
             break;
         }       
+        
         case 1: // Rank B           
             return (Rings >= 375) ? 1 : 0; // 75% of total rings (375 of 500)
             break;

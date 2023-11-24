@@ -36,6 +36,7 @@ BOOL GC_CheckMissionRequirements_r(int mission, int character, int level)
             
             break;
         }       
+        
         case 1: // Rank B           
             return (Rings >= 300) ? 1 : 0; // 75% of total rings (300 of 400)
             break;

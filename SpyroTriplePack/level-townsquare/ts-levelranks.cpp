@@ -18,7 +18,7 @@ BOOL TS_CheckMissionRequirements_r(int mission, int character, int level)
             switch (character)
             {
                 case Characters_Sonic:
-                    return (time <= 6300 && Rings >= 200) ? 1 : 0; // 1:45 Minutes and 200 Rings
+                    return (time <= 1800) ? 1 : 0; // 30 Seconds
                     break;
 
                 case Characters_Knuckles:
@@ -32,6 +32,7 @@ BOOL TS_CheckMissionRequirements_r(int mission, int character, int level)
             
             break;
         }       
+        
         case 1: // Rank B           
             return (Rings >= 200) ? 1 : 0; // 100% of total rings (200 of 200)
             break;
@@ -45,7 +46,7 @@ BOOL TS_CheckMissionRequirements_r(int mission, int character, int level)
 
 //	Mission Cards:
 
-NJS_TEXNAME TEX_TownSquare_MissionCards[24] = { 0 };
+NJS_TEXNAME TEX_TownSquare_MissionCards[28] = { 0 };
 
 FunctionHook<void> TS_LoadStageMissionImage_t(0x457450);
 FunctionHook<void> TS_LoadMissionCardResult_t(0x457BB0);
@@ -85,7 +86,7 @@ void TS_HD_GetMissionTypeCheck()
             break;
 
         default:               
-            MissionSpriteAnim.texid = (Language != JAPANESE) ? 0 : 6;
+            MissionSpriteAnim.texid = (Language != JAPANESE) ? 24 : 25;
             break;
 	}
 }
@@ -125,7 +126,7 @@ void TS_SD_GetMissionTypeCheck()
             break;
 
         default:               
-            MissionSpriteAnim.texid = (Language != JAPANESE) ? 12 : 18;
+            MissionSpriteAnim.texid = (Language != JAPANESE) ? 26 : 27;
             break;
 	}
 }
