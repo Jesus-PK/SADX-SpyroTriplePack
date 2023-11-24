@@ -115,7 +115,7 @@ void FILES_TreeTops()
 	ReplaceBIN("CAM0602K", "STP_CAM-TreeTops-K"); // Target
 	
 
-	//	PL Replacement:
+	// Lantern PL & SL Replacement:
 
 	ReplaceBIN("PL_60B", "STP_PL");
 	ReplaceBIN("PL_61B", "STP_PL");
@@ -123,9 +123,9 @@ void FILES_TreeTops()
 	ReplaceBIN("SL_60B", "STP_SL");
 
 
-	// OST Replacement:
+	// BGM Replacement:
 
-	HelperFunctionsGlobal.ReplaceFile("system\\sounddata\\bgm\\wma\\skydeck1.wma", "system\\STP_OST-TreeTops.adx");
+	ReplaceBGM("skydeck1", "STP_BGM-TreeTops");
 }
 
 

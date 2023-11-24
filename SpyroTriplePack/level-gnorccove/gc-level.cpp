@@ -115,7 +115,7 @@ void FILES_GnorcCove()
 	ReplaceBIN("CAM0302B", "STP_CAM-GnorcCove-B");
 
 
-	// PL & SL Replacement:
+	// Lantern PL & SL Replacement:
 
 	ReplaceBIN("PL_30B", "STP_PL");
 	ReplaceBIN("PL_31B", "STP_PL");
@@ -126,9 +126,9 @@ void FILES_GnorcCove()
 	ReplaceBIN("SL_32B", "STP_SL");
 
 
-	// OST Replacement:
+	// BGM Replacement:
 
-	HelperFunctionsGlobal.ReplaceFile("system\\sounddata\\bgm\\wma\\twnklpk1.wma", "system\\STP_OST-GnorcCove.adx");
+	ReplaceBGM("twnklpk1", "STP_BGM-GnorcCove");
 }
 
 
