@@ -32,15 +32,15 @@ void SETVIEWDATA_TreeTops()
 
 //	Load Landtable:
 
-LandTableInfo* MDL_TTLandtable = nullptr;
+LandTableInfo* LAND_TreeTops00 = nullptr;
 
 void LANDTABLE_TreeTops()
 {
-	LoadLandTable(&MDL_TTLandtable, "STP_Landtable-TreeTops", &TEXLIST_TreeTops);
+	LoadLandTable(&LAND_TreeTops00, "STP_Landtable-TreeTops", &TEXLIST_TreeTops);
 
-	GeoLists[LevelIDs_SkyDeck * 8] = MDL_TTLandtable->getlandtable();
-	GeoLists[LevelIDs_SkyDeck * 8 + 1] = MDL_TTLandtable->getlandtable();
-	GeoLists[LevelIDs_SkyDeck * 8 + 2] = MDL_TTLandtable->getlandtable();
+	GeoLists[LevelIDs_SkyDeck * 8] = LAND_TreeTops00->getlandtable();
+	GeoLists[LevelIDs_SkyDeck * 8 + 1] = LAND_TreeTops00->getlandtable();
+	GeoLists[LevelIDs_SkyDeck * 8 + 2] = LAND_TreeTops00->getlandtable();
 }
 
 
@@ -48,25 +48,25 @@ void LANDTABLE_TreeTops()
 
 void DEATHZONES_TreeTops()
 {
-	KillingCollisionModelsListList[LevelIDs_SkyDeck][0] = TTDeathzones00;
-	KillingCollisionModelsListList[LevelIDs_SkyDeck][1] = TTDeathzones00;
-	KillingCollisionModelsListList[LevelIDs_SkyDeck][2] = TTDeathzones01;
+	KillingCollisionModelsListList[LevelIDs_SkyDeck][0] = DEATHZONES_TreeTops00;
+	KillingCollisionModelsListList[LevelIDs_SkyDeck][1] = DEATHZONES_TreeTops00;
+	KillingCollisionModelsListList[LevelIDs_SkyDeck][2] = DEATHZONES_TreeTops01;
 }
 
 
 //	Start Positions:
 
-StartPosition TreeTops00 = { LevelIDs_SkyDeck, 0, { 707.124f, 75.0f, 861.509f }, 0x9500 };
-StartPosition TreeTops01 = { LevelIDs_SkyDeck, 1, { 707.124f, 75.0f, 861.509f }, 0x9500 };
-StartPosition TreeTops02 = { LevelIDs_SkyDeck, 2, { 707.124f, 75.0f, 861.509f }, 0x9500 };
+StartPosition STARTPOS_TreeTops00 = { LevelIDs_SkyDeck, 0, { 707.124f, 75.0f, 861.509f }, 0x9500 };
+StartPosition STARTPOS_TreeTops01 = { LevelIDs_SkyDeck, 1, { 707.124f, 75.0f, 861.509f }, 0x9500 };
+StartPosition STARTPOS_TreeTops02 = { LevelIDs_SkyDeck, 2, { 707.124f, 75.0f, 861.509f }, 0x9500 };
 
 void STARTPOSITIONS_TreeTops()
 {
 	for (unsigned char i = 0; i < Characters_MetalSonic; ++i)
 	{
-		HelperFunctionsGlobal.RegisterStartPosition(i, TreeTops00);
-		HelperFunctionsGlobal.RegisterStartPosition(i, TreeTops01);
-		HelperFunctionsGlobal.RegisterStartPosition(i, TreeTops02);
+		HelperFunctionsGlobal.RegisterStartPosition(i, STARTPOS_TreeTops00);
+		HelperFunctionsGlobal.RegisterStartPosition(i, STARTPOS_TreeTops01);
+		HelperFunctionsGlobal.RegisterStartPosition(i, STARTPOS_TreeTops02);
 	}
 }
 
@@ -117,10 +117,10 @@ void FILES_TreeTops()
 
 	// Lantern PL & SL Replacement:
 
-	ReplaceBIN("PL_60B", "STP_PL");
-	ReplaceBIN("PL_61B", "STP_PL");
+	ReplaceBIN("PL_60B", "STP_LANTERN-PL");
+	ReplaceBIN("PL_61B", "STP_LANTERN-PL");
 	
-	ReplaceBIN("SL_60B", "STP_SL");
+	ReplaceBIN("SL_60B", "STP_LANTERN-SL");
 
 
 	// BGM Replacement:

@@ -1,8 +1,9 @@
 #pragma once
 
-extern PL_KILLCOLLI GCDeathzones00[];
+extern PL_KILLCOLLI DEATHZONES_GnorcCove00[];
 
-extern PL_KILLCOLLI TSDeathzones00[];
+extern PL_KILLCOLLI DEATHZONES_TownSquare00[];
+extern PL_KILLCOLLI DEATHZONES_TownSquare01[];
 
-extern PL_KILLCOLLI TTDeathzones00[];
-extern PL_KILLCOLLI TTDeathzones01[];
+extern PL_KILLCOLLI DEATHZONES_TreeTops00[];
+extern PL_KILLCOLLI DEATHZONES_TreeTops01[];

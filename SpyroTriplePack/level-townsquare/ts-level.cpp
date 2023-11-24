@@ -32,15 +32,15 @@ void SETVIEWDATA_TownSquare()
 
 //	Load Landtable:
 
-LandTableInfo* MDL_TSLandtable = nullptr;
+LandTableInfo* LAND_TownSquare00 = nullptr;
 
 void LANDTABLE_TownSquare()
 {
-	LoadLandTable(&MDL_TSLandtable, "STP_Landtable-TownSquare", &TEXLIST_TownSquare);
+	LoadLandTable(&LAND_TownSquare00, "STP_Landtable-TownSquare", &TEXLIST_TownSquare);
 
-	GeoLists[LevelIDs_LostWorld * 8] = MDL_TSLandtable->getlandtable();
-	GeoLists[LevelIDs_LostWorld * 8 + 1] = MDL_TSLandtable->getlandtable();
-	GeoLists[LevelIDs_LostWorld * 8 + 2] = MDL_TSLandtable->getlandtable();
+	GeoLists[LevelIDs_LostWorld * 8] = LAND_TownSquare00->getlandtable();
+	GeoLists[LevelIDs_LostWorld * 8 + 1] = LAND_TownSquare00->getlandtable();
+	GeoLists[LevelIDs_LostWorld * 8 + 2] = LAND_TownSquare00->getlandtable();
 }
 
 
@@ -48,25 +48,25 @@ void LANDTABLE_TownSquare()
 
 void DEATHZONES_TownSquare()
 {
-	KillingCollisionModelsListList[LevelIDs_LostWorld][0] = TSDeathzones00;
-	KillingCollisionModelsListList[LevelIDs_LostWorld][1] = TSDeathzones00;
-	KillingCollisionModelsListList[LevelIDs_LostWorld][2] = TSDeathzones00;
+	KillingCollisionModelsListList[LevelIDs_LostWorld][0] = DEATHZONES_TownSquare00;
+	KillingCollisionModelsListList[LevelIDs_LostWorld][1] = DEATHZONES_TownSquare01;
+	KillingCollisionModelsListList[LevelIDs_LostWorld][2] = DEATHZONES_TownSquare00;
 }
 
 
 //	Start Positions:
 
-StartPosition TownSquare00 = { LevelIDs_LostWorld, 0, { 173.22f, -25.0f, 300.9f }, 0xC000 };
-StartPosition TownSquare01 = { LevelIDs_LostWorld, 1, { 173.22f, -25.0f, 300.9f }, 0xC000 };
-StartPosition TownSquare02 = { LevelIDs_LostWorld, 2, { 173.22f, -25.0f, 300.9f }, 0xC000 };
+StartPosition STARTPOS_TownSquare00 = { LevelIDs_LostWorld, 0, { 173.22f, -25.0f, 300.9f }, 0xC000 };
+StartPosition STARTPOS_TownSquare01 = { LevelIDs_LostWorld, 1, { 173.22f, -25.0f, 300.9f }, 0xC000 };
+StartPosition STARTPOS_TownSquare02 = { LevelIDs_LostWorld, 2, { 173.22f, -25.0f, 300.9f }, 0xC000 };
 
 void STARTPOSITIONS_TownSquare()
 {
 	for (unsigned char i = 0; i < Characters_MetalSonic; ++i)
 	{
-		HelperFunctionsGlobal.RegisterStartPosition(i, TownSquare00);
-		HelperFunctionsGlobal.RegisterStartPosition(i, TownSquare01);
-		HelperFunctionsGlobal.RegisterStartPosition(i, TownSquare02);
+		HelperFunctionsGlobal.RegisterStartPosition(i, STARTPOS_TownSquare00);
+		HelperFunctionsGlobal.RegisterStartPosition(i, STARTPOS_TownSquare01);
+		HelperFunctionsGlobal.RegisterStartPosition(i, STARTPOS_TownSquare02);
 	}
 }
 
@@ -109,11 +109,11 @@ void FILES_TownSquare()
 	
 	// Lantern PL & SL Replacement:
 
-	ReplaceBIN("PL_70B", "STP_PL");
-	ReplaceBIN("PL_71B", "STP_PL");
+	ReplaceBIN("PL_70B", "STP_LANTERN-PL");
+	ReplaceBIN("PL_71B", "STP_LANTERN-PL");
 
-	ReplaceBIN("SL_70B", "STP_SL");
-	ReplaceBIN("SL_71B", "STP_SL");
+	ReplaceBIN("SL_70B", "STP_LANTERN-SL");
+	ReplaceBIN("SL_71B", "STP_LANTERN-SL");
 
 
 	// BGM Replacement:

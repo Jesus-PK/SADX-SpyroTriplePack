@@ -32,15 +32,15 @@ void SETVIEWDATA_GnorcCove()
 
 //	Load Landtable:
 
-LandTableInfo* MDL_GCLandtable = nullptr;
+LandTableInfo* LAND_GnorcCove00 = nullptr;
 
 void LANDTABLE_GnorcCove()
 {
-	LoadLandTable(&MDL_GCLandtable, "STP_Landtable-GnorcCove", &TEXLIST_GnorcCove);
+	LoadLandTable(&LAND_GnorcCove00, "STP_Landtable-GnorcCove", &TEXLIST_GnorcCove);
 
-	GeoLists[LevelIDs_TwinklePark * 8] = MDL_GCLandtable->getlandtable();
-	GeoLists[LevelIDs_TwinklePark * 8 + 1] = MDL_GCLandtable->getlandtable();
-	GeoLists[LevelIDs_TwinklePark * 8 + 2] = MDL_GCLandtable->getlandtable();
+	GeoLists[LevelIDs_TwinklePark * 8] = LAND_GnorcCove00->getlandtable();
+	GeoLists[LevelIDs_TwinklePark * 8 + 1] = LAND_GnorcCove00->getlandtable();
+	GeoLists[LevelIDs_TwinklePark * 8 + 2] = LAND_GnorcCove00->getlandtable();
 }
 
 
@@ -48,25 +48,25 @@ void LANDTABLE_GnorcCove()
 
 void DEATHZONES_GnorcCove()
 {
-	KillingCollisionModelsListList[LevelIDs_TwinklePark][0] = GCDeathzones00;
-	KillingCollisionModelsListList[LevelIDs_TwinklePark][1] = GCDeathzones00;
-	KillingCollisionModelsListList[LevelIDs_TwinklePark][2] = GCDeathzones00;
+	KillingCollisionModelsListList[LevelIDs_TwinklePark][0] = DEATHZONES_GnorcCove00;
+	KillingCollisionModelsListList[LevelIDs_TwinklePark][1] = DEATHZONES_GnorcCove00;
+	KillingCollisionModelsListList[LevelIDs_TwinklePark][2] = DEATHZONES_GnorcCove00;
 }
 
 
 //	Start Positions:
 
-StartPosition GnorcCove00 = { LevelIDs_TwinklePark, 0, { -1010.9f, 25, 343.09f }, 0xC000 };
-StartPosition GnorcCove01 = { LevelIDs_TwinklePark, 1, { -1010.9f, 25, 343.09f }, 0xC000 };
-StartPosition GnorcCove02 = { LevelIDs_TwinklePark, 2, { -1010.9f, 25, 343.09f }, 0xC000 };
+StartPosition STARTPOS_GnorcCove00 = { LevelIDs_TwinklePark, 0, { -1010.9f, 25, 343.09f }, 0xC000 };
+StartPosition STARTPOS_GnorcCove01 = { LevelIDs_TwinklePark, 1, { -1010.9f, 25, 343.09f }, 0xC000 };
+StartPosition STARTPOS_GnorcCove02 = { LevelIDs_TwinklePark, 2, { -1010.9f, 25, 343.09f }, 0xC000 };
 
 void STARTPOSITIONS_GnorcCove()
 {
 	for (unsigned char i = 0; i < Characters_MetalSonic; ++i)
 	{
-		HelperFunctionsGlobal.RegisterStartPosition(i, GnorcCove00);
-		HelperFunctionsGlobal.RegisterStartPosition(i, GnorcCove01);
-		HelperFunctionsGlobal.RegisterStartPosition(i, GnorcCove02);
+		HelperFunctionsGlobal.RegisterStartPosition(i, STARTPOS_GnorcCove00);
+		HelperFunctionsGlobal.RegisterStartPosition(i, STARTPOS_GnorcCove01);
+		HelperFunctionsGlobal.RegisterStartPosition(i, STARTPOS_GnorcCove02);
 	}
 }
 
@@ -117,13 +117,13 @@ void FILES_GnorcCove()
 
 	// Lantern PL & SL Replacement:
 
-	ReplaceBIN("PL_30B", "STP_PL");
-	ReplaceBIN("PL_31B", "STP_PL");
-	ReplaceBIN("PL_32B", "STP_PL");
+	ReplaceBIN("PL_30B", "STP_LANTERN-PL");
+	ReplaceBIN("PL_31B", "STP_LANTERN-PL");
+	ReplaceBIN("PL_32B", "STP_LANTERN-PL");
 
-	ReplaceBIN("SL_30B", "STP_SL");
-	ReplaceBIN("SL_31B", "STP_SL");
-	ReplaceBIN("SL_32B", "STP_SL");
+	ReplaceBIN("SL_30B", "STP_LANTERN-SL");
+	ReplaceBIN("SL_31B", "STP_LANTERN-SL");
+	ReplaceBIN("SL_32B", "STP_LANTERN-SL");
 
 
 	// BGM Replacement:
