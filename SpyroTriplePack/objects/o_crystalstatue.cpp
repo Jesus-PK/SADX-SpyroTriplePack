@@ -187,10 +187,10 @@ void DISPLAY_CrystalStatue(task* tp)
 
 void EXEC_CrystalStatue(task* tp)
 {
-    auto twp = tp->twp;
-
     if (CheckRangeOut(tp))
         return;
+
+    auto twp = tp->twp;
 
     switch (twp->mode)
     {

@@ -170,10 +170,10 @@ void DISPLAY_MetalChest(task* tp)
 
 void EXEC_MetalChest(task* tp)
 {
-    auto twp = tp->twp;
-
     if (CheckRangeOut(tp))
         return;
+
+    auto twp = tp->twp;
 
     switch (twp->mode)
     {

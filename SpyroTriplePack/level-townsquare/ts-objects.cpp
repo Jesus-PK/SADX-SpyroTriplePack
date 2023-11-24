@@ -94,5 +94,5 @@ void TS_INIT_Objects()
 	objItemTable[LevelIDs_LostWorld * 8 + 1] = &OBJECTLIST_TownSquare;
 	objItemTable[LevelIDs_LostWorld * 8 + 2] = &OBJECTLIST_TownSquare;
 
-	LOAD_TSSkybox();
+	LOAD_TownSquare_Skybox();
 }

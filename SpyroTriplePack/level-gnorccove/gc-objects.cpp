@@ -111,7 +111,7 @@ void GC_INIT_Objects()
 	objItemTable[LevelIDs_TwinklePark * 8 + 1] = &OBJECTLIST_GnorcCove;
 	objItemTable[LevelIDs_TwinklePark * 8 + 2] = &OBJECTLIST_GnorcCove;
 
-	LOAD_GCSkybox();
+	LOAD_GnorcCove_Skybox();
 	
 	LOAD_Froggy();
 	LOAD_GCDoor();

@@ -169,19 +169,19 @@ void DISPLAY_LifeChest(task* tp)
     njRotateXYZ(0, twp->ang.x, twp->ang.y, twp->ang.z);
     njScale(0, 2.0f, 2.0f, 2.0f);
 
-    dsScaleLight(2.0f); // This function is necessary to scale the normals if you scaled the object through code, seems like scaling a BasicModel through code kinda breaks the normals shading.
+    dsScaleLight(2.0f);
     dsDrawShapeMotion(MDL_LifeChest->getmodel(), MOTION_LifeChest, MOTION_LifeChest, SPEED_LifeChest);
-    dsReScaleLight(); // This is needed so the ScaleLight value doesn't affect the rest of the objects.
+    dsReScaleLight();
     
     njPopMatrix(1u);
 }
 
 void EXEC_LifeChest(task* tp)
 {
-    auto twp = tp->twp;
-
     if (CheckRangeOut(tp))
         return;
+
+    auto twp = tp->twp;
 
     switch (twp->mode)
     {

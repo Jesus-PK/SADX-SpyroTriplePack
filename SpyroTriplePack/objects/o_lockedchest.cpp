@@ -1,6 +1,6 @@
 #include "pch.h"
 
-//  Models, Collisions and Text Messages - Note: Used the acronym "LKC which stands for LocKed Chest", the Life Chest was already using the LC acronym.
+//  Models, Collisions and Text Messages:
 
 ModelInfo* MDL_LockedChest = nullptr;
 
@@ -105,7 +105,7 @@ void EXEC_LKCKey(task* tp)
                 {
                     KeyPickup();
 
-                    DeadOut(tp); // This will kill the object on contact, so there's no need to setup a FreeTask(tp); timer on another case like when using Dead(tp);
+                    DeadOut(tp);
 
                     twp->mode++;
                 }
@@ -383,11 +383,11 @@ void DISPLAY_LKCLid(task* tp)
 }
 
 void EXEC_LKCLid(task* tp)
-{
-    auto twp = tp->twp;
-    
+{   
     if (CheckRangeOut(tp))
         return;
+
+    auto twp = tp->twp;
 
     switch (twp->mode)
     {

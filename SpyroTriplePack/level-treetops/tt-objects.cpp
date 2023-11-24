@@ -113,7 +113,7 @@ void TT_INIT_Objects()
 	objItemTable[LevelIDs_SkyDeck * 8 + 1] = &OBJECTLIST_TreeTops;
 	objItemTable[LevelIDs_SkyDeck * 8 + 2] = &OBJECTLIST_TreeTops;
 
-	LOAD_TTSkybox();
+	LOAD_TreeTops_Skybox();
 	
 	LOAD_Firewood();
 	LOAD_LargeTorch();

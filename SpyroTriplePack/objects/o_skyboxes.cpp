@@ -2,14 +2,14 @@
 
 //  Models:
 
-ModelInfo* MDL_GCSkybox = nullptr;
-ModelInfo* MDL_TSSkybox = nullptr;
-ModelInfo* MDL_TTSkybox = nullptr;
+ModelInfo* MDL_GnorcCove_Skybox = nullptr;
+ModelInfo* MDL_TownSquare_Skybox = nullptr;
+ModelInfo* MDL_TreeTops_Skybox = nullptr;
 
 
 //  Gnorc Cove Skybox:
 
-void DISPLAY_GCSkybox(task* tp)
+void DISPLAY_GnorcCove_Skybox(task* tp)
 {
     auto twp = tp->twp;
 
@@ -23,7 +23,7 @@ void DISPLAY_GCSkybox(task* tp)
     njTranslate(0, 0.0f, 0.0f, 0.0f);
     njScale(0, 20.0f, 20.0f, 20.0f);
 
-    DrawModel(MDL_GCSkybox->getmodel()->basicdxmodel);
+    DrawModel(MDL_GnorcCove_Skybox->getmodel()->basicdxmodel);
 
     njPopMatrix(1u);
     ToggleStageFog();
@@ -31,7 +31,7 @@ void DISPLAY_GCSkybox(task* tp)
     Direct3D_SetNearFarPlanes(LevelDrawDistance.Minimum, LevelDrawDistance.Maximum);
 }
 
-void EXEC_GCSkybox(task* tp)
+void EXEC_GnorcCove_Skybox(task* tp)
 {
     auto twp = tp->twp;
 
@@ -47,19 +47,19 @@ void EXEC_GCSkybox(task* tp)
 
 void BG_GnorcCove(task* tp)
 {
-    tp->exec = EXEC_GCSkybox;
-    tp->disp = DISPLAY_GCSkybox;
+    tp->exec = EXEC_GnorcCove_Skybox;
+    tp->disp = DISPLAY_GnorcCove_Skybox;
 }
 
-void LOAD_GCSkybox()
+void LOAD_GnorcCove_Skybox()
 {
-    MDL_GCSkybox = LoadBasicModel("STP_GnorcCove-Skybox");
+    MDL_GnorcCove_Skybox = LoadBasicModel("STP_GnorcCove-Skybox");
 }
 
 
 //  Town Square Skybox:
 
-void DISPLAY_TSSkybox(task* tp)
+void DISPLAY_TownSquare_Skybox(task* tp)
 {
     auto twp = tp->twp;
 
@@ -73,7 +73,7 @@ void DISPLAY_TSSkybox(task* tp)
     njTranslate(0, 0.0f, 0.0f, 0.0f);
     njScale(0, 20.0f, 20.0f, 20.0f);
 
-    DrawModel(MDL_TSSkybox->getmodel()->basicdxmodel);
+    DrawModel(MDL_TownSquare_Skybox->getmodel()->basicdxmodel);
 
     njPopMatrix(1u);
     ToggleStageFog();
@@ -81,7 +81,7 @@ void DISPLAY_TSSkybox(task* tp)
     Direct3D_SetNearFarPlanes(LevelDrawDistance.Minimum, LevelDrawDistance.Maximum);
 }
 
-void EXEC_TSSkybox(task* tp)
+void EXEC_TownSquare_Skybox(task* tp)
 {
     auto twp = tp->twp;
 
@@ -97,19 +97,19 @@ void EXEC_TSSkybox(task* tp)
 
 void BG_TownSquare(task* tp)
 {    
-    tp->exec = EXEC_TSSkybox;
-    tp->disp = DISPLAY_TSSkybox;
+    tp->exec = EXEC_TownSquare_Skybox;
+    tp->disp = DISPLAY_TownSquare_Skybox;
 }
 
-void LOAD_TSSkybox()
+void LOAD_TownSquare_Skybox()
 {
-    MDL_TSSkybox = LoadBasicModel("STP_TownSquare-Skybox");
+    MDL_TownSquare_Skybox = LoadBasicModel("STP_TownSquare-Skybox");
 }
 
 
 //  Tree Tops Skybox:
 
-void DISPLAY_TTSkybox(task* tp)
+void DISPLAY_TreeTops_Skybox(task* tp)
 {
     auto twp = tp->twp;
 
@@ -123,7 +123,7 @@ void DISPLAY_TTSkybox(task* tp)
     njTranslate(0, 0.0f, 0.0f, 0.0f);
     njScale(0, 20.0f, 20.0f, 20.0f);
 
-    DrawModel(MDL_TTSkybox->getmodel()->basicdxmodel);
+    DrawModel(MDL_TreeTops_Skybox->getmodel()->basicdxmodel);
 
     njPopMatrix(1u);
     ToggleStageFog();
@@ -131,7 +131,7 @@ void DISPLAY_TTSkybox(task* tp)
     Direct3D_SetNearFarPlanes(LevelDrawDistance.Minimum, LevelDrawDistance.Maximum);
 }
 
-void EXEC_TTSkybox(task* tp)
+void EXEC_TreeTops_Skybox(task* tp)
 {
     auto twp = tp->twp;
 
@@ -147,11 +147,11 @@ void EXEC_TTSkybox(task* tp)
 
 void BG_TreeTops(task* tp)
 {
-    tp->exec = EXEC_TTSkybox;
-    tp->disp = DISPLAY_TTSkybox;
+    tp->exec = EXEC_TreeTops_Skybox;
+    tp->disp = DISPLAY_TreeTops_Skybox;
 }
 
-void LOAD_TTSkybox()
+void LOAD_TreeTops_Skybox()
 {
-    MDL_TTSkybox = LoadBasicModel("STP_TreeTops-Skybox");
+    MDL_TreeTops_Skybox = LoadBasicModel("STP_TreeTops-Skybox");
 }
