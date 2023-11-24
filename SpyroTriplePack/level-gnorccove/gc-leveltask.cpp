@@ -26,9 +26,9 @@ void RD_GnorcCove(task* tp)
 }
 
 
-//	Level Destructor Trampoline:
+//	Level Destructor Funchook:
 
-static Trampoline* GC_RunLevelDestructor_t = nullptr;
+static FunctionHook<void, int>GC_RunLevelDestructor_t(RunLevelDestructor);
 
 void __cdecl GC_RunLevelDestructor_r(int heap)
 {
@@ -38,8 +38,7 @@ void __cdecl GC_RunLevelDestructor_r(int heap)
 		HasKey = 0;
 	}
 
-	FunctionPointer(void, origin, (int heap), GC_RunLevelDestructor_t->Target());
-	origin(heap);
+	return GC_RunLevelDestructor_t.Original(heap);
 }
 
 
@@ -78,8 +77,8 @@ void GC_INIT_LevelTask()
 	RoundMasterList[LevelIDs_TwinklePark] = RD_GnorcCove; // Level Task.
 	ScrollMasterList[LevelIDs_TwinklePark] = BG_GnorcCove; // Skybox Task.
 
-	GC_RunLevelDestructor_t = new Trampoline((intptr_t)RunLevelDestructor, (intptr_t)RunLevelDestructor + 0x6, GC_RunLevelDestructor_r); // Init Level Destructor Trampoline.
-	
+	GC_RunLevelDestructor_t.Hook(GC_RunLevelDestructor_r); // Init Level Destructor Funchook.
+
 	ADC_SetDrumCan_t.Hook(ADC_SetDrumCan_r); //	Delete hardcoded metal drum in Amy's layout.
 	AmyMain_LoadZERO_t.Hook(AmyMain_LoadZERO_r); // Prevent ZERO from spawning as Amy.
 

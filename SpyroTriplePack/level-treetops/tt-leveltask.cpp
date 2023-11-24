@@ -37,9 +37,9 @@ void RD_TreeTops(task* tp)
 }
 
 
-//	Level Destructor Trampoline:
+//	Level Destructor Funchook:
 
-static Trampoline* TT_RunLevelDestructor_t = nullptr;
+static FunctionHook<void, int>TT_RunLevelDestructor_t(RunLevelDestructor);
 
 void __cdecl TT_RunLevelDestructor_r(int heap)
 {
@@ -49,8 +49,7 @@ void __cdecl TT_RunLevelDestructor_r(int heap)
 		HasKey = 0;
 	}
 
-	FunctionPointer(void, origin, (int heap), TT_RunLevelDestructor_t->Target());
-	origin(heap);
+	return TT_RunLevelDestructor_t.Original(heap);
 }
 
 
@@ -92,7 +91,7 @@ void TT_INIT_LevelTask()
 	Rd_Skydeck_t = new Trampoline(0x005F02E0, 0x005F02E5, RD_TreeTops); // Init Level Task Trampoline.
 	ScrollMasterList[LevelIDs_SkyDeck] = BG_TreeTops; // Skybox Task.
 	
-	TT_RunLevelDestructor_t = new Trampoline((intptr_t)RunLevelDestructor, (intptr_t)RunLevelDestructor + 0x6, TT_RunLevelDestructor_r); // Init Level Destructor Trampoline.
+	TT_RunLevelDestructor_t.Hook(TT_RunLevelDestructor_r); // Init Level Destructor Funchook.
 	
 	LoadTailsOpponent_t.Hook(LoadTailsOpponent_r); // Remove Tails Race AI.
 	

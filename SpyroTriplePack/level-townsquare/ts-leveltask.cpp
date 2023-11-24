@@ -22,20 +22,16 @@ void RD_TownSquare(task* tp)
 }
 
 
-//	Level Destructor Trampoline:
+//	Level Destructor Funchook:
 
-static Trampoline* TS_RunLevelDestructor_t = nullptr;
+static FunctionHook<void, int>TS_RunLevelDestructor_t(RunLevelDestructor);
 
 void __cdecl TS_RunLevelDestructor_r(int heap)
 {
 	if (heap == 0 && CurrentLevel == LevelIDs_LostWorld)
-	{
 		DragonCount = 0;
-		HasKey = 0;
-	}
 
-	FunctionPointer(void, origin, (int heap), TS_RunLevelDestructor_t->Target());
-	origin(heap);
+	return TS_RunLevelDestructor_t.Original(heap);
 }
 
 
@@ -46,7 +42,7 @@ void TS_INIT_LevelTask()
 	RoundMasterList[LevelIDs_LostWorld] = RD_TownSquare; // Level Task.
 	ScrollMasterList[LevelIDs_LostWorld] = BG_TownSquare; // Skybox Task.
 
-	TS_RunLevelDestructor_t = new Trampoline((intptr_t)RunLevelDestructor, (intptr_t)RunLevelDestructor + 0x6, TS_RunLevelDestructor_r); // Init Level Destructor Trampoline.
-	
+	TS_RunLevelDestructor_t.Hook(TS_RunLevelDestructor_r); // Init Level Destructor Funchook.
+
 	WriteData<10>((void*)0x434A19, 0x90); // Remove "No Free-Cam" boxes in Lost World Act 2.
 }
