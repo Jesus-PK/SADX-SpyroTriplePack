@@ -1,4 +1,4 @@
 #pragma once
 
-void EXEC_GCDoor(task* tp);
-void LOAD_GCDoor();
+void EXEC_GnorcCove_Door(task* tp);
+void LOAD_GnorcCove_Door();

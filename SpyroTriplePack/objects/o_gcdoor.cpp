@@ -1,11 +1,11 @@
 #include "pch.h"
 
-ModelInfo* MDL_GCDoor = nullptr;
+ModelInfo* MDL_GnorcCove_Door = nullptr;
 
 
-//  GnorcCove Door - Main:
+//  Gnorc Cove Door - Main:
 
-void DISPLAY_GCDoor(task* tp)
+void DISPLAY_GnorcCove_Door(task* tp)
 {
     if (MissedFrames)
         return;
@@ -19,12 +19,12 @@ void DISPLAY_GCDoor(task* tp)
     njTranslateV(0, &twp->pos);
     njRotateXYZ(0, twp->ang.x, twp->ang.y, twp->ang.z);
     
-    dsDrawObject(MDL_GCDoor->getmodel());
+    dsDrawObject(MDL_GnorcCove_Door->getmodel());
     
     njPopMatrix(1u);
 }
 
-void EXEC_GCDoor(task* tp)
+void EXEC_GnorcCove_Door(task* tp)
 {
     if (CheckRangeOut(tp))
         return;
@@ -35,7 +35,7 @@ void EXEC_GCDoor(task* tp)
     {
         auto object = GetMobileLandObject();
 
-        tp->disp = DISPLAY_GCDoor;
+        tp->disp = DISPLAY_GnorcCove_Door;
         tp->dest = B_Destructor;
 
         object->pos[0] = twp->pos.x;
@@ -50,7 +50,7 @@ void EXEC_GCDoor(task* tp)
         object->scl[1] = 1.0f;
         object->scl[2] = 1.0f;
 
-        object->basicdxmodel = MDL_GCDoor->getmodel()->basicdxmodel;
+        object->basicdxmodel = MDL_GnorcCove_Door->getmodel()->basicdxmodel;
 
         RegisterCollisionEntry(ColFlags_Solid, tp, object);
 
@@ -65,9 +65,9 @@ void EXEC_GCDoor(task* tp)
 }
 
 
-//  GnorcCove Door - Load Assets:
+//  Gnorc Cove Door - Load Assets:
 
-void LOAD_GCDoor()
+void LOAD_GnorcCove_Door()
 {
-    MDL_GCDoor = LoadBasicModel("STP_GCDoor");
+    MDL_GnorcCove_Door = LoadBasicModel("STP_GnorcCove-Door");
 }

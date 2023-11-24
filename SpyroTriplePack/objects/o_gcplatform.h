@@ -1,4 +1,4 @@
 #pragma once
 
-void EXEC_GCPlatform(task* tp);
-void LOAD_GCPlatform();
+void EXEC_GnorcCove_Platform(task* tp);
+void LOAD_GnorcCove_Platform();

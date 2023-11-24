@@ -1,11 +1,11 @@
 #include "pch.h"
 
-ModelInfo* MDL_GCPlatform = nullptr;
+ModelInfo* MDL_GnorcCove_Platform = nullptr;
 
 
-//  GnorcCove Platform - Main:
+//  Gnorc Cove Platform - Main:
 
-void DISPLAY_GCPlatform(task* tp)
+void DISPLAY_GnorcCove_Platform(task* tp)
 {
     if (MissedFrames)
         return;
@@ -19,12 +19,12 @@ void DISPLAY_GCPlatform(task* tp)
     njTranslateV(0, &twp->pos);
     njRotateXYZ(0, twp->ang.x, twp->ang.y, twp->ang.z);
     
-    dsDrawObject(MDL_GCPlatform->getmodel());
+    dsDrawObject(MDL_GnorcCove_Platform->getmodel());
     
     njPopMatrix(1u);
 } 
 
-void EXEC_GCPlatform(task* tp)
+void EXEC_GnorcCove_Platform(task* tp)
 {
     if (CheckRangeOut(tp))
         return;
@@ -35,7 +35,7 @@ void EXEC_GCPlatform(task* tp)
     {
         auto object = GetMobileLandObject();
 
-        tp->disp = DISPLAY_GCPlatform;
+        tp->disp = DISPLAY_GnorcCove_Platform;
         tp->dest = B_Destructor;
 
         object->pos[0] = twp->pos.x;
@@ -50,7 +50,7 @@ void EXEC_GCPlatform(task* tp)
         object->scl[1] = 1.0f;
         object->scl[2] = 1.0f;
 
-        object->basicdxmodel = MDL_GCPlatform->getmodel()->basicdxmodel;
+        object->basicdxmodel = MDL_GnorcCove_Platform->getmodel()->basicdxmodel;
 
         RegisterCollisionEntry(ColFlags_Solid, tp, object);
 
@@ -65,9 +65,9 @@ void EXEC_GCPlatform(task* tp)
 }
 
 
-//  GnorcCove Platform - Load Assets:
+//  Gnorc Cove Platform - Load Assets:
 
-void LOAD_GCPlatform()
+void LOAD_GnorcCove_Platform()
 {
-    MDL_GCPlatform = LoadBasicModel("STP_GCPlatform");
+    MDL_GnorcCove_Platform = LoadBasicModel("STP_GnorcCove-Platform");
 }

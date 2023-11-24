@@ -64,8 +64,8 @@ _OBJ_ITEMENTRY OBJECTLIST_GnorcCove_Entries[] = {
 	{ 2, 2, 1, 4000000.0f, 0, EXEC_ExitText, "O EXIT TEXT" }, // ID 34
 	{ 3, 3, 1, 4000000.0f, 0, (TaskFuncPtr)0x624020, "O TNT BARREL" }, // ID 35
 	{ 2, 2, 1, 4000000.0f, 0, EXEC_MetalBarrel, "O METAL BARREL" }, // ID 36
-	{ 2, 2, 1, 4000000.0f, 0, EXEC_GCPlatform, "O GC PLATFORM" }, // ID 37
-	{ 2, 2, 1, 4000000.0f, 0, EXEC_GCDoor, "O GC DOOR" }, // ID 38
+	{ 2, 2, 1, 4000000.0f, 0, EXEC_GnorcCove_Platform, "O GC PLATFORM" }, // ID 37
+	{ 2, 2, 1, 4000000.0f, 0, EXEC_GnorcCove_Door, "O GC DOOR" }, // ID 38
 	{ 2, 2, 1, 4000000.0f, 0, EXEC_Spyro, "O SPYRO LEDGE" }, // ID 39
 	{ 2, 2, 1, 4000000.0f, 0, EXEC_LifeChest, "O LIFE CHEST" }, // ID 40
 	{ 2, 2, 1, 4000000.0f, 0, EXEC_LockedChest, "O LOCKED CHEST" }, // ID 41
@@ -114,8 +114,8 @@ void GC_INIT_Objects()
 	LOAD_GnorcCove_Skybox();
 	
 	LOAD_Froggy();
-	LOAD_GCDoor();
-	LOAD_GCPlatform();
+	LOAD_GnorcCove_Door();
+	LOAD_GnorcCove_Platform();
 	LOAD_MetalBarrel();
 	LOAD_TNTBarrel();
 }
