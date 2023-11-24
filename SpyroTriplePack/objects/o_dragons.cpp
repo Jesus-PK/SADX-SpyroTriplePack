@@ -44,9 +44,6 @@ CCL_INFO COLLI_Thor = { 0, CollisionShape_Capsule, 0x77, 0, 0, { 0.0f, 10.0f, 0.
 
 //  Values:
 
-//  NOTE: Each dragon has it's own NJS_POINT3 value so I can set up individually the twp->pos + offset value for the smoke effect position in their execs.
-//  Using the same one results in the smoke effect using the twp->pos of the first triggered dragon. So it needs to be manually set per exec.
-
 #define SPEED_Dragon twp->scl.x
 
 NJS_POINT3 SCALE_Dragon = { -0.04f, 0.04f, 0.04f };

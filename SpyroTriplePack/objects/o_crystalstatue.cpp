@@ -13,20 +13,6 @@ ModelInfo* MDL_CSDebris03 = nullptr;
 CCL_INFO COLLI_CrystalStatue = { 0, CollisionShape_Sphere, 0x77, 0x20, 0x400, { 0.0f, 7.0f, 0.0f }, 11.5f, 0.0f, 0.0f, 0.0f, 0, 0, 0 };
 
 
-//  Crystal Statue - Rewards:
-
-void SetDragonRescued()
-{
-    AddEnemyScore(1000);
-    dsPlay_oneshot(SE_BOMB, 0, 0, 0);
-
-    if (CurrentLevel == LevelIDs_SkyDeck)
-        AddNumRing(20);
-
-    DragonCount++;
-}
-
-
 //  Crystal Base - Main:
 
 void DISPLAY_CrystalBase(task* tp)
@@ -161,6 +147,56 @@ childtaskset CTS_CSDebris[] = {
 };
 
 
+//  Crystal Statue - Rewards:
+
+void SetDragonRescued()
+{
+    AddEnemyScore(1000);
+    dsPlay_oneshot(SE_BOMB, 0, 0, 0);
+
+    if (CurrentLevel == LevelIDs_SkyDeck)
+        AddNumRing(20);
+
+    DragonCount++;
+}
+
+
+//  Crystal Statue - Checkpoint:
+
+void DisplayCheckpointTime_Statue(task* tp)
+{
+    auto twp = tp->twp;
+
+    int TimerDuration = 0;
+
+    CUSTUM_PRINT_NUMBER TimerPosition = { 450.0f, 400.0f, 1.0f, 1.0f, 30.0f, 0.0f };
+
+    TimerPosition.loc_x = 472.0f;
+    TimerPosition.loc_y = (HUD_Plus) ? 41.0f : 35.0f;
+
+    if (HideHud < 0 || EV_CheckCansel() || (TimerDuration = twp->wtimer + 1, twp->wtimer = TimerDuration, TimerDuration > 0xB4))
+        FreeTask(tp);
+    
+    else if ((TimerDuration & 0x98) != 0)
+        DisplayCheckpointTime(&TimerPosition, twp->ang.x, twp->ang.y);
+}
+
+void SetCheckpointData(task* tp)
+{
+    auto twp = tp->twp;
+
+    updateContinueData(&twp->pos, &twp->ang);
+
+    task* TASK_DisplayTimer = CreateElementalTask(2u, 6, DisplayCheckpointTime_Statue);
+
+    if (TASK_DisplayTimer)
+    {
+        TASK_DisplayTimer->twp->ang.x = TimeMinutes;
+        TASK_DisplayTimer->twp->ang.y = TimeSeconds;
+    }
+}
+
+
 //  Crystal Statue - Main:
 
 void DISPLAY_CrystalStatue(task* tp)
@@ -216,6 +252,10 @@ void EXEC_CrystalStatue(task* tp)
                     EnemyBounceAndRumble(hit_tp->twp->counter.b[0]);
                     
                     SetDragonRescued();
+
+                    if (CurrentCharacter != Characters_Knuckles)
+                        SetCheckpointData(tp);
+
                     Knuckles_KakeraGame_Set_PutEme(twp->ang.z, &twp->pos);
                     
                     Dead(tp);
