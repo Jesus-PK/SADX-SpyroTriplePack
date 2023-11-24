@@ -8,6 +8,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include "ninja.h"
+#include "WeightInfo.h"
 
 enum ModelFormat
 {
@@ -44,6 +45,7 @@ public:
 	const std::unordered_map<std::string, void *>* getlabels() const;
 	const std::list<std::string>& getanimations() const;
 	const std::list<std::string>& getmorphs() const;
+	WeightInfo* getweightinfo();
 
 private:
 	static const uint64_t SA1MDL        = 0x4C444D314153ULL;
@@ -63,6 +65,8 @@ private:
 	std::unordered_set<void *> fixedpointers;
 	std::unordered_map<void *, void *> reallocateddata;
 	std::list<std::string> animations, morphs;
+	std::vector<WeightNode> weightNodes;
+	WeightInfo weightInfo{};
 
 	enum ChunkTypes : uint32_t
 	{
@@ -73,6 +77,7 @@ private:
 		ChunkTypes_Tool = 0x4C4F4F54,
 		ChunkTypes_Description = 0x43534544,
 		ChunkTypes_Texture = 0x584554,
+		ChunkTypes_Weights = 0x54484757,
 		ChunkTypes_End = 0x444E45
 	};
 

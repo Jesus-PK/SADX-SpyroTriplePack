@@ -98,6 +98,8 @@ const list<string>& ModelInfo::getanimations() const { return animations; }
 
 const list<string>& ModelInfo::getmorphs() const { return morphs; }
 
+WeightInfo* ModelInfo::getweightinfo() { return &weightInfo; }
+
 static string getstring(istream& stream)
 {
 	auto start = stream.tellg();
@@ -220,7 +222,7 @@ void ModelInfo::fixobjectpointers(NJS_OBJECT* object, intptr_t base)
 template<typename T>
 static inline void readdata(istream& stream, T& data)
 {
-	stream.read((char*)& data, sizeof(T));
+	stream.read((char*)&data, sizeof(T));
 }
 
 void ModelInfo::init(istream& stream)
@@ -324,6 +326,34 @@ void ModelInfo::init(istream& stream)
 				break;
 			case ChunkTypes_Description:
 				description = getstring(stream);
+				break;
+			case ChunkTypes_Weights:
+				intptr_t addr;
+				readdata(stream, addr);
+				while (addr != -1)
+				{
+					WeightNode node = { (NJS_OBJECT*)(addr + modelbase) };
+					readdata(stream, node.weightCount);
+					node.weights = new WeightVertexList[node.weightCount];
+					allocatedmem.push_back(shared_ptr<WeightVertexList>(node.weights, default_delete<WeightVertexList[]>()));
+					for (int vi = 0; vi < node.weightCount; vi++)
+					{
+						readdata(stream, node.weights[vi].index);
+						readdata(stream, node.weights[vi].vertexCount);
+						node.weights[vi].vertices = new WeightVertex[node.weights[vi].vertexCount];
+						allocatedmem.push_back(shared_ptr<WeightVertex>(node.weights[vi].vertices, default_delete<WeightVertex[]>()));
+						for (int wi = 0; wi < node.weights[vi].vertexCount; wi++)
+						{
+							readdata(stream, addr);
+							node.weights[vi].vertices[wi].node = (NJS_OBJECT*)(addr + modelbase);
+							readdata(stream, node.weights[vi].vertices[wi].vertex);
+							readdata(stream, node.weights[vi].vertices[wi].weight);
+						}
+					}
+					weightNodes.push_back(node);
+					readdata(stream, addr);
+				}
+				weightInfo = { weightNodes.data(), (int)weightNodes.size() };
 				break;
 			default:
 				auto* buf = new uint8_t[chunksz];
