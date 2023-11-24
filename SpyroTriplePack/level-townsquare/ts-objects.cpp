@@ -79,6 +79,7 @@ TEX_PVMTABLE TEXTURELIST_TownSquare[] = {
 	{ "STP_TownSquare-Fountain", &TEXLIST_TownSquare_Fountain },
 	{ "STP_Objects", &TEXLIST_STP_Objects },
 	{ "STP_Dragons", &TEXLIST_STP_Dragons },
+	
 	{ 0 }
 };
 
