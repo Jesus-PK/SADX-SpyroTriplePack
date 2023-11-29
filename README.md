@@ -43,7 +43,7 @@ Cloning this repository should result in a buildable .dll project of this mod wi
   * `$(ProjectDir)level-townsquare`
   * `$(ProjectDir)level-treetops`
 
-* The files in the `config` folder are the neccesary files to read a configuration form (`IniFile.cpp`, `IniFile.hpp`, `TextConv.cpp`, `TextConv.h`, `Utils.hpp`) - You can get them [HERE](https://github.com/sonicretro/mod-loader-common/tree/master/ModLoaderCommon)
+* The files in the `config` folder are the neccesary files to read a configuration form (`IniFile.cpp`, `IniFile.hpp`, `TextConv.cpp`, `TextConv.h`, `Utils.hpp`) - You can get them [**HERE**](https://github.com/sonicretro/mod-loader-common/tree/master/ModLoaderCommon)
 
 * The files in the `lantern` folder are the Lantern Engine API necessary files (`lanternapi.h` and `sadx-dc-lighting.lib`)
 
@@ -73,4 +73,4 @@ Cloning this repository should result in a buildable .dll project of this mod wi
 
 As always, it's recommended to make your own project from scratch and just use these functions and annotations you see in here as a guide / example to learn what they do instead of just cloning the repository or copypasting functions. I say this because some of these things might only apply to this mod in particular instead of a general level due to using specific nomenclatures / tweaks or they might just be wrong / obsolete as time goes by.
 
-If you are looking for further help and troubleshooting, feel free to check out the [X-Hax Discord](https://discord.gg/gqJCF47).
+If you are looking for further help and troubleshooting, feel free to check out the [**X-Hax Discord**](https://discord.gg/gqJCF47).
