@@ -1,10 +1,12 @@
-# SADX - Spyro Triple Pack (v
+# SADX - Spyro Triple Pack
+
+![SpyroTriplePack_Thumbnail](https://pbs.twimg.com/media/F8lsQ5HXgAAuDEG?format=jpg&name=large)
 
 ## Overview:
 
-This is the Spyro Triple Pack, a mod that merges my previous releases of Town Square, Gnorc Cove and Tree Tops into a single package.
+This is the **Spyro Triple Pack**, a mod that merges my previous releases of [**Town Square**](https://gamebanana.com/mods/414887), [**Gnorc Cove**](https://gamebanana.com/mods/433998) and [**Tree Tops**](https://gamebanana.com/mods/467594) into a single package.
 
-This mod was made for the Sonic Hacking Contest '23 and it won the Tails and Chemical Plant trophies in the 3D Category, from both the judges and community votes! Thank you!
+This mod was made for the [**Sonic Hacking Contest '23**](https://x.com/Jesus_97_MC/status/1718780614709506364?s=20) and it won the **Tails** and **Chemical Plant** trophies in the 3D Category, from both the judges and community votes! Thank you!
 
 **Features:**
 * The original level geometry, skybox and objects with their vertex colors directly ripped from the game by me. With many touch-ups added to improve the overall gameplay experience.
@@ -21,7 +23,7 @@ This mod was made for the Sonic Hacking Contest '23 and it won the Tails and Che
 * There's a minor mod order issue with Hill Top, so if you play with it enabled, be sure that you load Spyro Triple Pack **under** Hill Top. That'll fix it and not affect either of the mods negatively.
 * There's a minor graphic issue with Character Select that only happens in Tree Tops with Tails, if you play with this mod enabled you'll see the Sonic race AI spawn (which is disabled). This doesn't affect gameplay.
 * Multiplayer support is currently limited. Many aspects of this mod require custom support that'll be added in the future.
-* For any other misc crashes, it's always recommended to load this mod on the bottom of the list.
+* For any other misc crashes, it's always recommended to load this mod on the bottom of the list. You can also reach me out in here or GameBanana to report any issues.
 
 ## Repository Notes:
 
