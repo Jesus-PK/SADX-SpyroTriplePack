@@ -1,40 +1,51 @@
-# SADX - Spyro Triple Pack
-
-A package that brings 3 fully fledged level ports of Town Square, Gnorc Cove and Tree Tops from Spyro 1.
-
-**Features:**
-* The original level geometry, skybox and objects with their vertex colors directly ripped from the game by me.
-* Complete SET and CAM layouts for every character featured in each level, with each character having a slighty different layout for them.
-* The same amount of Rings in each level layouts as amount of Gems there are to collect on their original counterparts. Just like in the original Spyro game!
-* A lot of custom coded objects! Breakable chest, the exit portal, a buckload amount of dragons...
-* Custom palette lightning, so it's recommended to use Lantern Engine alongside this mod.
-* Custom GUI elements such as titlecards, stage nameplates, mission cards, credits images and multiplayer thumbnails! All of them having full English and Japanese support alongside SD and HD quality textures depending if you are using HD GUI or not.
-* A lot of work and care to ensure the best posible gameplay experience, alongside tons of tweaks through code to improve compatibility alongside other mods.
+# SADX - Spyro Triple Pack (v
 
 ## Overview:
 
-This repository hosts the code I used for this mod. If you are looking for the latest playable release, you can download it from the Releases tab.
+This is the Spyro Triple Pack, a mod that merges my previous releases of Town Square, Gnorc Cove and Tree Tops into a single package.
 
-The purpose of this repository is to backup my code on the cloud and to serve as public resource for other modders, I think some of this code might serve as helpful examples for other people working on level mods.
+This mod was made for the Sonic Hacking Contest '23 and it won the Tails and Chemical Plant trophies in the 3D Category, from both the judges and community votes! Thank you!
+
+**Features:**
+* The original level geometry, skybox and objects with their vertex colors directly ripped from the game by me. With many touch-ups added to improve the overall gameplay experience.
+* Complete SET and CAM layouts for every character featured in each level, all of them including the same amount of Rings in each level layout as amount of Gems there are to collect on their original counterparts. Just like in the original Spyro game!
+* A lot of custom coded objects! Breakable chest, the exit portal, a buckload amount of dragons...
+* Custom palette lightning, so it's recommended to use Lantern Engine alongside this mod.
+* Custom A / B / C mission requirements, perfect if you want to fully complete these levels from a fresh savefile.
+* Custom GUI elements such as titlecards, stage nameplates, mission cards, credits images and multiplayer thumbnails! All of them having full English and Japanese support alongside SD and HD quality textures depending if you are using HD GUI or not.
+* A config window so you can individually enable / disable levels.
+* A lot of work and care to ensure the best posible gameplay experience, alongside tons of tweaks through code to improve compatibility alongside other mods.
+
+## Compatibility Notes:
+* This mod automatically disables the replaced levels in Dreamcast Conversion, so you don't need to manually disable anything from that mod.
+* There's a minor mod order issue with Hill Top, so if you play with it enabled, be sure that you load Spyro Triple Pack **under** Hill Top. That'll fix it and not affect either of the mods negatively.
+* There's a minor graphic issue with Character Select that only happens in Tree Tops with Tails, if you play with this mod enabled you'll see the Sonic race AI spawn (which is disabled). This doesn't affect gameplay.
+* Multiplayer support is currently limited. Many aspects of this mod require custom support that'll be added in the future.
+* For any other misc crashes, it's always recommended to load this mod on the bottom of the list.
 
 ## Repository Notes:
+
+This repository hosts the code and playable versions of this mod. You can find them in the Releases tab.
 
 Cloning this repository should result in a buildable .dll project of this mod without any additional tweaks needed, though there's a few things worth noting:
 
 * Make sure that you are compiling in **x86 mode**.
-* The project uses custom include paths, the project settings already have setup the necessary additional include directories in **Project > Properties > C/C++ > General > Additional Include Directories** for both **Release - x86** and **Debug - x86** (All Configurations - Win32) - These are the include directories:
+* The project uses custom include paths, the project settings already have setup the necessary additional include directories in **Project > Properties > C/C++ > General > Additional Include Directories** for both **Release - x86** and **Debug - x86** (All Configurations - Win32) - These are the additional include directories:
 
   * `$(ProjectDir)`
+  * `$(ProjectDir)config`
+  * `$(ProjectDir)lantern`
   * `$(ProjectDir)objects`
   * `$(ProjectDir)programming`
-  * `$(ProjectDir)lantern`
-  * `$(ProjectDir)config`
-
-* The files in the `programming` folder are the same ones encountered in the `programming` folder that is shipped with the SADX Mod Loader. I copy these files manually at the time of creating my project and I also update them manually, so remember that you might need to replace them with "fresh" ones from the latest Mod Loader release from time to time when those includes get updated.
+  * `$(ProjectDir)level-gnorccove`
+  * `$(ProjectDir)level-townsquare`
+  * `$(ProjectDir)level-treetops`
 
 * The files in the `config` folder are the neccesary files to read a configuration form (`IniFile.cpp`, `IniFile.hpp`, `TextConv.cpp`, `TextConv.h`, `Utils.hpp`) - You can get them [HERE](https://github.com/sonicretro/mod-loader-common/tree/master/ModLoaderCommon)
 
 * The files in the `lantern` folder are the Lantern Engine API necessary files (`lanternapi.h` and `sadx-dc-lighting.lib`)
+
+* The files in the `programming` folder are the same ones encountered in the `programming` folder that is shipped with the SADX Mod Loader (in the old version). I copy these files manually at the time of creating my project and I also update them manually, so remember that you might need to replace them with "fresh" ones from the latest Mod Loader release from time to time when those includes get updated.
 
 * Adding to this, the following files need to be added to the existing **Source Files** of this project via the Project Properties window (**Source Files > Right Click > Add Existing Item**):
   * `AnimationFile.cpp`
