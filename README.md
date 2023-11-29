@@ -29,7 +29,7 @@ I decided to keep support of this pack by adding automatic updates via GitHub, s
 
 ## Repository Notes:
 
-This repository hosts the code and playable versions of this mod, you can find them in the [**Releases**](https://github.com/Jesus-PK/SADX-SpyroTriplePack/releases) tab.
+This repository hosts both the code and playable versions of this mod, you can find them in the [**Releases**](https://github.com/Jesus-PK/SADX-SpyroTriplePack/releases) tab.
 
 Cloning this repository should result in a buildable .dll project of this mod without any additional tweaks needed, though there's a few things worth noting:
 
