@@ -6,7 +6,9 @@
 
 This is the **Spyro Triple Pack**, a mod that merges my previous releases of [**Town Square**](https://gamebanana.com/mods/414887), [**Gnorc Cove**](https://gamebanana.com/mods/433998) and [**Tree Tops**](https://gamebanana.com/mods/467594) into a single package.
 
-This mod was made for the [**Sonic Hacking Contest '23**](https://x.com/Jesus_97_MC/status/1718780614709506364?s=20) and it won the **Tails** and **Chemical Plant** trophies in the 3D Category, from both the judges and community votes! Thank you!
+This mod was made originally for the [**Sonic Hacking Contest '23**](https://x.com/Jesus_97_MC/status/1718780614709506364?s=20) and it won the **Tails** and **Chemical Plant** trophies in the 3D Category, from both the judges and community votes! Thank you for your support!
+
+I decided to keep support of this pack by adding automatic updates via GitHub, so I can keep it on par with the individual releases of these levels. Both ways should offer the same experience.
 
 **Features:**
 * The original level geometry, skybox and objects with their vertex colors directly ripped from the game by me. With many touch-ups added to improve the overall gameplay experience.
@@ -21,13 +23,13 @@ This mod was made for the [**Sonic Hacking Contest '23**](https://x.com/Jesus_97
 ## Compatibility Notes:
 * This mod automatically disables the replaced levels in Dreamcast Conversion, so you don't need to manually disable anything from that mod.
 * There's a minor mod order issue with Hill Top, so if you play with it enabled, be sure that you load Spyro Triple Pack **under** Hill Top. That'll fix it and not affect either of the mods negatively.
-* There's a minor graphic issue with Character Select that only happens in Tree Tops with Tails, if you play with this mod enabled you'll see the Sonic race AI spawn (which is disabled). This doesn't affect gameplay.
-* Multiplayer support is currently limited. Many aspects of this mod require custom support that'll be added in the future.
+* There's a minor graphic issue with Character Select that only happens in Tree Tops with Tails, if you play with this mod enabled you'll see the Sonic race AI spawn (which is disabled). This won't affect gameplay.
+* Multiplayer support is currently limited. It can be playable but some things might not work as intended for the time being.
 * For any other misc crashes, it's always recommended to load this mod on the bottom of the list. You can also reach me out in here or GameBanana to report any issues.
 
 ## Repository Notes:
 
-This repository hosts the code and playable versions of this mod. You can find them in the Releases tab.
+This repository hosts the code and playable versions of this mod, you can find them in the [**Releases**](https://github.com/Jesus-PK/SADX-SpyroTriplePack/releases) tab.
 
 Cloning this repository should result in a buildable .dll project of this mod without any additional tweaks needed, though there's a few things worth noting:
 
