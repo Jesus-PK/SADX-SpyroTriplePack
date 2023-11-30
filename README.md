@@ -1,4 +1,4 @@
-# SADX - Spyro Triple Pack
+# SADX - Spyro Triple Pack (v1.2.0)
 
 ![SpyroTriplePack_Thumbnail](https://pbs.twimg.com/media/F8lsQ5HXgAAuDEG?format=jpg&name=large)
 
