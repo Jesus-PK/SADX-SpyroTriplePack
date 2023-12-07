@@ -6,7 +6,6 @@
 	#include "SADXModLoader.h"
 
 	#include "FunctionHook.h"
-	#include "Trampoline.h"
 	#include "UsercallFunctionHandler.h"
 
 	#include "ModelInfo.h"

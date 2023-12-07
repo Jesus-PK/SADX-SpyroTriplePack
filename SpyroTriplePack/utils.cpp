@@ -27,9 +27,9 @@ void CheckConfigFile()
 //	Bools and code to check if certain mods or config options are enabled:
 
 bool HD_GUI = false;
+bool Lantern_Engine = false;
 bool DC_Conversion = false;
 bool HUD_Plus = false;
-bool Lantern_Engine = false;
 
 bool DC_HudTweaks = false;
 
@@ -52,10 +52,10 @@ void CheckDCConfig()
 void CheckActiveMods()
 {
 	HD_GUI = HelperFunctionsGlobal.Mods->find("sadx-hd-gui") != nullptr;
+	Lantern_Engine = HelperFunctionsGlobal.Mods->find("sadx.sf94.lantern-engine") != nullptr;
 	CheckDCConfig();
 	
 	HUD_Plus = GetModuleHandle(L"sadx-hud-plus") != nullptr;
-	Lantern_Engine = GetModuleHandle(L"sadx-dc-lighting") != nullptr;
 }
 
 

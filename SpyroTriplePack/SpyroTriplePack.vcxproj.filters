@@ -143,9 +143,6 @@
     <ClCompile Include="programming\ModelInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="programming\Trampoline.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="level-treetops\tt-level.cpp">
       <Filter>Levels\TreeTops</Filter>
     </ClCompile>

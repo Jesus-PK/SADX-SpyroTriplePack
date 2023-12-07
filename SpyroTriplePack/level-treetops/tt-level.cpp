@@ -113,14 +113,6 @@ void FILES_TreeTops()
 	ReplaceBIN("CAM0600K", "STP_CAM-TreeTops-K");
 	ReplaceBIN("CAM0601K", "STP_CAM-TreeTops-K");
 	ReplaceBIN("CAM0602K", "STP_CAM-TreeTops-K"); // Target
-	
-
-	// Lantern PL & SL Replacement:
-
-	ReplaceBIN("PL_60B", "STP_LANTERN-PL");
-	ReplaceBIN("PL_61B", "STP_LANTERN-PL");
-	
-	ReplaceBIN("SL_60B", "STP_LANTERN-SL");
 
 
 	// BGM Replacement:
